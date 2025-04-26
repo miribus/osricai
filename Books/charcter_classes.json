@@ -1,0 +1,856 @@
+{
+  "category": "Character Classes",
+  "rules": {
+    "Class Selection": {
+      "Definition": "A player chooses a class based on ability scores and race. High-requirement classes, such as Paladins, should be rare.",
+      "Non-Player Characters": {
+        "Zero-Level NPCs": "Most NPCs lack a class, known as '0-level'. Their abilities are treated as fighters at level 0.",
+        "NPC Class Frequency": "Roughly 1 in 100 NPCs will have a class, increasing in borderlands and wilderness areas.  Fighters and Thieves are by far the most frequently encountered class (75%) followed by Clerics (10%), Assassins, Rangers and Druids (5%), then other classes with increasing rarity.  This applies to a given world as a whole, not a specific area.  For example in a Church or Temple you are most likely to find Clerics or Paladins."
+      }
+    },
+    "Assassin": {
+      "Definition": "Assassins are stealthy killers trained by guilds in spying, disguise, poison, and murder. Higher-level assassins are legendary figures feared by all.",
+      "Alignment": "Must be evil.",
+      "Guild Membership": {
+        "Local Guilds": "Most cities and towns have Assassin guilds with 6-24 members. Freelance assassins are heavily discouraged.",
+        "Guildmaster Requirement": "To reach level 14, an assassin must kill the existing guildmaster.",
+        "Grandmaster Requirement": "To reach level 15, an assassin must defeat a current Grandmaster Assassin."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 12,
+          "Dexterity": 12,
+          "Constitution": 6,
+          "Intelligence": 11,
+          "Wisdom": 6
+        },
+        "Hit Die Type": "d6 (Max 15)",
+        "Experience Bonus": "None"
+      },
+      "Equipment": {
+        "Armor & Shields": "Leather or studded leather only (shields allowed).",
+        "Weapon Proficiencies": "Any weapon; begins with 3 and gains +1 per 4 levels."
+      },
+      "Combat Abilities": {
+        "Assassination": {
+          "Chance to Kill": "50% base chance. Bonus of 5% per assassin level; penalty of 5% per 2 levels of target.",
+          "Modifiers": "Assassination can only be attempted once per day per target.  Arbitrary bonuses and penalties of 1-5% can be applied for situations where the target is guarded, aware of an attempt, daylight vs darkness, alone vs in a crowd.  The player will not know the modifiers, the chance must always be 1% at minimum, and never exceed 99% "
+        },
+        "Backstab": {
+          "Damage Multipliers": {
+            "Level 1-4": "x2",
+            "Level 5-8": "x3",
+            "Level 9-12": "x4",
+            "Level 13-15": "x5"
+          },
+          "Bonus to Hit": "+4 instead of +2.",
+          "Modifiers": "Target must be unaware of the attacker.  Can only be attempted once per target.  Only certain weapons can be used for backstab: Dagger, Hand Axe, Long or Short Sword."
+        },
+        "To-Hit Table": {
+          "1-4": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 19,
+            "AC 3": 18,
+            "AC 4": 17,
+            "AC 5": 16,
+            "AC 6": 15,
+            "AC 7": 14,
+            "AC 8": 13,
+            "AC 9": 12,
+            "AC 10": 11
+          },
+          "5-8": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 11,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "9-12": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "13-15": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          }
+        },
+        "Class Abilities": {
+          "Disguise": "Masters of disguise, can alter appearance within reason. Observers have a base 2% chance to detect a disguise.",
+          "Poison": "No inherent advantage, but assassins frequently encounter poisons.",
+          "Thief Abilities": "Has thief abilities at two levels lower than assassin level.",
+          "Advanced Abilities": {
+            "Languages (Level 9+)": "May learn alignment tongues, thieves' cant, and druids' cant. Max 4 special languages.",
+            "Read Scrolls (Level 12+)": "Can cast spells from arcane scrolls."
+          }
+        },
+        "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d6)": 1,
+            "Notes": "None"
+          },
+          "2": {
+            "Base Experience Points": 1600,
+            "Hit Dice (d6)": 2,
+            "Notes": "None"
+          },
+          "3": {
+            "Base Experience Points": 3000,
+            "Hit Dice (d6)": 3,
+            "Notes": "None"
+          },
+          "4": {
+            "Base Experience Points": 5750,
+            "Hit Dice (d6)": 4,
+            "Notes": "The assassin may recruit assassins as henchmen."
+          },
+          "5": {
+            "Base Experience Points": 12250,
+            "Hit Dice (d6)": 5,
+            "Notes": "None"
+          },
+          "6": {
+            "Base Experience Points": 24750,
+            "Hit Dice (d6)": 6,
+            "Notes": "None"
+          },
+          "7": {
+            "Base Experience Points": 50000,
+            "Hit Dice (d6)": 7,
+            "Notes": "None"
+          },
+          "8": {
+            "Base Experience Points": 99000,
+            "Hit Dice (d6)": 8,
+            "Notes": "The assassin may recruit thieves as henchmen."
+          },
+          "9": {
+            "Base Experience Points": 200500,
+            "Hit Dice (d6)": 9,
+            "Notes": "Master Assassin"
+          },
+          "10": {
+            "Base Experience Points": 300000,
+            "Hit Dice (d6)": 10,
+            "Notes": "None"
+          },
+          "11": {
+            "Base Experience Points": 400000,
+            "Hit Dice (d6)": 11,
+            "Notes": "None"
+          },
+          "12": {
+            "Base Experience Points": 600000,
+            "Hit Dice (d6)": 12,
+            "Notes": "The assassin may recruit henchmen of any class."
+          },
+          "13": {
+            "Base Experience Points": 750000,
+            "Hit Dice (d6)": 13,
+            "Notes": "None"
+          },
+          "14": {
+            "Base Experience Points": 1000000,
+            "Hit Dice (d6)": 14,
+            "Notes": "Guildmaster"
+          },
+          "15": {
+            "Base Experience Points": 1500000,
+            "Hit Dice (d6)": 15,
+            "Notes": "Grandmaster Assassin (Level cap, XP beyond this is lost)"
+          }
+        }
+      },
+        "Saving Throws": {
+          "Levels 1-4": {
+            "Aimed Magic Items": 14,
+            "Breath Weapons": 16,
+            "Death/Paralysis/Poison": 13,
+            "Petrification/Polymorph": 12,
+            "Spells": 15
+          },
+          "Levels 5-8": {
+            "Aimed Magic Items": 12,
+            "Breath Weapons": 15,
+            "Death/Paralysis/Poison": 12,
+            "Petrification/Polymorph": 11,
+            "Spells": 13
+          },
+          "Levels 9-12": {
+            "Aimed Magic Items": 10,
+            "Breath Weapons": 14,
+            "Death/Paralysis/Poison": 11,
+            "Petrification/Polymorph": 10,
+            "Spells": 11
+          },
+          "Levels 13-15": {
+            "Aimed Magic Items": 8,
+            "Breath Weapons": 13,
+            "Death/Paralysis/Poison": 10,
+            "Petrification/Polymorph": 9,
+            "Spells": 9
+          }
+        }
+      }
+    },
+    "Cleric": {
+      "Definition": "Clerics are warriors of faith who preach the will of the gods, interpret omens, and combat the forces of evil. They serve a patron deity or alignment-based pantheon and wield divine power.",
+      "Alignment": "Any alignment.",
+      "Divine Intervention": {
+        "Spell Allocation": "Clerics acquire spells automatically as they level, requiring no learning check.",
+        "Punishments": "Gods may intervene in rare cases to alter or deny spells, typically due to alignment transgressions."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 6,
+          "Dexterity": 3,
+          "Constitution": 6,
+          "Intelligence": 6,
+          "Wisdom": 9,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d8 (Max 9)",
+        "Experience Bonus": "Granted for Wisdom 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Any armor and shields permitted.",
+        "Weapons Permitted": "Blunt weapons only (club, flail, hammer, mace, oil, staff)."
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 2, gains +1 every 3 levels.",
+        "Penalty for Non-Proficiency": "-3 to attack rolls.",
+        "To-Hit Table": {
+          "1-3": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "4-6": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "7-9": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "10-12": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "13-15": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "16-18": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          },
+          "19+": {
+            "AC -10": 19,
+            "AC -9": 18,
+            "AC -8": 17,
+            "AC -7": 16,
+            "AC -6": 15,
+            "AC -5": 14,
+            "AC -4": 13,
+            "AC -3": 12,
+            "AC -2": 11,
+            "AC -1": 10,
+            "AC 0": 9,
+            "AC 1": 8,
+            "AC 2": 7,
+            "AC 3": 6,
+            "AC 4": 5,
+            "AC 5": 4,
+            "AC 6": 3,
+            "AC 7": 2,
+            "AC 8": 1,
+            "AC 9": 0,
+            "AC 10": -1
+          }
+        }
+      },
+      "Class Abilities": {
+        "Spell Casting": "Clerics can memorize and cast clerical spells according to level tables.",
+        "Turning Undead": "Clerics can “turn” the undead, making them flee from the cleric’s holiness (or, in the case of an evil cleric, bringing them to heel as servants and minions).  Because paladins are also capable of turning undead (though not with the same power as a cleric), rules for turning the undead are found later in this book rather than repeating them in the  descriptions of both the paladin and cleric classes.",
+        "Wisdom Bonus Spells": {
+        "Wisdom Scores": {
+          "9": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 15
+          },
+          "10": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 10
+          },
+          "11": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 5
+          },
+          "12": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 1
+          },
+          "13": {
+            "Bonus Spells": "1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "14": {
+            "Bonus Spells": "2",
+            "Chance of Spell Failure (%)": 0
+          },
+          "15": {
+            "Bonus Spells": "2/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "16": {
+            "Bonus Spells": "2/2",
+            "Chance of Spell Failure (%)": 0
+          },
+          "17": {
+            "Bonus Spells": "2/2/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "18": {
+            "Bonus Spells": "2/2/1/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "19": {
+            "Bonus Spells": "3/2/1/1",
+            "Chance of Spell Failure (%)": 0
+          }
+        }
+      }
+      },
+      "Temple Establishment": {
+        "Level Requirement": "At level 9, a cleric can establish a temple or stronghold.",
+        "Followers": "Acolytes and devotees will flock to a cleric's banner."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d8)": 1,
+            "Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 1550,
+            "Hit Dice (d8)": 2,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 2900,
+            "Hit Dice (d8)": 3,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 6000,
+            "Hit Dice (d8)": 4,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 13250,
+            "Hit Dice (d8)": 5,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 1,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 27000,
+            "Hit Dice (d8)": 6,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 55000,
+            "Hit Dice (d8)": 7,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 110000,
+            "Hit Dice (d8)": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 220000,
+            "Hit Dice (d8)": 9,
+            "Notes": "High Priest(ess)",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 1,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 450000,
+            "Hit Dice (d8)": "9d8+2",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 675000,
+            "Hit Dice (d8)": "9d8+4",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 1,
+              "7th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 900000,
+            "Hit Dice (d8)": "9d8+6",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 1125000,
+            "Hit Dice (d8)": "9d8+8",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 4,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "14": {
+            "Base Experience Points": 1350000,
+            "Hit Dice (d8)": "9d8+10",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 5,
+              "5th Level": 3,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "15": {
+            "Base Experience Points": 1575000,
+            "Hit Dice (d8)": "9d8+12",
+            "Spells": {
+              "1st Level": 7,
+              "2nd Level": 7,
+              "3rd Level": 7,
+              "4th Level": 5,
+              "5th Level": 4,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "16": {
+            "Base Experience Points": 1800000,
+            "Hit Dice (d8)": "9d8+14",
+            "Spells": {
+              "1st Level": 7,
+              "2nd Level": 7,
+              "3rd Level": 7,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 3,
+              "7th Level": 1
+            }
+          },
+          "17": {
+            "Base Experience Points": 2025000,
+            "Hit Dice (d8)": "9d8+16",
+            "Spells": {
+              "1st Level": 8,
+              "2nd Level": 8,
+              "3rd Level": 8,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 3,
+              "7th Level": 1
+            }
+          },
+          "18": {
+            "Base Experience Points": 2250000,
+            "Hit Dice (d8)": "9d8+18",
+            "Spells": {
+              "1st Level": 8,
+              "2nd Level": 8,
+              "3rd Level": 8,
+              "4th Level": 7,
+              "5th Level": 6,
+              "6th Level": 6,
+              "7th Level": 1
+            }
+          },
+          "19": {
+            "Base Experience Points": 2475000,
+            "Hit Dice (d8)": "9d8+20",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 7,
+              "5th Level": 6,
+              "6th Level": 4,
+              "7th Level": 2
+            }
+          },
+          "20": {
+            "Base Experience Points": 2700000,
+            "Hit Dice (d8)": "9d8+22",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 8,
+              "5th Level": 7,
+              "6th Level": 5,
+              "7th Level": 2
+            }
+          },
+          "21": {
+            "Base Experience Points": 2925000,
+            "Hit Dice (d8)": "9d8+24",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 8,
+              "6th Level": 6,
+              "7th Level": 2
+            }
+          },
+          "22": {
+            "Base Experience Points": 3150000,
+            "Hit Dice (d8)": "9d8+26",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 6,
+              "7th Level": 3
+            }
+          },
+          "23": {
+            "Base Experience Points": 3375000,
+            "Hit Dice (d8)": "9d8+28",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 7,
+              "7th Level": 3
+            }
+          },
+          "24": {
+            "Base Experience Points": 3600000,
+            "Hit Dice (d8)": "9d8+30",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 8,
+              "7th Level": 3
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 225000,
+            "Hit Point Bonus Per Level": 2,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-3": {
+          "Aimed Magic Items": 14,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 13,
+          "Spells": 15
+        },
+        "Levels 4-6": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 9,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 7-9": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 7,
+          "Petrification/Polymorph": 10,
+          "Spells": 12
+        }
+      }
+    }
+  }
+}

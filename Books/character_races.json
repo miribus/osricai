@@ -1,0 +1,550 @@
+{
+  "category": "Character Races",
+  "rules": {
+    "General Race Selection": {
+      "Race Choice": "Players choose a race based on ability scores. A player may lower an ability score to qualify for a race but cannot raise it without GM approval.",
+      "Aging Effects": "At the GM's discretion, younger characters may gain Constitution and Strength but lose Wisdom. Older characters may experience the reverse.",
+      "Racial Languages": "Demi-humans start with several free languages but can only learn two additional languages, except elves with Intelligence 18, who may learn three."
+    },
+    "Dwarfs": {
+      "Definition": "Dwarfs are short, burly, and dwell in mountain fortresses underground. They are loyal allies and fierce fighters.",
+      "Racial Traits": {
+        "Ability Modifiers": "+1 Constitution, -1 Charisma (except among dwarfs).",
+        "Combat Bonuses": "+1 to hit against goblins, half-orcs, hobgoblins, and orcs.",
+        "Saving Throw Bonuses": "+1 per 3.5 Constitution points against magic and poison.",
+        "Attack Penalties": "-4 penalty to attacks made against dwarfs by giants, ogres, ogre mages, titans, and trolls."
+      },
+      "Languages": [
+        "Dwarfish",
+        "Gnomish",
+        "Goblin",
+        "Kobold",
+        "Orcish",
+        "Common",
+        "Alignment Tongue"
+      ],
+      "Vision": {
+        "Infravision": "Dwarfs can see in the dark up to 60 ft."
+      },
+      "Stonework Detection (Within 10 ft)": {
+        "Detect Slopes or Grades": "75%",
+        "Detect New Construction": "75%",
+        "Detect Sliding or Shifting Walls": "66%",
+        "Detect Traps Involving Stonework": "50%",
+        "Determine Depth Underground": "50%"
+      },
+      "Multi-Class Restrictions": "The more restrictive of any two class requirements applies to multi-classed dwarfs.",
+      "Permitted Classes": ["Assassin", "Cleric", "Fighter", "Thief", "Fighter/Thief"],
+      "Movement Rate": "90 ft",
+      "Starting Age": {
+        "Cleric": "250 + 2d20",
+        "Fighter": "40 + 5d4",
+        "Thief": "75 + 3d6"
+      },
+      "Ability Score Limits": {
+        "Strength": "8-18",
+        "Dexterity": "3-17",
+        "Constitution": "12-19",
+        "Intelligence": "3-18",
+        "Wisdom": "3-18",
+        "Charisma": "3-16"
+      },
+      "Level Limitations": {
+        "Assassin": 9,
+        "Cleric": 8,
+        "Druid": "N/A",
+        "Fighter": {
+          "Strength 18": 9,
+          "Strength 17": 8,
+          "Strength 16 or less": 7
+        },
+        "Illusionist": "N/A",
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": "Unlimited"
+      }
+    },
+    "Elves": {
+      "Definition": "Elves are thinner and smaller than humans, bonded to nature but lacking souls. Their motivations and thinking are often alien to humankind.",
+      "Elven Culture": {
+        "Civilized Elves": "Some elves build grand civilizations with mastery in learning, craftsmanship, and long history. They are typically chaotic good and friendly but aloof toward humans.",
+        "Wilder Elves": "More numerous, chaotic neutral, often hostile to other races. Their humor regarding humans can be cruel."
+      },
+      "Racial Traits": {
+        "Ability Modifiers": "+1 Dexterity, -1 Constitution.",
+        "Spell Resistance": "Elves have a 90% resistance to sleep and charm spells.",
+        "Combat Bonuses": {
+          "Pulled Bow": "+1 to hit.",
+          "Longsword & Short Sword": "+1 to hit."
+        }
+      },
+      "Languages": [
+        "Common",
+        "Elven",
+        "Gnoll",
+        "Gnomish",
+        "Goblin",
+        "Halfling",
+        "Hobgoblin",
+        "Orcish"
+      ],
+      "Additional Language Rules": "Characters with Intelligence 16+ may learn additional languages. One extra language per point above 15.",
+      "Vision": {
+        "Infravision": "Elves can see in the dark up to 60 ft."
+      },
+      "Secret Door Detection": {
+        "Passive Detection": "1 in 6 chance when passing within 10 ft.",
+        "Active Searching for Secret Doors": "2 in 6 chance.",
+        "Active Searching for Concealed Doors": "3 in 6 chance."
+      },
+      "Surprise Mechanics": {
+        "Standard": "4 in 6 chance of surprising when traveling alone, 90 ft ahead of others, or with only elves/halflings.",
+        "Obstacle Interaction": "If opening a door or similar task, chance drops to 2 in 6."
+      },
+      "Multi-Class Restrictions": "The less restrictive of two class requirements applies for multi-classed elves, except thieves must wear permitted armor.",
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Magic User",
+        "Thief",
+        "Fighter/Magic User",
+        "Fighter/Thief",
+        "Magic User/Thief",
+        "Fighter/Magic User/Thief"
+      ],
+      "Movement Rate": "120 ft",
+      "Starting Age": {
+        "Cleric": "500 + 10d10",
+        "Fighter": "130 + 5d6",
+        "Magic User": "150 + 5d6",
+        "Thief": "100 + 5d6"
+      },
+      "Ability Score Limits": {
+        "Strength": "3-18",
+        "Dexterity": "7-19",
+        "Constitution": "8-17",
+        "Intelligence": "8-18",
+        "Wisdom": "3-18",
+        "Charisma": "8-18"
+      },
+      "Level Limitations": {
+        "Assassin": 10,
+        "Cleric": 7,
+        "Druid": "N/A",
+        "Fighter": {
+          "Strength 18": 7,
+          "Strength 17": 6,
+          "Strength 16 or below": 5
+        },
+        "Illusionist": "N/A",
+        "Magic User": {
+          "Intelligence 18+": 11,
+          "Intelligence 17": 10,
+          "Intelligence 16 or below": 9
+        },
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": "Unlimited"
+      }
+    },
+    "Gnomes": {
+      "Definition": "Gnomes are small, illusion-affiliated folk known for their burrowing nature and fascination with gems and precious metals. They share ancestral traits with dwarfs and exhibit strong magical resistance.",
+      "Racial Traits": {
+        "Ability Modifiers": "+1 bonus per 3.5 points of Constitution to saves against magic and poison.",
+        "Combat Bonuses": {
+          "Against Kobolds & Goblins": "+1 to hit.",
+          "Attack Penalty": "-4 penalty to attacks by bugbears, giants, gnolls, ogres, ogre mages, titans, and trolls."
+        }
+      },
+      "Languages": [
+        "Common",
+        "Dwarfish",
+        "Gnomish",
+        "Goblin",
+        "Halfling",
+        "Kobold"
+      ],
+      "Animal Communication": "Gnomes may communicate with normal burrowing animals.",
+      "Additional Language Rules": "Gnomes may learn no more than two additional languages beyond their base ones, regardless of Intelligence.",
+      "Vision": {
+        "Infravision": "Gnomes can see in the dark up to 60 ft."
+      },
+      "Engineering & Stonework Detection": {
+        "Detect Slopes or Grades": "80%",
+        "Detect Unsafe Walls, Ceilings, Floors": "70%",
+        "Determine Depth Underground": "60%",
+        "Determine Direction of North Underground": "50%"
+      },
+      "Multi-Class Restrictions": "Multi-classed gnomish characters may wear only leather armor, no better.",
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Illusionist",
+        "Thief",
+        "Fighter/Illusionist",
+        "Fighter/Thief",
+        "Illusionist/Thief"
+      ],
+      "Movement Rate": "90 ft",
+      "Starting Age": {
+        "Cleric": "300 + 3d12",
+        "Fighter": "60 + 5d4",
+        "Magic User": "100 + 2d12",
+        "Thief": "80 + 5d4"
+      },
+      "Ability Score Limits": {
+        "Strength": "6-18",
+        "Dexterity": "3-18",
+        "Constitution": "8-18",
+        "Intelligence": "7-18",
+        "Wisdom": "3-18",
+        "Charisma": "3-18"
+      },
+      "Level Limitations": {
+        "Assassin": 8,
+        "Cleric": 7,
+        "Druid": "N/A",
+        "Fighter": {
+          "Strength 18": 6,
+          "Strength 17 or below": 5
+        },
+        "Illusionist": {
+          "Dex 18+ and Int 18+": 7,
+          "Dex 17 and Int 17": 6,
+          "Dex or Int below 17": 5
+        },
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": "Unlimited"
+      }
+    },
+    "Gnomes": {
+      "Definition": "Gnomes are small, illusion-affiliated folk known for their burrowing nature and fascination with gems and precious metals. They share ancestral traits with dwarfs and exhibit strong magical resistance.",
+      "Racial Traits": {
+        "Ability Modifiers": "+1 bonus per 3.5 points of Constitution to saves against magic and poison.",
+        "Combat Bonuses": {
+          "Against Kobolds & Goblins": "+1 to hit.",
+          "Attack Penalty": "-4 penalty to attacks by bugbears, giants, gnolls, ogres, ogre mages, titans, and trolls."
+        }
+      },
+      "Languages": [
+        "Common",
+        "Dwarfish",
+        "Gnomish",
+        "Goblin",
+        "Halfling",
+        "Kobold"
+      ],
+      "Animal Communication": "Gnomes may communicate with normal burrowing animals.",
+      "Additional Language Rules": "Gnomes may learn no more than two additional languages beyond their base ones, regardless of Intelligence.",
+      "Vision": {
+        "Infravision": "Gnomes can see in the dark up to 60 ft."
+      },
+      "Engineering & Stonework Detection": {
+        "Detect Slopes or Grades": "80%",
+        "Detect Unsafe Walls, Ceilings, Floors": "70%",
+        "Determine Depth Underground": "60%",
+        "Determine Direction of North Underground": "50%"
+      },
+      "Multi-Class Restrictions": "Multi-classed gnomish characters may wear only leather armor, no better.",
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Illusionist",
+        "Thief",
+        "Fighter/Illusionist",
+        "Fighter/Thief",
+        "Illusionist/Thief"
+      ],
+      "Movement Rate": "90 ft",
+      "Starting Age": {
+        "Cleric": "300 + 3d12",
+        "Fighter": "60 + 5d4",
+        "Magic User": "100 + 2d12",
+        "Thief": "80 + 5d4"
+      },
+      "Ability Score Limits": {
+        "Strength": "6-18",
+        "Dexterity": "3-18",
+        "Constitution": "8-18",
+        "Intelligence": "7-18",
+        "Wisdom": "3-18",
+        "Charisma": "3-18"
+      },
+      "Level Limitations": {
+        "Assassin": 8,
+        "Cleric": 7,
+        "Druid": "N/A",
+        "Fighter": {
+          "Strength 18": 6,
+          "Strength 17 or below": 5
+        },
+        "Illusionist": {
+          "Dex 18+ and Int 18+": 7,
+          "Dex 17 and Int 17": 6,
+          "Dex or Int below 17": 5
+        },
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": "Unlimited"
+      }
+    },
+    "Half-Elves": {
+      "Definition": "Half-Elves are the rare offspring of humans and elves, often assimilated into elven or human societies rather than forming their own distinct civilization.",
+      "Racial Traits": {
+        "Spell Resistance": "Half-Elves have a 30% resistance to sleep and charm spells.",
+        "Secret Door Detection": {
+          "Passing Within 10 ft": "1 in 6 chance to notice concealed doors.",
+          "Searching for Secret Doors": "2 in 6 chance.",
+          "Searching for Concealed Doors": "3 in 6 chance."
+        }
+      },
+      "Languages": [
+        "Common",
+        "Elven",
+        "Gnoll",
+        "Gnome",
+        "Goblin",
+        "Halfling",
+        "Hobgoblin",
+        "Orcish"
+      ],
+      "Multi-Class Restrictions": "The less restrictive of any two class requirements applies to multi-classed Half-Elves, except thieving abilities require permitted armor.",
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Magic User",
+        "Ranger",
+        "Thief",
+        "Cleric/Fighter",
+        "Cleric/Ranger",
+        "Cleric/Magic User",
+        "Fighter/Magic User",
+        "Fighter/Thief",
+        "Magic User/Thief",
+        "Cleric/Fighter/Magic User",
+        "Fighter/Magic User/Thief"
+      ],
+      "Vision": {
+        "Infravision": "Half-Elves can see in the dark up to 60 ft."
+      },
+      "Movement Rate": "120 ft",
+      "Starting Age": {
+        "Cleric": "40 + 2d4",
+        "Fighter": "22 + 3d4",
+        "Magic User": "30 + 2d8",
+        "Thief": "22 + 3d8"
+      },
+      "Ability Score Limits": {
+        "Strength": "3-18",
+        "Dexterity": "6-18",
+        "Constitution": "6-18",
+        "Intelligence": "4-18",
+        "Wisdom": "3-18",
+        "Charisma": "3-18"
+      },
+      "Level Limitations": {
+        "Assassin": 11,
+        "Cleric": 5,
+        "Druid": "N/A",
+        "Fighter": {
+          "Strength 18": 8,
+          "Strength 17 and below": 7,
+          "Strength 16 and below": 6
+        },
+        "Illusionist": "N/A",
+        "Magic User": {
+          "Intelligence 18+": 8,
+          "Intelligence 17": 7,
+          "Intelligence 16 and below": 6
+        },
+        "Paladin": "N/A",
+        "Ranger": {
+          "Strength 18": 8,
+          "Strength 17 and below": 7,
+          "Strength 16 and below": 6
+        },
+        "Thief": "Unlimited"
+      }
+    },
+    "Halflings": {
+      "Definition": "Halflings are a small and peaceful race, often living near human settlements at a comfortable distance from human hustle and bustle. Though most lead quiet lives, Halfling adventurers are seen as eccentric but heroic.",
+      "Racial Traits": {
+        "Ability Modifiers": "-1 Strength, +1 Dexterity.",
+        "Saving Throw Bonuses": "+1 per 3.5 Constitution points against magic and poison.",
+        "Combat Bonuses": {
+          "Bow & Sling Attacks": "+3 bonus to hit."
+        }
+      },
+      "Surprise Mechanics": {
+        "Standard": "4 in 6 chance of surprising when traveling alone, 90 ft ahead of others, or with only elves/halflings.",
+        "Obstacle Interaction": "If opening a door or similar task, chance drops to 2 in 6."
+      },
+      "Languages": [
+        "Common",
+        "Dwarfish",
+        "Gnome",
+        "Goblin",
+        "Halfling",
+        "Orcish"
+      ],
+      "Additional Language Rules": "Halflings may learn one additional language per Intelligence point above 16, but no more than two additional languages regardless of Intelligence.",
+      "Multi-Class Restrictions": "Thieving abilities may only be used while wearing armor permitted to thieves.",
+      "Permitted Classes": [
+        "Fighter",
+        "Druid",
+        "Thief",
+        "Fighter/Thief"
+      ],
+      "Vision": {
+        "Infravision": "Halflings can see in the dark up to 60 ft."
+      },
+      "Movement Rate": "90 ft",
+      "Starting Age": {
+        "Fighter": "20 + 3d4",
+        "Druid": "40 + 3d4",
+        "Thief": "40 + 2d4"
+      },
+      "Ability Score Limits": {
+        "Strength": "6-17",
+        "Dexterity": "8-19",
+        "Constitution": "10-18",
+        "Intelligence": "6-18",
+        "Wisdom": "3-17",
+        "Charisma": "3-18"
+      },
+      "Level Limitations": {
+        "Assassin": "N/A",
+        "Cleric": "N/A",
+        "Druid": 6,
+        "Fighter": 4,
+        "Illusionist": "N/A",
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": "Unlimited"
+      }
+    },
+    "Half-Orcs": {
+      "Definition": "Half-Orcs are the offspring of human and orc breeding. They are typically indistinguishable from orcs but may be sufficiently human to advance in certain classes, primarily those focused on violence and combat.",
+      "Racial Traits": {
+        "Ability Modifiers": "+1 Strength, +1 Constitution, -2 Charisma.",
+        "Languages": [
+          "Common",
+          "Orcish"
+        ],
+        "Additional Language Rules": "Half-Orcs may learn a maximum of two additional languages, regardless of Intelligence."
+      },
+      "Multi-Class Restrictions": {
+        "Armor": "The more restrictive of any two class requirements applies for armor usage in multi-classed Half-Orcs.",
+        "Weapons": "The less restrictive requirements apply for weapon usage."
+      },
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Thief",
+        "Cleric/Fighter",
+        "Cleric/Thief",
+        "Cleric/Assassin",
+        "Fighter/Thief",
+        "Fighter/Assassin"
+      ],
+      "Vision": {
+        "Infravision": "Half-Orcs can see in the dark up to 60 ft."
+      },
+      "Movement Rate": "120 ft",
+      "Starting Age": {
+        "Cleric": "20 + 1d4",
+        "Fighter": "13 + 1d4",
+        "Thief": "20 + 2d4"
+      },
+      "Ability Score Limits": {
+        "Strength": "6-18",
+        "Dexterity": "3-17",
+        "Constitution": "13-19",
+        "Intelligence": "3-17",
+        "Wisdom": "3-14",
+        "Charisma": "3-12"
+      },
+      "Level Limitations": {
+        "Assassin": 15,
+        "Cleric": 4,
+        "Druid": "N/A",
+        "Fighter": 10,
+        "Illusionist": "N/A",
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": {
+          "Dexterity 17": 7,
+          "Dexterity 16 or below": 6
+        }
+      }
+    },
+    "Half-Orcs": {
+      "Definition": "Half-Orcs are the offspring of human and orc breeding. They are typically indistinguishable from orcs but may be sufficiently human to advance in certain classes, primarily those focused on violence and combat.",
+      "Racial Traits": {
+        "Ability Modifiers": "+1 Strength, +1 Constitution, -2 Charisma.",
+        "Languages": [
+          "Common",
+          "Orcish"
+        ],
+        "Additional Language Rules": "Half-Orcs may learn a maximum of two additional languages, regardless of Intelligence."
+      },
+      "Multi-Class Restrictions": {
+        "Armor": "The more restrictive of any two class requirements applies for armor usage in multi-classed Half-Orcs.",
+        "Weapons": "The less restrictive requirements apply for weapon usage."
+      },
+      "Permitted Classes": [
+        "Assassin",
+        "Cleric",
+        "Fighter",
+        "Thief",
+        "Cleric/Fighter",
+        "Cleric/Thief",
+        "Cleric/Assassin",
+        "Fighter/Thief",
+        "Fighter/Assassin"
+      ],
+      "Vision": {
+        "Infravision": "Half-Orcs can see in the dark up to 60 ft."
+      },
+      "Movement Rate": "120 ft",
+      "Starting Age": {
+        "Cleric": "20 + 1d4",
+        "Fighter": "13 + 1d4",
+        "Thief": "20 + 2d4"
+      },
+      "Ability Score Limits": {
+        "Strength": "6-18",
+        "Dexterity": "3-17",
+        "Constitution": "13-19",
+        "Intelligence": "3-17",
+        "Wisdom": "3-14",
+        "Charisma": "3-12"
+      },
+      "Level Limitations": {
+        "Assassin": 15,
+        "Cleric": 4,
+        "Druid": "N/A",
+        "Fighter": 10,
+        "Illusionist": "N/A",
+        "Magic User": "N/A",
+        "Paladin": "N/A",
+        "Ranger": "N/A",
+        "Thief": {
+          "Dexterity 17": 7,
+          "Dexterity 16 or below": 6
+        }
+      }
+    }
+  }
+}

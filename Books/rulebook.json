@@ -1,0 +1,23 @@
+{
+  "category": "Game Terminology",
+  "rules": {
+    "Attribute": "Also called 'Ability Score' or 'Characteristic', attributes define key traits of a character.",
+    "Character": "Each player controls one character, while the GM controls all non-player characters.",
+    "Class": "A character class determines special skills and abilities. See Chapter I for details.",
+    "Demi-Human": "Human-like creatures with generally good alignment, including elves, dwarfs, gnomes, and halflings.",
+    "Dice and Notation": "Dice are represented with 'd' followed by the number of sides (e.g., d6 = six-sided die). Example: '3d8' means rolling three eight-sided dice and summing the result.",
+    "Experience Bonus": "Single-class characters may receive an experience bonus for high attributes, at the GM’s discretion.",
+    "Game Master (GM)": "The GM controls the game universe, including NPCs and rule interpretations.",
+    "Humanoid": "Human-like creatures often of evil alignment, such as orcs or goblins.",
+    "Level": "Can refer to character progression, monster strength, spell power, or dungeon depth.",
+    "Monster": "Refers to creatures encountered in-game; sometimes interchangeable with NPCs.",
+    "Player": "Participants aside from the GM are referred to as players.",
+    "PC and NPC": "PCs are player-controlled characters, while NPCs are controlled by the GM.",
+    "Prime Requisite": "The key attribute affecting a character’s experience point bonuses (e.g., Strength for Fighters).",
+    "Race": "Defines a character’s species; some races may be PCs, while others are limited to NPC roles.",
+    "To Hit and Saving Throw Tables": "Determine attack success and resistance rolls based on d20 results.",
+    "Weapon Proficiencies": "Each character class may only have a certain number of 'Weapons of Proficiency' at first level. All classes gain additional proficiencies at regular intervals. The weapon proficiencies for each specific class are described in the rules entry pertaining to that class.  The Weapon of Proficiency must be an individual weapon type (e.g. 'Longsword' rather than 'Sword'). If a character is fighting with a weapon with which he or she is not proficient, the Non-Proficiency Penalty is applied to his or her rolls 'to hit.'"
+
+  }
+}
+
