@@ -17,6 +17,14 @@
     "Race": "Defines a character’s species; some races may be PCs, while others are limited to NPC roles.",
     "To Hit and Saving Throw Tables": "Determine attack success and resistance rolls based on d20 results.",
     "Weapon Proficiencies": "Each character class may only have a certain number of 'Weapons of Proficiency' at first level. All classes gain additional proficiencies at regular intervals. The weapon proficiencies for each specific class are described in the rules entry pertaining to that class.  The Weapon of Proficiency must be an individual weapon type (e.g. 'Longsword' rather than 'Sword'). If a character is fighting with a weapon with which he or she is not proficient, the Non-Proficiency Penalty is applied to his or her rolls 'to hit.'",
+    "range": "The term 'range' can refer to the 'range' of a given dice roll value on a table, or the distance from a spellcaster to a target or the 'range' an archer must shoot an arrow",
+    "Wilderness": {
+      "usage": "The term Wilderness can refer to any outdoor area.  It is a catch-all term for purposes of defining movement and range rules, not specifically a forest or plain.  Any outdoor environment."
+    },
+    "Dungeon": {
+      "usage": "The term Dungeon can refer to any indoor location, subterranean or not, it is a catch-all term for purposes of defining movement and range rules, not always specifically a castle dungeon.  Any artificially confined area could be considered a dungeon, though it does not need to be covered.",
+      "dungeonLevel": "The term Dungeon Level typically refers to the area of the dungeon by floor.  The area closest to the surface is generally level 1.  The deeper levels 2, 3 and so on.  Generally the dungeon gets more dangerous as it goes lower.  More frequent monsters of more power, more traps and trickery."
+    },
     "Alignment": {
       "Definition": "Alignment reflects a character's stance in the cosmic struggle between good and evil, as well as their approach to order and chaos.",
       "Good Alignments": {

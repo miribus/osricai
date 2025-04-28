@@ -1,0 +1,242 @@
+{
+  "chapter": "COMBAT",
+  "description": "When adventurers come into contact with enemies, combat is measured in rounds (1 minute each) subdivided into 6-second segments, rather than turns representing 10 minutes. This structure governs the order and timing of combat actions.",
+  "combatActions": {
+    "description": "Prior to rolling initiative, players must declare their combat actions. These actions—ranging from attacking, casting spells, or even fleeing—are set out by general rules. The following entries detail the rules for performing a Charge and for Closing into Combat.",
+  "actions": [
+    {
+      "name": "Charge",
+      "description": "Charging into combat allows an attacker to move and then attack in the same round.",
+      "mechanics": {
+        "movement": "A charge is executed at twice the normal movement rate and must end within 10 ft melee range of the target.",
+        "defenderAdvantage": "If the defender wields a longer weapon than the attacker, the defender attacks first (unless already having acted in this round).",
+        "defensiveModifiers": "The attacker gains no Dexterity bonus against the defender’s counterattack (and characters with no Dexterity bonus receive a +1 AC penalty).",
+        "weaponSetBonus": "If the defender has a weapon set against a charge, additional damage is inflicted with a successful hit against the charging attacker.",
+        "hitBonus": "Provided the charging character survives, they receive a +2 bonus to hit on their attack.",
+        "frequency": "A charge action may be performed only once every 10 rounds (i.e., once per turn).",
+        "encumbranceRestriction": "Characters at the maximum encumbrance category cannot charge unless mounted and the mount is below the maximum encumbrance category.",
+        "mountedChargeBonus": "An attacker riding a combat-trained mount (such as a warhorse) and wielding a lance deals double the weapon damage on a charge round (only the weapon damage is doubled; additional bonuses from strength, magic, etc., are not doubled)."
+      }
+    },
+    {
+      "name": "Closing into Combat",
+      "description": "When opponents are not within 10 ft range, combatants may choose to 'close in' rather than charging.",
+      "mechanics": {
+        "attackRestriction": "Closing into combat does not permit an attack roll during that round (i.e., no significant opening attack is generated).",
+        "opponentRestriction": "The opponent cannot make an attack until the round following the closing movement.",
+        "movementAllowance": "When closing, a combatant can advance the full amount of their movement."
+      }
+    },
+    {
+      "name": "Fighting Retreat",
+      "description": "A character may retreat backward out of combat while maintaining defense. During a fighting retreat, the character may parry (thereby subtracting their to-hit bonus from an opponent’s attack roll) but cannot make an attack. This maneuver can also be used to 'switch places' with another party member, with one joining combat to prevent enemy pursuit while the other retreats."
+    },
+    {
+      "name": "Fleeing from Combat",
+      "description": "When a character in melee combat runs away at top speed, opponents may make an immediate additional attack at +4 to hit."
+    },
+    {
+      "name": "Hold Initiative",
+      "description": "Holding initiative means delaying one’s action until after the opposing side has acted. Essentially, the character waits until the other side’s initiative segment has been resolved before taking any action."
+    },
+    {
+      "name": "Melee Attack",
+      "description": "A melee attack uses a hand-held weapon such as a sword, halberd, or dagger. The character’s strength bonus is added both to the attack roll and to the damage. Melee attacks may only be performed when combatants are within 10 ft of each other (considered 'engaged'). When facing multiple opponents, the target of the attack is determined randomly; however, if a character makes multiple attacks as part of the same routine, all such attacks are directed at the same opponent unless a specific rule for that creature or weapon specifies otherwise."
+    },
+    {
+      "name": "Missile Attacks",
+      "description": "Missile attacks are performed with ranged weapons like crossbows, slings, or thrown axes. When attempted against opponents engaged in melee, the target is chosen randomly from among all melee participants, so the attacker might inadvertently hit an ally. The missile attack roll benefits from the character’s Dexterity bonus; moreover, if a missile weapon is in hand, its bonus is also added to the initiative roll, potentially allowing the character to act earlier even if the party lost the overall initiative."
+    },
+    {
+      "name": "Negotiation and Diplomacy",
+      "description": "Some combats may be averted or delayed entirely if negotiation or well-chosen words (including lies) are used. This approach is particularly advisable if the party is outmatched or if the potential loot is minimal, allowing the party to avoid combat or postpone it until conditions are more favorable."
+    },
+    {
+      "name": "Parrying",
+      "description": "Parrying is a defensive maneuver in which a character forgoes attacking to subtract their 'to hit' bonus from an opponent’s attack roll. Parrying can be combined with a fighting retreat, though it is only effective for characters with a strength or specialization-related bonus to hit."
+    },
+    {
+      "name": "Spells",
+      "description": "Spell casting begins during the caster's initiative segment and completes at the end of its required casting time. A spell may be initiated while the caster is within 10 ft of an opponent; however, if the caster takes damage during casting, the spell is lost. Additionally, while casting a spell, the caster does not receive any Dexterity bonus to their armor class."
+    },
+    {
+      "name": "Set Weapon Against Charge",
+      "description": "Certain weapons can be 'set' against a charge by bracing the weapon against a floor or other stationary object. When a character sets their weapon, they cannot attack on their own until an opponent charges. If an opponent charges, the set weapon deals double damage.",
+      "mechanics": {
+        "eligibility": [
+          "spears",
+          "lances (when used dismounted)",
+          "most pole arms",
+          "tridents"
+        ],
+        "chargeDefinition": "A charge is any attack that allows the attacker to move and attack, including leaping attacks employed by some monsters.",
+        "limitations": "A character who sets their weapon may not initiate an attack unless triggered by an opponent's charge."
+      }
+    },
+    {
+      "name": "Unarmed Combat",
+      "description": "Unarmed combat involves brawling using body parts or improvised strikes (such as a fist, foot, or even a dagger pommel) and normally inflicts 1d2 points of damage. All characters are assumed to be proficient in unarmed combat without a penalty.",
+      "subActions": [
+        {
+          "name": "Grappling Attack",
+          "description": "A grappling attack is a form of unarmed combat that typically inflicts between 0 and 1 point of damage (equivalent to 1d2-1). In addition to the damage, a successful grapple restrains the target, preventing them from fighting. The chance to break free from a grapple should be determined by comparing the strengths of the combatants.",
+          "notes": "Stronger creatures (for example, an ogre) may maintain a grapple on a much weaker opponent (such as a kobold) almost indefinitely, and can typically break free from any attempted grapple by the weaker target at will."
+        },
+        {
+          "name": "Overbearing Attack",
+          "description": "An overbearing attack is essentially a grappling attack executed at the end of a charge. If successful, the opponent is knocked prone rather than simply restrained. If the overbearing attack is unsuccessful, it is resolved as a standard grapple.",
+          "notes": "This maneuver uses the momentum from a charge to force the opponent off balance, adding tactical value to aggressive advances."
+        }
+      ]
+    },
+    {
+      "name": "Concealment",
+      "description": "Any effect that obscures an opponent’s vision (such as tree limbs or smoke) without physically blocking attacks. The GM assigns a concealment level that results in an AC penalty:",
+      "levels": [
+        { "concealment": "Quarter", "acPenalty": -1 },
+        { "concealment": "Half", "acPenalty": -2 },
+        { "concealment": "Three-quarters", "acPenalty": -3 },
+        { "concealment": "Nine-tenths", "acPenalty": -4 }
+      ]
+    },
+    {
+      "name": "Cover",
+      "description": "Physical protection provided by barriers (such as walls or arrow slits) that block incoming attacks. Cover provides a defensive bonus (expressed as a penalty to the attacker’s chance to hit) as follows:",
+      "coverBonuses": [
+        { "coverage": "25%", "acPenalty": -2 },
+        { "coverage": "50%", "acPenalty": -4 },
+        { "coverage": "75%", "acPenalty": -7 },
+        { "coverage": "90%", "acPenalty": -10 }
+      ]
+    },
+    {
+      "name": "Flank Attack (Unshielded Flank)",
+      "description": "An attack launched from the opponent’s unshielded flank negates any defensive advantages provided by a shield."
+    },
+    {
+      "name": "Invisible Opponent",
+      "description": "An opponent who is invisible can only be attacked if their general location is known. All attacks against an invisible opponent are made at a -4 penalty, and such opponents cannot be attacked from behind or from the flank. However, more powerful monsters (those with sensitive smell or hearing or with more than six hit dice) may detect invisible opponents, and creatures with more than eleven hit dice almost always perceive them normally."
+    },
+    {
+      "name": "Prone Opponent",
+      "description": "Attacks against an opponent who is prone (lying on the ground) negate the benefits of a shield and any dexterity bonus, and are made at a +4 bonus to hit."
+    },
+    {
+      "name": "Rear Attack",
+      "description": "An attack from directly behind an opponent negates both the shield's defensive benefits and any dexterity bonus the target might have, granting the attacker a +2 bonus to hit."
+    },
+    {
+      "name": "Sleeping Opponent",
+      "description": "Sleeping opponents (those in natural sleep, not magical sleep) may be attacked with the same chance to kill as if the attacker were an assassin. (Magical sleep effects are handled under the rules of the sleep spell.)"
+    },
+    {
+      "name": "Stunned Opponent",
+      "description": "A stunned opponent loses all shield and dexterity bonuses, and attacks against them are made at a +4 bonus to hit."
+    },
+    {
+      "name": "Two-Weapon Fighting",
+      "description": "When fighting with one weapon in each hand, the off-hand weapon must be either a dagger or a hand axe. The primary hand attacks suffer a -2 penalty while the off-hand attack suffers a -4 penalty. The character’s Dexterity bonus (or penalty) for missile attacks is applied to both attacks. Penalties can offset bonuses, but this rule cannot ever yield a bonus to attacks. Additionally, the off-hand weapon cannot be used to contribute to parrying."
+    }
+  ]
+  },
+  "combatSequence": [
+    {
+      "step": 1,
+      "action": "Determine Surprise",
+      "mechanics": "Roll a d6 to decide if either party is surprised.",
+      "surpriseCheck": {
+    "frequency": "Once per combat at the very beginning of an encounter",
+    "dice": "d6",
+    "results": [
+      {
+        "roll": 1,
+        "surprisedSegments": 1,
+        "description": "The group is surprised for one segment."
+      },
+      {
+        "roll": 2,
+        "surprisedSegments": 2,
+        "description": "The group is surprised for two segments."
+      },
+      {
+        "rollRange": "3-6",
+        "surprisedSegments": 0,
+        "description": "The group is not surprised."
+      }
+    ],
+    "specialRules": "Certain monsters or character classes may have modified surprise rules (for example, some monsters cannot be surprised, or some may be stealthy enough that a higher roll still results in surprise). Additionally, if one side has already alerted the other (e.g., by making noise for one or more rounds), that side does not need to roll for surprise."
+  },
+  "surpriseSegments": {
+    "definition": "A surprise segment is a six-second interval during which actions that would normally occur over a full round (1 minute) can be executed provided the action can be completed in six seconds.",
+    "actionsAllowed": "Actions such as talking, attacking, charging, closing to melee, or beginning a spell (if its casting time is one segment) may occur during a surprise segment.",
+    "limitations": "Longer actions such as a minute-long speech or spells with longer casting times cannot be fully completed within a single surprise segment."
+  },
+  "individualSurpriseBonus": {
+    "description": "A character's surprise bonus (derived from Dexterity) modifies the effective number of surprised segments. A positive bonus reduces the number of segments a character is affected by, potentially resulting in only part of the party being surprised.",
+    "example": "If the party rolls a 2 (normally 2 surprised segments) and one member has a +2 surprise bonus, that individual negates the surprise and acts normally; however, the rest of the party remains surprised for 2 segments."
+  },
+  "advancedMonsterSurprise": {
+    "description": "Some monsters may have a different surprise range (for example, they might be set to be surprised on a roll of 1-3). In such cases, a monster may gain more than two segments of surprise. For instance, if a monster surprises on 1-3 and the opposition rolls a 3, then the monster gains three surprise segments."
+  },
+  "combatFlow": {
+    "ifNoSurprise": "If neither side is surprised, combat proceeds immediately into the standard combat rounds.",
+    "ifOneSideSurprised": "If one side is surprised and the other is not, the unsuprisingly alert side may act during the surprise segments before normal combat rounds begin."
+  }
+    },
+    {
+      "step": 2,
+      "title": "Declare Spells and General Actions",
+      "description": "Before initiative is rolled, all spell casters must declare which spell they intend to cast (if any) for the upcoming round. Non-spell casters must also state in general terms what actions they plan to take (e.g., 'attacking with a sword', 'shooting an arrow', 'climbing the wall').",
+      "rules": {
+        "spellDeclaration": {
+          "requirement": "Spell casters must state their intended spell before rolling for initiative.",
+          "commitment": "Once declared, they may choose not to complete the spell in that round; however, they cannot substitute the declared action with another.",
+          "rationale": "The mental preparations for casting a spell are too taxing to allow for a change of action mid-round."
+        },
+        "nonSpellDeclaration": {
+          "requirement": "Non-spell casters should outline, in general terms, their planned actions for the round (e.g., melee attack, ranged attack, movement actions)."
+        }
+      },
+      "notes": [
+        "The GM should have already prepared a similar outline for the monsters' actions before the declaration phase begins.",
+        "Monsters’ actions are not to be tailored to the players’ declared actions; they follow their preset strategy."
+      ]
+    },
+    {
+      "step": 3,
+      "action": "Determine Initiative",
+      "description": "After any surprise segments have been resolved and all spells and general actions declared, the first full combat round begins. At the start of the round, each side rolls a d6 to determine initiative. The roll represents the six-second segment in which the opposing group will act, so a higher roll is preferable because it forces the enemy to delay their action.",
+      "mechanics": {
+      "initiativeRoll": "Each side rolls a d6. The number rolled indicates the segment (within the first six segments of the round) in which the OTHER group will act.",
+      "roundDuration": "A combat round consists of 10 segments. The initiative roll covers the first 6 segments, and the remaining 4 segments are available for spell effects finishing their casting time, delayed actions ('holding'), and other late-round activities.",
+      "example": "If the party rolls a 6 and the monsters roll a 1, then the party acts in segment 1 while the monsters do not act until segment 6. In a tied roll, both sides are considered to act simultaneously in that segment.",
+      "missileBonus": "Characters using missile weapons add their missile attack bonus to their initiative (in addition to the basic roll). Note that the Dexterity (surprise) bonus is not applied to melee initiative.",
+      "spellCasting": "A spellcaster begins casting in their initiative segment—this counts as the first segment of the spell's casting time. However, the spell does not 'go off' until its full casting time has elapsed. If an enemy interrupts (for example, via an attack in the intervening segment), the spell may be disrupted.",
+      "multipleAttackRoutines": "If a character or creature gains an extra attack routine (for example, due to level advantages or haste effects), that additional routine cannot be used until after the opposing side's initiative segment has been resolved. Note that multiple attacks inherent to a monster in a round (like multiple claw strikes) are part of a single routine."
+  },
+  "tieResolution": {
+    "description": "If both sides roll the same initiative, they act simultaneously. During a simultaneous initiative segment, any damage inflicted takes effect immediately—even if one of the combatants dies during that segment, meaning mutual destruction is possible."
+  },
+  "additionalNotes": {
+    "general": "After the party with the higher initiative acts, the other side takes its turn in its designated segment. The remaining segments of the round may still allow for actions with delay or spells completing their casting.",
+    "exampleScenario": "For instance, if Halvaine’s party declares a spell with a 2-segment casting time, and the party’s initiative roll is 5 while the monsters roll 4, Halvaine begins casting in segment 4 and, if uninterrupted, the spell goes off in segment 6. Meanwhile, the monsters act during segment 5. This sequence illustrates how initiative and spell casting interact within a 10-segment combat round."
+  }
+    },
+    {
+      "step": 4,
+      "action": "First Party Acts",
+      "mechanics": "The party with the initiative acts first by performing declared actions. Most actions take effect immediately, except spells which require their full casting time to complete before resolution.",
+      "notes": "Some actions may allow the opposing party to interrupt, such as fleeing attacks or using spears against charging opponents."
+    },
+    {
+      "step": 5,
+      "action": "Second Party Acts",
+      "mechanics": "The party that lost initiative then acts, with their results taking effect (spells resolve once their casting time is completed)."
+    },
+    {
+      "step": 6,
+      "action": "Round Completion",
+      "mechanics": "If the battle is not resolved, the round ends and the process begins anew with declaration of spells and general actions for the next round."
+    }
+  ]
+}

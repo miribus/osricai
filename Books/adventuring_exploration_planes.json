@@ -1,0 +1,31 @@
+{
+  "exploringThePlanes": {
+    "description": "The Planes of Existence are intentionally left vague within the OSRIC core rules, providing a creative framework for higher-level play (10th level and above) when the normal game world becomes too easy. The planes encourage unique and imaginative challenges that deviate from core mechanics.",
+    "primeMaterialPlane": {
+      "description": "The normal campaign world is situated on the Prime Material Plane, where things and creatures are generally made of matter ('material')."
+    },
+    "contiguousPlanes": {
+      "astralAndEthereal": {
+        "description": "These misty, vaporous planes are contiguous with the Prime Material Plane. They allow dim perception of the Prime Material as shadowy, indistinct forms, visible only within about 30 ft. Characters within these planes are completely imperceptible—silent, invisible, and hidden from all senses—except to certain magical creatures.",
+        "abilities": [
+          "Pass through solid objects on the Prime Material Plane, as such objects are not solid in the astral or æthereal planes.",
+          "Blindness if the character remains within a solid object; re-emerging into open space is necessary to avoid fatal consequences upon returning to the Prime Material."
+        ]
+      }
+    },
+    "hostileEntities": {
+      "bloinkEffect": "When entering a new plane, characters create a 'bloink'—a detectable event akin to a splash, which hostile creatures on the planes can detect and pursue.",
+      "lowLevelRisk": "Characters below 10th level can remain on another plane for up to 1d6 turns before being irrevocably destroyed (consumed by an astral/æthereal equivalent of a grue) without the possibility of resurrection, except via a wish."
+    },
+    "otherPlanes": {
+      "description": "Other planes (e.g., elemental planes, the abyss, the hells, the negative material plane) are mentioned but deliberately left obscure to foster creative GM interpretation."
+    },
+    "mechanicsVariance": {
+      "description": "Core rules do not necessarily apply on the planes. Magic items, spells, attack rolls, damage, class abilities, saving throws, and other mechanics may function differently—or not at all—based on the GM's design."
+    },
+    "gmGuidance": {
+      "description": "When characters above 10th level explore the planes, the GM must determine the rules for these environments, tailoring challenges to advanced play. These unique scenarios demand experienced GMing and creativity."
+    },
+    "supplements": "The authors may eventually release optional supplements about the planes, but they are not part of the OSRIC core rules."
+  }
+}

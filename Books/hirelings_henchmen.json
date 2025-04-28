@@ -1,0 +1,424 @@
+{
+  "chapter": "HIRELINGS AND HENCHMEN",
+  "description": "As adventurers amass wealth and renown in this medieval realm, they increasingly require the semi-permanent services of non-player characters. These retainers fall into two broad classes: hirelings, who are generally unclassed, zero-level individuals incapable of advancement, and henchmen, who are classed and may gain experience over time.",
+  "serviceRequirements": {
+    "equipment": "In almost all cases, hirelings and henchmen must be outfitted entirely by those who employ them. If a character wishes to hire an already-equipped retainer, the value of that equipment should be tendered as a stipend prior to the commencement of service.",
+    "species": "It is typically assumed that hirelings are human. Should one seek the services of non-human retainers, the associated costs, terms, and availability must be determined in keeping with the setting’s particular lore and economic values."
+  },
+  "standardHirelings": {
+    "description": "Short-term services of simple craftsmen and labourers are readily procured in large settlements, with even small villages offering some form of such help. However, securing a retainer for an extended duration—especially when considerable travel is involved—can be challenging. For lengthy engagements, only about one in six hirelings might initially agree. The offer of additional wages, such as an extra two or three days’ pay, may increase that probability to roughly one in two.",
+    "paymentGuidelines": "Rates of payment do not factor the cost of materials needed for construction or crafting. As a rough rule for item creation, materials might cost around ten percent of the finished product’s price. Moreover, monthly payment rates assume that the retainer is provided with lodgings and that their day-to-day needs—food, shelter, etc.—are already met; if not, adjustments must be made by the game master."
+  },
+  "hirelingRates": [
+    {
+      "type": "Carpenter",
+      "dailyRate": "3 sp",
+      "monthlyRate": "40 sp"
+    },
+    {
+      "type": "Cook",
+      "dailyRate": "1 sp",
+      "monthlyRate": "20 sp"
+    },
+    {
+      "type": "Groom",
+      "dailyRate": "1 sp",
+      "monthlyRate": "20 sp"
+    },
+    {
+      "type": "Labourer",
+      "dailyRate": "1 sp",
+      "monthlyRate": "20 sp"
+    },
+    {
+      "type": "Leatherer",
+      "dailyRate": "2 sp",
+      "monthlyRate": "30 sp"
+    },
+    {
+      "type": "Limner",
+      "dailyRate": "10 sp",
+      "monthlyRate": "200 sp"
+    },
+    {
+      "type": "Linkboy",
+      "dailyRate": "1 sp",
+      "monthlyRate": "20 sp"
+    },
+    {
+      "type": "Mason",
+      "dailyRate": "4 sp",
+      "monthlyRate": "60 sp"
+    },
+    {
+      "type": "Pack Handler",
+      "dailyRate": "2 sp",
+      "monthlyRate": "30 sp"
+    },
+    {
+      "type": "Servant",
+      "dailyRate": "3 sp",
+      "monthlyRate": "50 sp"
+    },
+    {
+      "type": "Tailor",
+      "dailyRate": "2 sp",
+      "monthlyRate": "30 sp"
+    },
+    {
+      "type": "Teamster",
+      "dailyRate": "5 sp",
+      "monthlyRate": "100 sp"
+    }
+  ],
+  "expertHirelings": [
+    {
+      "role": "Alchemist",
+      "monthlyWage": "6000 sp"
+    },
+    {
+      "role": "Armourer",
+      "monthlyWage": "2000 sp"
+    },
+    {
+      "role": "Blacksmith",
+      "monthlyWage": "600 sp"
+    },
+    {
+      "role": "Engineer (Architect)",
+      "monthlyWage": "2000 sp"
+    },
+    {
+      "role": "Engineer (Artillerist)",
+      "monthlyWage": "3000 sp"
+    },
+    {
+      "role": "Engineer (Miner or Sapper)",
+      "monthlyWage": "3000 sp"
+    },
+    {
+      "role": "Jeweller (Gemcutter)",
+      "monthlyWage": "2000 sp"
+    },
+    {
+      "role": "Sage",
+      "monthlyWage": "Special"
+    },
+    {
+      "role": "Scribe",
+      "monthlyWage": "300 sp"
+    },
+    {
+      "role": "Spy",
+      "monthlyWage": "Special"
+    },
+    {
+      "role": "Steward",
+      "monthlyWage": "Special"
+    },
+    {
+      "role": "Weaponer",
+      "monthlyWage": "2000 sp"
+    }
+  ],
+  "menAtArms": [
+    {
+      "role": "Artillerist",
+      "monthlyWage": "100 sp",
+      "equipmentCost": "25 gp",
+      "movementRate": "90",
+      "armourClass": 7,
+      "damage": "1d6 or 1d4",
+      "rangeIncrement": 10
+    },
+    {
+      "role": "Bowman, Long",
+      "monthlyWage": "80 sp",
+      "equipmentCost": "79 gp",
+      "movementRate": "90",
+      "armourClass": 7,
+      "damage": "1d6",
+      "rangeIncrement": 70
+    },
+    {
+      "role": "Bowman, Short",
+      "monthlyWage": "40 sp",
+      "equipmentCost": "34 gp",
+      "movementRate": "90",
+      "armourClass": 7,
+      "damage": "1d6",
+      "rangeIncrement": 50
+    },
+    {
+      "role": "Bowman (Mounted)",
+      "monthlyWage": "120 sp",
+      "equipmentCost": "196 gp",
+      "movementRate": "240 or 90",
+      "armourClass": 7,
+      "damage": "1d6",
+      "rangeIncrement": 50
+    },
+    {
+      "role": "Captain",
+      "monthlyWage": "Special",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Crossbowman",
+      "monthlyWage": "40 sp",
+      "equipmentCost": "31 gp",
+      "movementRate": "90",
+      "armourClass": 7,
+      "damage": "1d4+1 or 1d6",
+      "rangeIncrement": 60
+    },
+    {
+      "role": "Crossbowman (Mounted)",
+      "monthlyWage": "80 sp",
+      "equipmentCost": "197 gp",
+      "movementRate": "240 or 90",
+      "armourClass": 7,
+      "damage": "1d4+1 or 1d6",
+      "rangeIncrement": 60
+    },
+    {
+      "role": "Footman, Heavy",
+      "monthlyWage": "40 sp",
+      "equipmentCost": "62 gp",
+      "movementRate": "60",
+      "armourClass": 6,
+      "damage": "1d10 or 1d6",
+      "rangeIncrement": "n/a"
+    },
+    {
+      "role": "Footman, Heavy (Mounted)",
+      "monthlyWage": "60 sp",
+      "equipmentCost": "99 gp",
+      "movementRate": "240 or 60",
+      "armourClass": 6,
+      "damage": "1d10 or 1d6",
+      "rangeIncrement": "n/a"
+    },
+    {
+      "role": "Footman, Light",
+      "monthlyWage": "20 sp",
+      "equipmentCost": "32 gp",
+      "movementRate": "90",
+      "armourClass": 6,
+      "damage": "1d6",
+      "rangeIncrement": 15
+    },
+    {
+      "role": "Footman, Light (Mounted)",
+      "monthlyWage": "40 sp",
+      "equipmentCost": "69 gp",
+      "movementRate": "240 or 90",
+      "armourClass": 6,
+      "damage": "1d6",
+      "rangeIncrement": 15
+    },
+    {
+      "role": "Horseman, Heavy",
+      "monthlyWage": "120 sp",
+      "equipmentCost": "675 gp",
+      "movementRate": "150 or 90",
+      "armourClass": 4,
+      "damage": "2d4+1 or 1d8",
+      "rangeIncrement": "n/a"
+    },
+    {
+      "role": "Horseman, Medium",
+      "monthlyWage": "80 sp",
+      "equipmentCost": "465 gp",
+      "movementRate": "180 or 60",
+      "armourClass": 5,
+      "damage": "2d4+1 or 2d4",
+      "rangeIncrement": "n/a"
+    },
+    {
+      "role": "Horseman, Light",
+      "monthlyWage": "60 sp",
+      "equipmentCost": "294 gp",
+      "movementRate": "240 or 90",
+      "armourClass": 6,
+      "damage": "2d4+1 or 1d6",
+      "rangeIncrement": 10
+    },
+    {
+      "role": "Lieutenant",
+      "monthlyWage": "Special",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Pikeman",
+      "monthlyWage": "60 sp",
+      "equipmentCost": "59 gp",
+      "movementRate": "60",
+      "armourClass": 6,
+      "damage": "1d6+1 or 1d6",
+      "rangeIncrement": "n/a"
+    },
+    {
+      "role": "Sapper",
+      "monthlyWage": "80 sp",
+      "equipmentCost": "25 gp",
+      "movementRate": "90",
+      "armourClass": 7,
+      "damage": "1d6 or 1d4",
+      "rangeIncrement": 10
+    },
+    {
+      "role": "Sergeant",
+      "monthlyWage": "Special",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Slinger",
+      "monthlyWage": "60 sp",
+      "equipmentCost": "28 gp",
+      "movementRate": "90",
+      "armourClass": 6,
+      "damage": "1d4+1 or 1d6",
+      "rangeIncrement": 35
+    }
+  ],
+  "shipCrew": [
+    {
+      "role": "Lieutenant",
+      "monthlyWage": "Special",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Marine",
+      "monthlyWage": "60 sp",
+      "equipmentCost": "70 gp",
+      "movementRate": "60",
+      "armourClass": 5,
+      "damage": "1d6",
+      "rangeIncrement": "15 or 10"
+    },
+    {
+      "role": "Master",
+      "monthlyWage": "Special",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Mate",
+      "monthlyWage": "600 sp",
+      "equipmentCost": "Special",
+      "movementRate": "Special",
+      "armourClass": "Special",
+      "damage": "Special",
+      "rangeIncrement": "Special"
+    },
+    {
+      "role": "Oarsman",
+      "monthlyWage": "100 sp",
+      "equipmentCost": "35 gp",
+      "movementRate": "90",
+      "armourClass": 6,
+      "damage": "1d6 or 1d4",
+      "rangeIncrement": 10
+    },
+    {
+      "role": "Sailor",
+      "monthlyWage": "40 sp",
+      "equipmentCost": "20 gp",
+      "movementRate": "120",
+      "armourClass": 9,
+      "damage": "1d6 or 1d4",
+      "rangeIncrement": 10
+    }
+  ],
+  "henchmen": {
+    "description": "Henchmen are classed and levelled non-player character adventurers in the service of higher-level player characters. They serve not only as hired guards but also as companions, friends, and staunch supporters who may even sacrifice their lives or launch themselves into battle to rescue their employer. The total number of henchmen a character may command is generally limited by his/her charisma score.",
+    "demographics": "The number of available henchmen in a locale depends on the total population and its predisposition toward attracting adventurer types. For instance, a prosperous trading city with 30,000 inhabitants might have 300 characters capable of level advancement, yet only 1 in 10 may be available and interested in serving as henchmen. This incidence can vary by a factor of five or more based on the settlement and campaign milieu.",
+    "recruiting": {
+      "methods": [
+        {
+          "method": "Public Crier",
+          "cost": "10 gp",
+          "attraction": "Attracts 1d10% of available henchmen"
+        },
+        {
+          "method": "Posting Notices",
+          "cost": "50 gp",
+          "attraction": "Attracts 10d4% of available henchmen"
+        },
+        {
+          "method": "Using Agents",
+          "cost": "300 gp",
+          "attraction": "Brings 5d10% of potential henchmen, with a minimum of 10%"
+        },
+        {
+          "method": "Frequenting Inns/Taverns",
+          "cost": "10 gp per establishment",
+          "attraction": "Induces 1d4% response for every 10 gp spent (up to a maximum of 5d4%), but each establishment visited (up to a maximum of 10) reduces the effectiveness of the others by 1%"
+        }
+      ],
+      "combinationPenalty": "Each additional recruiting method used beyond the first reduces the total percentage by 5%"
+    },
+
+    "response": "The modified total from recruitment efforts represents the percentage of all available henchmen that respond. After initial recruitment, applicants will appear over the course of 2d4 days. If the player character is not present when an applicant seeks them out, that recruitment opportunity is lost. Casting spells upon prospective henchmen will generally result in an unfavorable response (with possible exceptions using know alignment or detect good/evil), and direct questions about alignment or other breaches of etiquette are also poorly received.",
+    "characteristics": "When interviewing potential henchmen, only those attributes that are normally observable should be revealed. The player should not be given explicit details such as exact alignment, constitution score, or level; instead, a general impression is granted as a reward for careful questioning.",
+    "race": "The race of each respondent should mirror local demographics. For example, if a prosperous trading city has 24,000 humans, then around 80% of candidates should be human. If a higher incidence of adventurers among demi-humans is desired, consider doubling the number of respondents from that group."
+  },
+  "classDetermination": {
+      "description": "Use the table below to randomly determine the class of applicants. Once characteristics are known and the candidate qualifies, there is a 1 in 10 chance that a fighter will actually be a ranger (and similarly a paladin), and a 1 in 6 chance that a magic user will be an illusionist, that a cleric will be a druid, or that a thief will be an assassin, provided the candidate meets the requirements. Demi-humans may qualify for two or three classes if they have two scores greater than 13 in the relevant characteristics.",
+      "table": [
+        { "dPercentRange": "01-40", "class": "Fighter" },
+        { "dPercentRange": "41-60", "class": "Magic User" },
+        { "dPercentRange": "61-80", "class": "Cleric" },
+        { "dPercentRange": "91-00", "class": "Thief" }
+      ]
+    },
+    "levelDetermination": {
+      "description": "Newly recruited henchmen are generally first-level characters. If the player character is above sixth level, 1 in 10 henchmen will be second level. If the player is above twelfth level, 1 in 4 will be second level and another 1 in 4 will be third level."
+    },
+    "cost": {
+      "description": "The minimum offer a henchman will consider is 100 gp per level, which yields a 30% chance of acceptance. For every additional 10 gp offered above the minimum, the acceptance chance increases by 1%, up to a maximum chance of 60%.",
+      "formula": "Acceptance Chance = 30% + ((Extra gp offered / 10)%) capped at 60%"
+    },
+    "equipment": {
+      "description": "Prospective henchmen arrive with only the clothes they are wearing and a few coppers in their pockets. An offer must include complete equipment appropriate to their class(es). Any magic items useful to the candidate typically increase the acceptance chance by 15% (note: magical ammunition counts only in groups of six)."
+    },
+    "roomAndBoard": {
+      "description": "Henchmen always expect free room and board. Failure to include an offer of free room and board decreases the chance of acceptance by 25%."
+    },
+    "treasure": {
+      "description": "The player character must explain specific duties and treasure distribution expectations. Henchmen will want to know what percentage of treasure they will receive and what to expect regarding magic items. In addition to living expenses, henchmen typically receive a half-share of the treasure gained on an expedition, and they expect healing and other restorative spells as needed."
+    },
+    "offer": {
+      "description": "When a player character tenders an offer, all percentage modifiers—stemming from cost, equipment, room and board, treasure, and any charisma adjustments—are tallied to create the offer acceptance chance. If a d% roll does not exceed this chance, the candidate accepts service as a henchman."
+    },
+    "exceptionalHenchmen": {
+      "description": "In certain cases, a high-level NPC may be offered henchman status. If such a candidate is more than two levels higher than the player character, they will accept only associate status for one or two adventures. No inducement will compel a longer term. However, if the player character is more than two levels higher than the candidate, an offer may be made under normal guidelines. In other circumstances, the candidate will agree to associate status for only 1d4 weeks/adventures. Offers accepted under threat will likely result in questionable loyalty."
+    },
+    "associates": {
+      "description": "An associate NPC considers themselves to be the equal (or even superior) of any player character—whether coerced, hired, or joining willingly for personal gain. Such characters expect full membership with the group, sharing risks and receiving a full share of any treasure or magic items gained. Associates typically function in this capacity for only one or two adventures."
+    },
+    "loyalty": {
+      "description": "Initial loyalty is 50%, which is adjusted by the charisma modifier of the player character in whose service they are. Guidelines for adjusting loyalty based on prevailing circumstances are available, though an experienced game master will often rely on personal judgment rather than strict tables."
+    }
+
+}

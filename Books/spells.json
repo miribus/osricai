@@ -1,5 +1,5 @@
 {
-  "category": "Magic System",
+  "category": "Magic System & Spells",
   "rules": {
     "Spell Preparation": {
       "Arcane & Phantasmal Spells": "Acquired through study and practice. The caster must have the spell in a spell book and have prepared it for casting.",
@@ -6318,7 +6318,1077 @@
           "Material Component Cost": "Ink valued at 200 gp."
         }
       }
-
+    },
+    "Illusionist Spells": {
+      "Alter Reality": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 7",
+        "Range": "Unlimited",
+        "Duration": "Varies (GM discretion)",
+        "Area of Effect": "Varies (GM discretion)",
+        "Components": "Varies (GM discretion)",
+        "Casting Time": "Varies (GM discretion)",
+        "Saving Throw": "Varies (GM discretion)",
+        "Description": {
+          "Effect": "Functions similarly to Limited Wish but requires the creation of a phantasmal force beforehand."
+        }
+      },
+      "Arcane Spells, Level 1": {
+        "Spell Type": "Various",
+        "Level": "Illusionist 7",
+        "Range": "See below",
+        "Duration": "See below",
+        "Area of Effect": "See below",
+        "Components": "See below",
+        "Casting Time": "See below",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Allows an illusionist to memorize multiple first-level magic user spells in place of one seventh-level illusionist spell.",
+          "Spell Substitution": "Illusionist may memorize a number of magic user spells equal to caster level minus ten."
+        }
+      },
+      "Astral Spell": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 7",
+        "Range": "Touch",
+        "Duration": "See below",
+        "Area of Effect": "One to six creatures",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "3 turns",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Identical to the magic user spell Astral Spell."
+        }
+      },
+      "Audible Glamour": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 1",
+        "Range": "60 ft + 10 ft per level",
+        "Duration": "3 rounds per level",
+        "Area of Effect": "Hearing range",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "5 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Functions identically to the magic user spell Audible Glamour."
+        }
+      },
+      "Blindness": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "30 ft",
+        "Duration": "Permanent",
+        "Area of Effect": "One creature",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "2 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Causes blindness without damaging the eyes.",
+          "Healing Restriction": "Cannot be removed by standard health-restoring spells.",
+          "Dispelling & Control": "May be dispelled normally; caster can end the condition at will."
+        }
+      },
+      "Blur": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "Caster",
+        "Duration": "3 rounds + 1 round per level",
+        "Area of Effect": "Caster",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a shimmering distortion around the caster, making them harder to target.",
+          "Magical Defense": "+1 bonus against targeted magical attacks.",
+          "Attack Penalties": {
+            "First Attack": "-4 penalty.",
+            "Subsequent Attacks": "-2 penalty."
+          },
+          "Adaptive Effect": "Opponents adjust to the distortion after their first attack."
+        }
+      },
+      "Change Self": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 1",
+        "Range": "Caster",
+        "Duration": "2d6 rounds + 2 rounds per level",
+        "Area of Effect": "Caster",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Allows the caster to alter their appearance into any bipedal humanoid form.",
+          "Size & Weight Limitations": "Can change height by up to 1 foot and weight by up to 50 lbs.",
+          "Identity Mimicry": "Caster may replicate the appearance of an existing person."
+        }
+      },
+      "Chaos": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 5",
+        "Range": "5 ft per level",
+        "Duration": "1 round per level",
+        "Area of Effect": "Up to 40 × 40 ft",
+        "Components": [
+          "Verbal",
+          "Somatic",
+          "Material"
+        ],
+        "Casting Time": "5 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Causes affected creatures to behave unpredictably.",
+          "Saving Throw Mechanics": {
+            "Eligible Creatures": "Only illusionists, fighters, and creatures with Intelligence ≤ 4 receive a saving throw.",
+            "Repeating Saves": "Those entitled to a save must check each round."
+          },
+          "Random Action Table": {
+            "01-10": "Attacks caster or allies.",
+            "11-20": "Acts normally.",
+            "21-50": "Babbles incoherently.",
+            "51-70": "Meanders away from caster for a full turn.",
+            "71-00": "Attacks nearest creature."
+          },
+          "Escaping the Spell": "Creatures that meander away cease to receive saving throws and are freed after one full turn."
+        }
+      },
+      "Colour Spray": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "0",
+        "Duration": "1 segment",
+        "Area of Effect": "Cone (5 ft wide at origin, 45° arc, 10 ft per level long)",
+        "Components": [
+          "Verbal",
+          "Somatic",
+          "Material"
+        ],
+        "Casting Time": "1 segment",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a dazzling burst of colored light that affects creatures based on hit dice.",
+          "Hit Dice Effects": {
+            "HD ≤ Caster’s": "Unconscious.",
+            "HD exceeds caster’s by 1-2": "Blinded for 1d4 rounds.",
+            "HD exceeds caster’s by 3+": "Stunned for 2d4 segments.",
+            "Creatures with HD exceeding caster's and all creatures of 6+ HD": "Receive a saving throw."
+          }
+        }
+      },
+      "Confusion": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 4",
+        "Range": "80 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "Up to 40 × 40 ft",
+        "Components": [
+          "Verbal",
+          "Somatic",
+          "Material"
+        ],
+        "Casting Time": "4 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Affects a base number of 2d8 creatures, causing confusion.",
+          "Comparison": "Identical to the druidic spell of the same name."
+        }
+      },
+      "Conjure Animals": {
+        "Spell Type": "Phantasmal Conjuration/Summoning",
+        "Level": "Illusionist 6",
+        "Range": "30 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "Conjured creatures",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "6 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Identical to the clerical spell Conjure Animals."
+        }
+      },
+      "Continual Darkness": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 3",
+        "Range": "60 ft",
+        "Duration": "Permanent",
+        "Area of Effect": "30 ft radius globe",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a sphere of magical darkness.",
+          "Comparison": "Similar to Magic User spell Darkness 15 ft radius, but with altered area of effect."
+        }
+      },
+      "Continual Light": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 3",
+        "Range": "60 ft",
+        "Duration": "Permanent",
+        "Area of Effect": "60 ft radius globe",
+        "Components": [
+          "Verbal",
+          "Somatic"
+        ],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a permanent source of magical illumination.",
+          "Comparison": "Identical to the clerical spell Continual Light."
+        }
+      },
+      "Dancing Lights": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "40 ft + 10 ft per level",
+        "Duration": "2 rounds per level",
+        "Area of Effect": "60 ft radius globe",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates floating, glowing lights.",
+          "Comparison": "Identical to the Magic User spell Dancing Lights."
+        }
+      },
+      "Darkness": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "40 ft + 10 ft per level",
+        "Duration": "2d4 rounds + 1 round per level",
+        "Area of Effect": "15 ft radius globe",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a sphere of magical darkness.",
+          "Comparison": "Similar to Magic User spell Darkness 15 ft radius."
+        }
+      },
+      "Deafness": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "60 ft",
+        "Duration": "Permanent",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Causes permanent deafness without physical damage.",
+          "Removal": "Can only be ended by Dispel Magic or at caster's discretion."
+        }
+      },
+      "Demi-Shadow Magic": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 6",
+        "Range": "60 ft + 10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "See below",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "6 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a quasi-real version of select arcane spells.",
+          "Included Spells": [
+            "Cloudkill",
+            "Cone of Cold",
+            "Magic Missile",
+            "Fireball",
+            "Lightning Bolt",
+            "Wall of Fire",
+            "Wall of Ice"
+          ],
+          "Saving Throw Effects": {
+            "Failure": "Spell functions as real.",
+            "Success": "Reduces damage: Offensive spells deal 2 HP per caster level; walls deal 1d4 HP per caster level; Cloudkill only affects creatures below 2 HD."
+          }
+        }
+      },
+      "Demi-Shadow Monsters": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 5",
+        "Range": "30 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "20 × 20 ft",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "5 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates semi-real illusory monsters.",
+          "Hit Point Reduction": "40% of normal HP (compared to Shadow Monsters' 20%).",
+          "Combat Impact": "If detected as quasi-real, deals 40% damage and has AC 8."
+        }
+      },
+      "Detect Illusion": {
+        "Spell Type": "Phantasmal Divination",
+        "Level": "Illusionist 1",
+        "Range": "Caster",
+        "Duration": "3 rounds + 2 rounds per level",
+        "Area of Effect": "Path 10 ft wide, 10 ft per level long",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Allows caster to see illusions as they truly are.",
+          "Touch Interaction": "By touching an illusion, its true form is revealed to any observer."
+        }
+      },
+      "Detect Invisibility": {
+        "Spell Type": "Phantasmal Divination",
+        "Level": "Illusionist 1",
+        "Range": "10 ft per level",
+        "Duration": "5 rounds per level",
+        "Area of Effect": "Caster",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Allows caster to perceive invisible objects and creatures.",
+          "Comparison": "Identical to the Magic User spell Detect Invisibility."
+        }
+      },
+      "Detect Magic": {
+        "Spell Type": "Phantasmal Divination",
+        "Level": "Illusionist 2",
+        "Range": "Caster",
+        "Duration": "2 rounds per level",
+        "Area of Effect": "Path 10 ft wide, 60 ft long",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Detects magical auras within the spell’s area.",
+          "Comparison": "Identical to the Clerical spell Detect Magic."
+        }
+      },
+      "Dispel Exhaustion": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 4",
+        "Range": "Touch",
+        "Duration": "3 turns per level",
+        "Area of Effect": "Up to 4 creatures",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates an illusion of physical health, granting temporary hit points.",
+          "Illusory Health": "Recipients regain 50% of lost hit points as illusionary HP.",
+          "Damage Mechanics": "Illusory hit points are subtracted first upon injury.",
+          "Mobility Enhancement": "Affected creatures can move at double speed but cannot attack."
+        }
+      },
+      "Dispel Illusion": {
+        "Spell Type": "Phantasmal Abjuration",
+        "Level": "Illusionist 3",
+        "Range": "10 ft per level",
+        "Duration": "Instantaneous",
+        "Area of Effect": "One illusion",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Automatically dispels phantasmal forces cast by non-illusionists.",
+          "General Illusion Dispel": "Functions as Dispel Magic with a 50% base chance, adjusted based on caster levels."
+        }
+      },
+      "Emotion": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 4",
+        "Range": "10 ft per level",
+        "Duration": "Until concentration ceases",
+        "Area of Effect": "Up to 40 × 40 ft",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Instills creatures with one of four emotions, each with distinct effects.",
+          "Emotion Effects": {
+            "Fear": "Functions as Fear spell but imposes -2 penalty on saving throws.",
+            "Hate": "+2 bonus to saving throws, attacks, and damage.",
+            "Hopelessness": "Causes targets to wander away or surrender.",
+            "Rage": "+1 attack, +3 damage, +5 temporary HP; affected creatures will not retreat."
+          }
+        }
+      },
+      "Fear": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "0",
+        "Duration": "See below",
+        "Area of Effect": "5 ft × 30 ft × 60 ft cone",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Creates a cone of fear that causes affected creatures to flee.",
+          "Comparison": "Identical to Magic User spell Fear."
+        }
+      },
+      "Fog Cloud": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 2",
+        "Range": "10 ft",
+        "Duration": "4 rounds + 1 round per level",
+        "Area of Effect": "40 × 20 × 20 ft cloud",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a mass of thick fog, resembling Cloudkill spell.",
+          "Movement": "Drifts away from caster at 10 ft per round.",
+          "Visibility Reduction": "Limits sight within fog to 2 ft."
+        }
+      },
+      "Gaze Reflection": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "0",
+        "Duration": "1 round",
+        "Area of Effect": "Air in front of caster",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates an invisible reflective barrier against gaze attacks.",
+          "Visibility Properties": "Appears transparent to all observers except gaze attackers.",
+          "Attack Deflection": "Reflects gaze attacks back at the source."
+        }
+      },
+      "Hallucinatory Terrain": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "20 ft + 20 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "40 × 40 ft square area + 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "5 rounds",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Alters the appearance of terrain to mislead observers.",
+          "Comparison": "Identical to the Magic User spell Hallucinatory Terrain."
+        }
+      },
+      "Hypnotic Pattern": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "0",
+        "Duration": "See below",
+        "Area of Effect": "30 × 30 ft square",
+        "Components": ["Somatic", "Material"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Creates a mesmerizing pattern of light, entrancing viewers.",
+          "Target Interaction": "Creatures viewing the pattern must save or become transfixed.",
+          "Hit Dice Limitation": "Maximum affected HD = 25.",
+          "Sustained Effect": "Persists as long as the illusionist continues tracing the pattern."
+        }
+      },
+      "Hypnotism": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 1",
+        "Range": "30 ft",
+        "Duration": "1 round + 1 round per level",
+        "Area of Effect": "1d6 creatures",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Hypnotic gestures imbue words with magical influence.",
+          "Suggested Action": "Creatures failing their save obey a suggestion from the caster.",
+          "Comparison": "Functions like the Magic User spell Suggestion, but with shorter duration."
+        }
+      },
+      "Illusory Script": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "0",
+        "Duration": "Permanent",
+        "Area of Effect": "Enchanted script",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "Time of writing",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Protects written text with an illusory barrier.",
+          "Reader Restriction": "Only designated individuals can decipher the script.",
+          "Confusion Effect": "Unauthorized readers suffer confusion for 5d4 turns (minus 1 per hit die).",
+          "Illusionist Recognition": "Can identify as illusion but may not see past the effect."
+        }
+      },
+      "Improved Invisibility": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 4",
+        "Range": "Touch",
+        "Duration": "4 rounds + 1 round per level",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates sustained invisibility that does not end when the target attacks.",
+          "Comparison": "Enhanced version of the standard Invisibility spell."
+        }
+      },
+      "Improved Phantasmal Force": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "60 ft + 10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "40 × 40 ft square + 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a vivid illusion with added sound elements.",
+          "Audible Additions": "Can include vague sounds like clanking or rumbling but not speech.",
+          "Mobility Enhancement": "Caster can move at half normal speed while maintaining illusion.",
+          "Sustained Effect": "Illusion persists up to two rounds after concentration ceases."
+        }
+      },
+      "Invisibility": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "Touch",
+        "Duration": "See below",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Grants invisibility to the target.",
+          "Comparison": "Identical to the Magic User spell Invisibility."
+        }
+      },
+      "Invisibility 10 ft Radius": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "Touch",
+        "Duration": "See below",
+        "Area of Effect": "10 ft radius of creature touched",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Grants invisibility to the target and those within a 10 ft radius.",
+          "Comparison": "Identical to the Magic User spell Invisibility 10 ft Radius."
+        }
+      },
+      "Light": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "60 ft",
+        "Duration": "1 turn per level",
+        "Area of Effect": "20 ft radius",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a glowing light.",
+          "Comparison": "Identical to the Clerical spell Light."
+        }
+      },
+      "Magic Mouth": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 2",
+        "Range": "See below",
+        "Duration": "Permanent until triggered",
+        "Area of Effect": "One object",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Imbues an object with a triggered magical voice.",
+          "Comparison": "Identical to the Magic User spell Magic Mouth."
+        }
+      },
+      "Major Creation": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 5",
+        "Range": "10 ft",
+        "Duration": "6 turns per level",
+        "Area of Effect": "1 cubic ft per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 turn",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates objects of both mineral and vegetable origin.",
+          "Comparison": "Enhanced version of Minor Creation."
+        }
+      },
+      "Mass Suggestion": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 6",
+        "Range": "10 ft per level",
+        "Duration": "4 turns + 4 turns per level",
+        "Area of Effect": "One creature per level",
+        "Components": ["Verbal", "Material"],
+        "Casting Time": "6 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Influences multiple creatures with an enchantment similar to Suggestion.",
+          "Single-Target Enhancement": "If cast on one creature, functions as Suggestion with -2 penalty to save."
+        }
+      },
+      "Massmorph": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 4",
+        "Range": "10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "Up to 10 × 10 ft per level",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Transforms creatures to appear as trees or objects.",
+          "Comparison": "Identical to the Magic User spell Massmorph."
+        }
+      },
+      "Maze": {
+        "Spell Type": "Phantasmal Conjuration/Summoning",
+        "Level": "Illusionist 5",
+        "Range": "5 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "5 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Removes a creature from combat by trapping them in an extradimensional maze.",
+          "Comparison": "Identical to the Magic User spell Maze."
+        }
+      },
+      "Minor Creation": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 4",
+        "Range": "Touch",
+        "Duration": "6 turns per level",
+        "Area of Effect": "1 cubic ft per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 turn",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates objects made from plant-derived materials.",
+          "Material Restrictions": "Must originate from non-living plant matter.",
+          "Examples": "Can create baskets from straw, wooden items from splinters, wool garments, etc.",
+          "Temporary Nature": "Objects exist only for the duration of the spell."
+        }
+      },
+      "Mirror Image": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "Caster",
+        "Duration": "3 rounds per level",
+        "Area of Effect": "6 ft radius",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates illusory duplicates of the caster.",
+          "Number of Images": "1d4+1",
+          "Comparison": "Similar to the Magic User spell Mirror Image, but with adjusted duration."
+        }
+      },
+      "Misdirection": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "30 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "One object or creature",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Causes divination spells to give false results.",
+          "Divination Interference": "A failed saving throw results in incorrect detection of alignment, location, and other traits."
+        }
+      },
+      "Non-Detection": {
+        "Spell Type": "Phantasmal Abjuration",
+        "Level": "Illusionist 3",
+        "Range": "Caster",
+        "Duration": "1 turn per level",
+        "Area of Effect": "5 ft radius",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Shields caster from magical detection and scrying.",
+          "Divination Resistance": "Blocks effects such as crystal ball scrying and thought detection."
+        }
+      },
+      "Paralysation": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "10 ft per level",
+        "Duration": "Permanent",
+        "Area of Effect": "20 × 20 ft",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Magically convinces creatures they cannot move.",
+          "Hit Dice Limitation": "Can affect creatures with total HD equal to twice caster's level.",
+          "Escape Mechanics": {
+            "Saving Throw": "Each creature receives a saving throw.",
+            "Spell Removal": "May be ended by the illusionist or dispelled using Dispel Magic or Dispel Illusion."
+          }
+        }
+      },
+      "Permanent Illusion": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 6",
+        "Range": "30 ft",
+        "Duration": "Permanent",
+        "Area of Effect": "40 × 40 ft square + 10 × 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "6 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a sustained illusion requiring no concentration.",
+          "Comparison": "Similar to the Spectral Force spell."
+        }
+      },
+      "Phantasmal Force": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 1",
+        "Range": "60 ft + 10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "40 × 40 ft square + 10 × 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a visible illusion capable of affecting reality if believed.",
+          "Comparison": "Identical to the Magic User spell Phantasmal Force."
+        }
+      },
+      "Phantasmal Killer": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 4",
+        "Range": "5 ft per level",
+        "Duration": "1 round per level",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a nightmare creature visible only to the caster and target, drawn from the target's worst fears.",
+          "Disbelief Mechanics": {
+            "Roll": "Victim rolls 3d6 and compares result to Intelligence score.",
+            "Success": "If roll is less than Intelligence, the illusion is recognized and has no effect.",
+            "Modifiers": {
+              "Illusionist Target": "-2 to roll.",
+              "Surprised Target": "+1 to roll.",
+              "Previously Attacked by Phantasmal Killer": "-1 to roll.",
+              "Wisdom Bonus": "Subtract wisdom bonus from roll (instead of adding)."
+            }
+          },
+          "Combat Effects": {
+            "Hit Dice": "Attacks as a 4 HD monster.",
+            "Fright Effect": "If attack hits, victim dies instantly from fright.",
+            "Immunity": "Apparition is invulnerable to damage and cannot be escaped."
+          },
+          "Duration & Dismissal": {
+            "Spell End Conditions": [
+              "At the end of duration.",
+              "If caster dismisses it.",
+              "If caster is killed or rendered unconscious."
+            ]
+          }
+        }
+      },
+      "Prismatic Spray": {
+        "Spell Type": "Phantasmal Abjuration",
+        "Level": "Illusionist 7",
+        "Range": "0",
+        "Duration": "Instantaneous",
+        "Area of Effect": "70 ft × 15 ft × 5 ft spray",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "7 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Projects a spray of colors identical to Prismatic Wall, affecting creatures within the area.",
+          "Randomized Ray Effects": {
+            "Red": "20 points of damage (saving throw for half).",
+            "Orange": "40 points of damage (saving throw for half).",
+            "Yellow": "80 points of damage (saving throw for half).",
+            "Green": "Poison (saving throw or die).",
+            "Blue": "Turns to stone (saving throw negates).",
+            "Indigo": "Causes insanity (saving throw negates).",
+            "Violet": "Transports target to another plane (saving throw negates).",
+            "Two Colors": "Roll twice, ignoring this result."
+          }
+        }
+      },
+      "Prismatic Wall": {
+        "Spell Type": "Phantasmal Abjuration",
+        "Level": "Illusionist 7",
+        "Range": "10 ft",
+        "Duration": "1 turn per level",
+        "Area of Effect": "Wall up to 40 ft per caster level in length and 20 ft per caster level in height",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "7 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a magical prismatic wall functioning similarly to Prismatic Sphere but in wall form."
+        }
+      },
+      "Programmed Illusion": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 6",
+        "Range": "10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "40 × 40 ft square + 10 × 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "6 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a triggered illusion similar to Spectral Force that activates upon a preset event.",
+          "Trigger Mechanism": "Functions like Magic Mouth, activating when predetermined conditions occur.",
+          "Illusion Duration": "Lasts 1 round per caster level."
+        }
+      },
+      "Project Image": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 5",
+        "Range": "5 ft per level",
+        "Duration": "1 round per level",
+        "Area of Effect": "See below",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "5 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates an illusory duplicate of the caster.",
+          "Comparison": "Identical to the Magic User spell Project Image."
+        }
+      },
+      "Rope Trick": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 3",
+        "Range": "Touch",
+        "Duration": "2 turns per level",
+        "Area of Effect": "One piece of rope",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates an extra-dimensional space accessible via a suspended rope.",
+          "Comparison": "Identical to the Magic User spell Rope Trick."
+        }
+      },
+      "Shades": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 6",
+        "Range": "30 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "20 × 20 ft",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "6 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates partially-real illusory monsters similar to Shadow Monsters.",
+          "Hit Point Reduction": "Shades have 60% of normal HP (compared to Shadow Monsters' 20%).",
+          "Combat Impact": "If detected as quasi-real, deals 60% damage and has AC 6."
+        }
+      },
+      "Shadow Door": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 5",
+        "Range": "10 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "Magic door",
+        "Components": ["Somatic"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates an illusory door that the caster can pass through to become unseen.",
+          "Illusory Space": "Others opening the door see only a small empty room.",
+          "Advanced Invisibility": "Caster cannot be detected by Detect Invisibility but may be seen by more powerful divination magic."
+        }
+      },
+      "Shadow Magic": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 5",
+        "Range": "50 ft + 10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "See below",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "5 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Adds quasi-reality to an illusion based on the shadow planes.",
+          "Available Spells": [
+            "Cone of Cold",
+            "Fireball",
+            "Lightning Bolt",
+            "Magic Missile"
+          ],
+          "Saving Throw Effects": {
+            "Failure": "Spell functions as real.",
+            "Success": "Target takes only 1 HP per caster level."
+          }
+        }
+      },
+      "Shadow Monsters": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 4",
+        "Range": "30 ft",
+        "Duration": "1 round per level",
+        "Area of Effect": "20 × 20 ft",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "4 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates semi-real creatures drawn from the shadow planes.",
+          "Caster's Level Restriction": "Total monster hit dice cannot exceed caster's level.",
+          "Hit Dice Reduction": "Shadow monsters have only 20% of normal HP.",
+          "Combat Effects": {
+            "Failed Save": "Monsters strike as their true form (excluding breath weapons).",
+            "Successful Save": "Monsters treated as AC 10 and deal only 20% normal damage."
+          }
+        }
+      },
+      "Spectral Force": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 3",
+        "Range": "60 ft + 10 ft per level",
+        "Duration": "See below",
+        "Area of Effect": "40 × 40 ft square + 10 × 10 ft square per level",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "See below",
+        "Description": {
+          "Effect": "Creates a realistic illusion with sound, smell, and temperature effects.",
+          "Sustained Effect": "Illusion persists for 3 rounds after caster ceases concentration."
+        }
+      },
+      "Suggestion": {
+        "Spell Type": "Phantasmal Enchantment/Charm",
+        "Level": "Illusionist 3",
+        "Range": "30 ft",
+        "Duration": "4 turns + 4 turns per level",
+        "Area of Effect": "One creature",
+        "Components": ["Verbal", "Material"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "Negates",
+        "Description": {
+          "Effect": "Influences a single creature with a compelling verbal suggestion.",
+          "Comparison": "Identical to the Magic User spell Suggestion."
+        }
+      },
+      "Summon Shadow": {
+        "Spell Type": "Phantasmal Conjuration/Summoning",
+        "Level": "Illusionist 5",
+        "Range": "10 ft",
+        "Duration": "1 round + 1 round per level",
+        "Area of Effect": "Summoned shadows",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "5 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Summons 1 undead shadow per caster level from the shadow planes.",
+          "Command": "Shadows obey the caster's will.",
+          "Turn Resistance": "If turned, shadows return to the shadow plane."
+        }
+      },
+      "True Sight": {
+        "Spell Type": "Phantasmal Divination",
+        "Level": "Illusionist 6",
+        "Range": "Touch",
+        "Duration": "1 round per level",
+        "Area of Effect": "60 ft radius",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Reveals hidden truths and illusions, but does not discern alignments.",
+          "Comparison": "Similar to the Clerical spell True Seeing, but lacks spiritual alignment detection."
+        }
+      },
+      "Veil": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 6",
+        "Range": "10 ft per level",
+        "Duration": "1 turn per level",
+        "Area of Effect": "20 × 20 ft per level",
+        "Components": ["Verbal", "Somatic"],
+        "Casting Time": "3 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Alters the appearance of an area and its inhabitants.",
+          "Comparison": "Similar to Hallucinatory Terrain, but affects objects and creatures.",
+          "Advanced Sensory Illusion": "Illusion affects sight and even the sense of touch."
+        }
+      },
+      "Ventriloquism": {
+        "Spell Type": "Phantasmal Illusion",
+        "Level": "Illusionist 2",
+        "Range": "10 ft per level, up to 90 ft maximum",
+        "Duration": "4 rounds + 1 round per level",
+        "Area of Effect": "One object",
+        "Components": ["Verbal", "Material"],
+        "Casting Time": "2 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Allows caster to project their voice to an object.",
+          "Comparison": "Identical to the Magic User spell Ventriloquism."
+        }
+      },
+      "Vision": {
+        "Spell Type": "Phantasmal Divination",
+        "Level": "Illusionist 7",
+        "Range": "Caster",
+        "Duration": "See below",
+        "Area of Effect": "Caster",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "7 segments",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Allows the caster to perceive deep cosmic patterns to answer a question.",
+          "Die Roll Mechanic": {
+            "10 or higher": "Gain significant insights.",
+            "7-9": "No useful results, no penalty.",
+            "2-6": "Caster becomes obsessed with a random task, acting as though under a Geas spell until completed."
+          },
+          "Risk Factor": "Failure can lead to obsession or wasted divination."
+        }
+      },
+      "Wall of Fog": {
+        "Spell Type": "Phantasmal Transmutation/Alteration",
+        "Level": "Illusionist 1",
+        "Range": "30 ft",
+        "Duration": "2d4 rounds + 1 round per level",
+        "Area of Effect": "20 ft per level cube",
+        "Components": ["Verbal", "Somatic", "Material"],
+        "Casting Time": "1 segment",
+        "Saving Throw": "None",
+        "Description": {
+          "Effect": "Creates a thick fog that obscures vision.",
+          "Visibility Reduction": "Limits sight within fog to 2 ft.",
+          "Wind Interaction": "Fog can be dispersed by normal or magical wind."
+        }
+      }
     }
   }
 }

@@ -1,0 +1,529 @@
+{
+  "hirelingDescriptions": [
+    {
+      "role": "Carpenter",
+      "description": "Carpenters are masters of woodcraft, skilled in fashioning everything from sturdy tables to defensive palisades. Their expertise is also indispensable for constructing shields and other wooden components essential to arms and armour."
+    },
+    {
+      "role": "Cook",
+      "description": "Cooks are adept at preparing a variety of hearty fare, crucial for keeping adventurers well-fed during long campaigns. A good cook often possesses a touch of herb lore, useful for brewing restorative potions or simple remedies."
+    },
+    {
+      "role": "Groom",
+      "description": "Grooms, also known as ostlers or stable hands, excel in the care and management of horses. Their trained eyes can discern a worthy steed from a tired one, ensuring that only the best mounts are relied upon in both travel and battle."
+    },
+    {
+      "role": "Labourer",
+      "description": "Labourers are the unskilled backbone of any endeavor, capable of performing menial tasks such as bearing loads and serving as porters. Typically, a labourer can carry up to fifty pounds on their own, and even more when aided by a simple pole or other device."
+    },
+    {
+      "role": "Leatherer",
+      "description": "Leatherers are practiced craftsmen who work with hides to produce a wide range of goods—from sturdy packs and belts to finely crafted riding gear. Their skills are essential in creating scabbards, sheathes, shields, and other leather components for arms and armour."
+    },
+    {
+      "role": "Limner",
+      "description": "Limners are skilled in the arts of painting and illumination, particularly in the crafting of heraldic devices and signage. Their work lends color and prestige to any hall, guild, or fortress."
+    },
+    {
+      "role": "Linkboy",
+      "description": "Linkboys are typically young apprentices hired to bear torches or lanterns, ensuring that dark alleys and shadowed dungeons remain lit. Although most are youths, experienced older individuals sometimes take on this role as well."
+    },
+    {
+      "role": "Mason",
+      "description": "Masons are experts in working with stone and plaster, fundamental to the construction of enduring edifices and formidable fortifications. Their skilled hands shape the very foundations upon which realms are built."
+    },
+    {
+      "role": "Pack Handler",
+      "description": "Pack handlers specialize in loading, managing, and unloading pack animals. Their expertise ensures that burdens are shared and transport is carried out safely and efficiently, whether on rugged trails or in bustling market districts."
+    },
+    {
+      "role": "Servant",
+      "description": "Servants attend to the day-to-day needs of their masters, serving as valets, butlers, maids, messengers, or simple lackeys. Their responsibilities range from managing household affairs to running errands in busy town squares."
+    },
+    {
+      "role": "Tailor",
+      "description": "Tailors are proficient in both the repair and the creation of garments—from surcoats and capes to hats and tunics. Their craftsmanship is also essential in producing textile-based armour and coverings, combining both elegance and protection."
+    },
+    {
+      "role": "Teamster",
+      "description": "Teamsters are skilled drivers of carts and wagons, adept at loading and unloading goods for long journeys. They are well-versed in handling the animals that pull these vehicles, ensuring smooth and efficient transport throughout the realm."
+    }
+  ],
+  "expertHirelingDescriptions": [
+    {
+      "role": "Alchemist",
+      "description": "Alchemists are masters of admixture and creation, skilled in blending powders, elixirs, unguents, salves, ointments, oils, essences, and other arcane ingredients. In this realm, a level seven magic user typically requires an alchemist’s aid to produce magical potions, while by level eleven such assistance becomes optional—albeit highly cost- and time-efficient, reducing production costs and time by half. These professionals are usually found only in cities, and it is uncommon for them to enter into service with an adventurer unless the contract is long-term (a year or more), the employer provides a fully stocked laboratory, and an initial fiscal incentive of up to one hundred gold pieces is offered."
+    },
+    {
+      "role": "Armourer",
+      "description": "Armourers are essential craftsmen for the production and maintenance of armour and shields. In a typical stronghold, for every sixty men-at-arms or barded warhorses there should be at least one armourer available. Each armourer must be provided with a dedicated workroom and forge at an additional cost, although the necessary apprentices and assistants are normally assumed to be included in his monthly wage. When unoccupied and given an initial preparatory week, a skilled armourer can produce items according to established guidelines; the game master should determine both the additional costs and the individual armourer's level of craftsmanship."
+    },
+    {
+      "role": "Blacksmith",
+      "description": "Blacksmiths are crucial for maintaining a stronghold and equipping its resident soldiers and warhorses. A single blacksmith can adequately support up to 120 men or horses. Every stronghold is expected to have at least one blacksmith, along with a dedicated workroom and forge. When given sufficient time, a blacksmith can produce simple weaponry at rates determined by the table below. The actual cost for production is set by the game master.",
+      "productionRates": [
+        {
+          "weaponType": "Arrow Head",
+          "daysToProduce": 1
+        },
+        {
+          "weaponType": "Quarrel Tip",
+          "daysToProduce": 1
+        },
+        {
+          "weaponType": "Spear",
+          "daysToProduce": 2
+        },
+        {
+          "weaponType": "Morning Star",
+          "daysToProduce": 2
+        },
+        {
+          "weaponType": "Flail",
+          "daysToProduce": 5
+        },
+        {
+          "weaponType": "Pole Arm",
+          "daysToProduce": 5
+        }
+      ],
+      "specializations": [
+        {
+          "race": "Dwarf",
+          "efficiencyFactor": "3x",
+          "wageMultiplier": "10x",
+          "note": "A dwarf blacksmith is three times as efficient as a human, but demands ten times the ordinary pay."
+        },
+        {
+          "race": "Gnome",
+          "efficiencyFactor": "2x",
+          "wageMultiplier": "4x",
+          "note": "A gnome blacksmith is twice as efficient as a human, but demands four times the usual wage."
+        }
+      ]
+    },
+    {
+      "role": "Engineer (Architect)",
+      "description": "Essential for the successful construction of all but the simplest surface structures, the Engineer (Architect) is indispensable in ensuring that buildings stand the test of time. They require payment on a monthly basis—even for short projects—and demand an additional fee equal to one-tenth of the overall building costs. Unless the construction site has been approved by an architect, there is a 75% chance (three in four) that any structure will collapse within a month to a few years of completion."
+    },
+    {
+      "role": "Engineer (Artillerist)",
+      "description": "Responsible for the construction and proper operation of siege weapons such as trebuchets and ballistae, the Engineer (Artillerist) is mandatory for effective siege warfare. Any attempt to build or use these weapons without the aid of such an engineer will surely fail. When retained for only a few months at a time, this specialist demands significantly higher pay—up to 60% above the standard wage."
+    },
+    {
+      "role": "Engineer (Miner and Sapper)",
+      "description": "Indispensable for overseeing mining operations, underground construction, and siege works (including trenches, fortifications, and assault towers), the Engineer (Miner and Sapper) plays a crucial role in maintaining the structural integrity of large projects. When employing dwarf miners, a dwarf engineer is required; he will demand twice the standard wage but will increase the productivity of any human miners by 20%."
+    },
+    {
+      "role": "Jeweller and Gemcutter",
+      "description": "Skilled in the appraisal, repair, and crafting of ornamental items and jewellery, a Jeweller and Gemcutter can quickly determine the value of gems and precious objects. Simple tasks, such as setting a stone in a sword hilt or forging a plain ring, might take only a few days to a week, whereas more complex projects, like producing a gem-studded bracelet, could take up to a month—and truly opulent, intricate items might require a year or more. Often, a jeweller is also adept at cutting gems, thereby enhancing the value of poorly cut stones, typically those valued at less than 5000 gold pieces. Proficiency in these skills varies and must be determined by the game master. A dwarf jeweller frequently exhibits superior general ability compared to a human but demands twice the pay, while a gnome may be on par with a human as a jeweller but typically excels in gemcutting, also commanding twice the standard wage."
+    },
+    {
+      "role": "Scribe",
+      "description": "Practiced in the art of writing, a typical scribe is expected to keep records, write letters, and copy documents. Others may possess additional skills—such as cartography, counterfeiting, cryptography, illuminating, or the ability to write, read, or otherwise comprehend more than one language. Such accomplished individuals might command ten times the standard wage.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Spy",
+      "description": "Recruited to secretly watch the actions of others and gather information, a spy can range from an underpaid, disgruntled chamber maid to a professional thief or assassin. A player character wishing to engage the services of a prospective informer must do their own convincing. Fees may vary widely—from perhaps a mere 100 gold pieces to many thousands—depending on the individual and the difficulty of the task. The base probability of successfully completing a task ranges from 10% to 50%, modified as appropriate by the spy's class and level. Frequently involved in subterfuge, a character may be treated as a spy of a level equivalent to the number of successful assignments they have carried out, within reasonable limits. There is always a small chance that a spy will be discovered; failure may result in disappearance, death, or betrayal.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Steward",
+      "description": "Responsible for the administration of a stronghold in the absence or incapacity of a player character, a steward holds a position of great prestige and trust. Usually promoted from the ranks of mercenary captains, a steward will not take kindly to being asked to reassume that role, even temporarily. While serving within the stronghold, a steward can lead 40 men at arms and 2 lieutenants for every level of experience he possesses, along with the necessary number of sergeants. Provided the fortress is well provisioned, garrisoned, and supported at the time of his appointment, the steward ensures these conditions continue. If a player character expects his dependents to vigorously resist enemy action in his absence, strong loyalty must be maintained. The monthly wage for a steward is equal to his level multiplied by 100 gold pieces.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Weaponer",
+      "description": "Required for the production of complex weaponry and maintenance of the arms of any soldier, a weaponer must be available at a ratio of at least one for every 60 men at arms retained. Each weaponer must be provided with a dedicated workroom and forge (at additional cost), though sufficient apprentices and assistants are assumed to be included in his monthly wage. When unoccupied and given an initial preparation period—one month for most arms, or one year in the case of long and composite bows—a weaponer may produce various arms at rates determined by the game master. (Note that a leatherer is additionally required for the creation of scabbards and sheaths.)",
+      "typicalEquipment": [],
+      "productionRates": [
+        {
+          "weaponType": "Bow, Long",
+          "daysToProduce": "6-15"
+        },
+        {
+          "weaponType": "Bow, Composite",
+          "daysToProduce": "6-15"
+        },
+        {
+          "weaponType": "Crossbow, Heavy",
+          "daysToProduce": "2"
+        },
+        {
+          "weaponType": "Scimitar",
+          "daysToProduce": "3"
+        },
+        {
+          "weaponType": "Sword, Bastard",
+          "daysToProduce": "3¾"
+        },
+        {
+          "weaponType": "Sword, Broad",
+          "daysToProduce": "2"
+        },
+        {
+          "weaponType": "Sword, Long",
+          "daysToProduce": "2½"
+        },
+        {
+          "weaponType": "Sword, Short",
+          "daysToProduce": "1½"
+        },
+        {
+          "weaponType": "Sword, Two Handed",
+          "daysToProduce": "6"
+        },
+        {
+          "weaponType": "Other",
+          "daysToProduce": "1"
+        }
+      ]
+    },
+    {
+  "role": "Sage",
+  "description": "The ultimate receptacle of knowledge and lore, a sage is akin to a medieval research library contained in one individual. They possess a broad range of general knowledge, considerable expertise in a few specific fields, and authoritative mastery in their specialties. In game terms, a sage can converse intelligently on many subjects, provide exceptionally good advice in their fields of study, and offer reasonable counsel in one or two additional areas. Their guidance is never to be taken lightly.",
+  "inGameAbilities": {
+    "generalKnowledge": "Capable of engaging in intelligent conversation on a wide variety of subjects.",
+    "specialistAdvice": "Delivers authoritative advice in their special fields of research.",
+    "supplementaryAdvice": "Provides reasonable advice in one or two other domains."
+  },
+  "specialtyDetermination": {
+    "note": "The specific fields of specialty should be determined by the GM—either through random generation or by tailoring them to the campaign’s needs. Care must be taken to avoid meta-game questions; the sage's knowledge is limited to the lore of the setting. For instance, if laser guns do not exist in your campaign's milieu, the sage will not offer insight on them.",
+    "sageAbilityTable": [
+    {
+      "dPercentRange": "01-10",
+      "minorFields": 1,
+      "specialCategoriesInMajorField": 2
+    },
+    {
+      "dPercentRange": "11-30",
+      "minorFields": 1,
+      "specialCategoriesInMajorField": 3
+    },
+    {
+      "dPercentRange": "31-50",
+      "minorFields": 1,
+      "specialCategoriesInMajorField": 4
+    },
+    {
+      "dPercentRange": "51-70",
+      "minorFields": 2,
+      "specialCategoriesInMajorField": 2
+    },
+    {
+      "dPercentRange": "71-90",
+      "minorFields": 2,
+      "specialCategoriesInMajorField": 3
+    },
+    {
+      "dPercentRange": "91-00",
+      "minorFields": 2,
+      "specialCategoriesInMajorField": 4
+    }
+  ],
+  "sageFieldsOfStudy": [
+    {
+      "category": "Humankind",
+      "dPercentRange": "01-30",
+      "fields": [
+        { "field1": "Art", "field2": "Law" },
+        { "field1": "Biology", "field2": "Politics" },
+        { "field1": "Demography", "field2": "Psychology" },
+        { "field1": "History", "field2": "Religion" },
+        { "field1": "Languages", "field2": "Sociology" }
+      ]
+    },
+    {
+      "category": "Demi-Humankind",
+      "dPercentRange": "31-40",
+      "fields": [
+        { "field1": "Art", "field2": "Law" },
+        { "field1": "Biology", "field2": "Politics" },
+        { "field1": "Demography", "field2": "Psychology" },
+        { "field1": "History", "field2": "Religion" },
+        { "field1": "Languages", "field2": "Sociology" }
+      ]
+    },
+    {
+      "category": "Humanoids",
+      "dPercentRange": "41-50",
+      "fields": [
+        { "field1": "Art", "field2": "Law" },
+        { "field1": "Biology", "field2": "Politics" },
+        { "field1": "Demography", "field2": "Psychology" },
+        { "field1": "History", "field2": "Religion" },
+        { "field1": "Languages", "field2": "Sociology" }
+      ]
+    },
+    {
+      "category": "Natural Philosophy",
+      "dPercentRange": "51-65",
+      "fields": [
+        { "field1": "Alchemy", "field2": "Mathematics" },
+        { "field1": "Architecture", "field2": "Meteorology" },
+        { "field1": "Astronomy", "field2": "Metallurgy" },
+        { "field1": "Chemistry", "field2": "Oceanography" },
+        { "field1": "Geography", "field2": "Physics" },
+        { "field1": "Geology", "field2": "Topography" }
+      ]
+    },
+    {
+      "category": "Fauna",
+      "dPercentRange": "66-75",
+      "fields": [
+        { "field1": "Amphibians", "field2": "Insects" },
+        { "field1": "Arachnids", "field2": "Mammals" },
+        { "field1": "Avians", "field2": "Marsupials" },
+        { "field1": "Crustaceans & Molluscs", "field2": "Reptiles" },
+        { "field1": "Fish", "field2": null }
+      ]
+    },
+    {
+      "category": "Flora",
+      "dPercentRange": "76-85",
+      "fields": [
+        { "field1": "Bushes & Shrubs", "field2": "Herbs" },
+        { "field1": "Flowers", "field2": "Mosses & Ferns" },
+        { "field1": "Fungi", "field2": "Trees" },
+        { "field1": "Grasses & Grains", "field2": "Weeds" }
+      ]
+    },
+    {
+      "category": "Supernatural & Unusual",
+      "dPercentRange": "86-00",
+      "fields": [
+        { "field1": "Astrology & Numerology", "field2": "Magic" },
+        { "field1": "Cryptography", "field2": "Medicine" },
+        { "field1": "Divination", "field2": "Metaphysics" },
+        { "field1": "Heraldry, Signs, & Sigils", "field2": "Planes" }
+      ]
+    }
+  ],
+  "chanceOfKnowingAnswerNote": "Roll the generated number or less to determine if the sage knows the answer to the query."
+  },
+  "questionChances": {
+    "outOfFields": {
+      "general": "35%",
+      "specific": "10%",
+      "exacting": "1%"
+    },
+    "inMinorField": {
+      "general": "50%",
+      "specific": "35%",
+      "exacting": "15%"
+    },
+    "inMajorField": {
+      "general": "70%",
+      "specific": "60%",
+      "exacting": "35%"
+    },
+    "inSpecialCategory": {
+      "general": "90%",
+      "specific": "75%",
+      "exacting": "50%"
+    }
+  },
+  "questionExamples": {
+    "general": "Do humanoids inhabit the region north of the Great Mountains?",
+    "specific": "Do hobgoblins of the Three Skulls tribe live in the region north of the Great Mountains?",
+    "exacting": "Do the hobgoblins of the Three Skulls tribe living in the region north of the Great Mountains possess the dread artifact known as 'The Great Spear of Kaliban'?"
+  },
+  "sageHousingRequirements": {
+    "description": "A sage does not store all knowledge in his or her head—imagine a modern attorney with an extensive library. The minimum quarters a sage will accept consist of four separate rooms, each no less than 200 sq ft: living quarters, study, library, and workroom. Depending on the sage's areas of specialty, additional spaces (such as a zoo for live specimens or a greenhouse for plant study) may be required. The busier a sage's studies are, the more materials—and money—he or she will demand."
+  },
+  "sageCharacteristics": {
+    "strength": "1d8+6",
+    "intelligence": "1d4+14",
+    "dexterity": "3d6",
+    "wisdom": "1d6+12",
+    "constitution": "2d6+3",
+    "charisma": "2d6+3",
+    "hitPoints": "4d6",
+    "alignment": "Determined by the alignment table below"
+  },
+  "sageSpecialSkills": {
+    "spellcasting": {
+      "ability": "Limited spellcasting granted by the accumulated volume of knowledge.",
+      "determination": "GM decides whether the spellcasting is arcane, phantasmal, divine, or druidic based on the sage's specialty (e.g., expertise in magic implies arcane; extensive knowledge of trees implies druidic; psychology implies phantasmal; astronomy implies divine).",
+      "maxSpellLevelRoll": "1d4+2 (determines the maximum level of spells the sage knows)",
+      "maxSpellsPerLevelRoll": "1d4 (determines the maximum number of spells known for each level)",
+      "typicalSpells": [
+        "unseen servant",
+        "read magic",
+        "locate object",
+        "tongues"
+      ],
+      "castingRule": "Spells are cast at the minimum level required for a member of that spellcasting class (e.g., tongues would be cast as a 5th-level magic user).",
+      "secrecy": "A sage regards his or her spell knowledge as a closely-guarded secret and will not divulge it lightly."
+    }
+  },
+  "hiringRequirements": {
+    "allowedClasses": [
+      "Fighter",
+      "Ranger",
+      "Paladin",
+      "Thief",
+      "Assassin"
+    ],
+    "consultation": {
+      "shortTerm": {
+        "description": "Players may consult a sage without hiring on a permanent basis.",
+        "duration": "Consultations last no more than 1 week, after which the sage is unavailable for 1 month.",
+        "fee": "100 gp per day plus additional amounts per the Information Discovery schedule."
+      }
+    },
+    "longTermEmployment": {
+      "requirement": "Requires a stronghold with appropriate quarters for the sage.",
+      "serviceType": "Sages only accept permanent, lifetime service contracts.",
+      "supportAndSalary": "200 gp to 1,200 gp per month (determined as 2d6 × 100 gp)",
+      "researchGrants": "200 gp to 1,200 gp per month (2d6 × 100 gp)",
+      "initialMaterialExpenditure": "Minimum 20,000 gp"
+    }
+  },
+  "longTermEfficiency": {
+    "description": "The initial material expenditure allows the sage to operate at about 50% efficiency. Additional spending increases efficiency as follows:",
+    "efficiencyIncreases": {
+      "upTo90Percent": "Each extra 1,000 gp increases efficiency by 1% up to 90% (totaling 60,000 gp extra for 90% efficiency).",
+      "beyond90Percent": "Each additional 1% increase costs 4,000 gp.",
+      "maxEfficiency": "100% efficiency requires a total expenditure of 100,000 gp."
+    }
+  },
+  "studyUpgrades": {
+    "increaseGeneralAbility": {
+      "cost": "5,000 gp per month of uninterrupted study",
+      "increase": "Increases ability outside of the sage's field by 1% (maximum gain of 5%)",
+      "payment": "Payment must be made in advance; if the sage is queried during this period, the money is lost."
+    },
+    "increaseMinorFieldExpertise": {
+      "cost": "10,000 gp per month of uninterrupted study",
+      "increase": "Increases expertise in minor fields by 1% (maximum gain of 5%)",
+      "payment": "Payment is made in advance; if interrupted, the cost is forfeited."
+    },
+    "addMinorField": {
+      "cost": "100,000 gp and 2 years of study",
+      "limit": "Up to three additional minor fields may be added"
+    },
+    "addMajorField": {
+      "cost": "200,000 gp and 2 years of uninterrupted study",
+      "requirement": "Required for adding a major field of study"
+    }
+  },
+  "informationDiscovery": {
+    "description": "Determines the fees and time required for the sage to research and provide additional answers to queries. This table assumes the sage operates under optimal conditions (i.e., in a well-stocked workshop with a library near a large town or city).",
+    "ruralAdjustment": "A sage in a remote location may require double the regular fee schedule and research time.",
+    "procedure": "After rolling on the 'Chance of Knowing the Answer to a Question' table, roll d% again. For all categories except Special, if the second roll is 20% or less of the first, the sage’s existing knowledge suffices (regular cost applies). Otherwise, research time and cost are doubled. For questions in the sage’s special category, the threshold is 80%.",
+    "secondaryQuestions": "Fees for follow-up questions based on previous answers depend on the sage’s reaction and may be charged at full, partial, or waived rates.",
+    "unknownInformation": "Determining completely unknown information takes 50%-100% of the allotted research time but costs only half the standard rate."
+  },
+  "abbreviations": {
+    "r": "rounds",
+    "h": "hours",
+    "d": "days"
+  },
+  "sageHiring": {
+    "hiringA_Sage": {
+      "allowedClasses": "Only fighters, rangers, paladins, thieves, and assassins may hire a sage; however, other classes may consult with sages as needed.",
+      "housingRequirements": "A sage requires private living space including at minimum four separate rooms (each no less than 200 sq ft): living quarters, study, library, and workroom. Additional specialized areas (e.g., a zoo or greenhouse) may be required based on the sage's field(s) of specialty.",
+      "employmentContract": "Sages will only accept a permanent offer of lifetime service."
+    },
+    "location": {
+      "description": "Sages are located in larger towns and cities, typically near universities, museums, and libraries. They may belong to a loosely organized brotherhood, but no formal guild exists for hiring them. The employment of a sage becomes common knowledge throughout the area."
+    }
+  },
+  "informationDiscoveryTable": [
+    {
+      "category": "Out of Fields",
+      "time": {
+        "general": "1d6r",
+        "specific": "1d4r",
+        "exacting": "1d3r"
+      },
+      "cost": null
+    },
+    {
+      "category": "In Minor Field",
+      "time": {
+        "general": "2d6d",
+        "specific": "2d10d",
+        "exacting": "1d12d"
+      },
+      "cost": {
+        "general": "100/d",
+        "specific": "100/d",
+        "exacting": "100/d"
+      }
+    },
+    {
+      "category": "In Major Field",
+      "time": {
+        "general": "5d8d",
+        "specific": "3d10d",
+        "exacting": null
+      },
+      "cost": {
+        "general": "1,000/d",
+        "specific": "500/d",
+        "exacting": "500/d"
+      }
+    },
+    {
+      "category": "In Special Category",
+      "time": {
+        "general": "1d2r",
+        "specific": "1d10h",
+        "exacting": "2d6d"
+      },
+      "cost": {
+        "general": "200/d",
+        "specific": "200/d",
+        "exacting": "200/d"
+      }
+    }
+  ],
+  "restAndRecuperation": "For every day spent in research, the sage must spend 3 days resting. Interruptions during this downtime result in additional days of rest and maximum costs and research times for any questions answered.",
+  "demiHumanSages": "Most sages are human, but sometimes sages of other races are encountered. They may be less inclined to consult with player characters—especially human PCs—depending on their reaction and the circumstances of the encounter.",
+  "alignmentTable": [
+    {
+      "dPercentRange": "01-05",
+      "result": "Chaotic Evil"
+    },
+    {
+      "dPercentRange": "06-10",
+      "result": "Chaotic Good"
+    },
+    {
+      "dPercentRange": "11-20",
+      "result": "Chaotic Neutral"
+    },
+    {
+      "dPercentRange": "21-30",
+      "result": "Lawful Evil"
+    },
+    {
+      "dPercentRange": "31-40",
+      "result": "Lawful Good"
+    },
+    {
+      "dPercentRange": "41-60",
+      "result": "Lawful Neutral"
+    },
+    {
+      "dPercentRange": "61-80",
+      "result": "Neutral"
+    },
+    {
+      "dPercentRange": "81-90",
+      "result": "Neutral Evil"
+    },
+    {
+      "dPercentRange": "91-00",
+      "result": "Neutral Good"
+    }
+  ],
+  "notes": "A sage is an invaluable resource, but the GM must ensure that the character only divulges information appropriate to the setting, thereby maintaining the integrity of the campaign's internal logic and avoiding any unintended meta-knowledge."
+}
+
+
+  ]
+}
