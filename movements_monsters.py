@@ -4,6 +4,9 @@ import monsters  # Import the monster module you just created
 import mapgen_01 as mapgen
 import pathfinding
 import player
+import time
+import statuslogs
+import combat
 
 gen = mapgen.Generator()
 gen.gen_level()
@@ -72,26 +75,22 @@ def generate_dungeon_map(room_list, corridor_list):
     return grid, min_x, min_y
 
 
-def display_player(stdscr, player):
-    """Display player attributes in a sidebar on the right."""
-    height, width = stdscr.getmaxyx()  # Get screen size
-    stats_x = width - 20  # Reserve last 20 columns for stats
-
-    stdscr.addstr(0, stats_x, f"Player: {player.name}")
-    stdscr.addstr(1, stats_x, f"HP: {player.health}")
-    stdscr.addstr(2, stats_x, f"STR: {player.strength}")
-    stdscr.addstr(3, stats_x, f"DEX: {player.dexterity}")
-    stdscr.addstr(4, stats_x, f"CON: {player.constitution}")
-    stdscr.addstr(5, stats_x, f"INT: {player.intelligence}")
-    stdscr.addstr(6, stats_x, f"WIS: {player.wisdom}")
-    stdscr.addstr(7, stats_x, f"CHA: {player.charisma}")
-
 def main(stdscr):
-    playerone = player.Player("MyName")
     curses.curs_set(0)  # Hide cursor
-    stdscr.nodelay(False)
-    stdscr.keypad(True)
+    height, width = stdscr.getmaxyx()  # Get screen size
 
+    # Define window sizes correctly
+    dungeon_height = height - 12  # Leave space for combat log
+    dungeon_width = width - 30  # Leave space for stats sidebar
+    stats_width = 20
+    log_height = 10
+
+    # Create separate windows
+    dungeon_win = curses.newwin(dungeon_height, dungeon_width, 0, 30)  # Dungeon viewport
+    stats_win = curses.newwin(dungeon_height, stats_width, 0, dungeon_width)  # Sidebar
+    combat_win = curses.newwin(log_height, width, dungeon_height, 0)  # Combat log below dungeon
+
+    playerone = player.Player("MyName")
     grid, offset_x, offset_y = generate_dungeon_map(room_list, corridor_list)
     grid_height, grid_width = len(grid), len(grid[0])
 
@@ -100,27 +99,31 @@ def main(stdscr):
     player_x = first_room[0] + first_room[2] // 2 - offset_x
     player_y = first_room[1] + first_room[3] // 2 - offset_y
 
-    num_monsters = 5
-    monster_list = monsters.place_monsters(room_list, num_monsters)
-    for m in monster_list:
-        m.x -= offset_x
-        m.y -= offset_y
+    monster_data = monsters.load_monsters_from_json()
+    monster_list = monsters.place_monsters(grid, room_list, monster_data)
+
+    combat_log = []  # Combat event storage
 
     while True:
-        stdscr.clear()
-        dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
-        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y)
+        time.sleep(.10)
+        # Clear each window separately, **don't overwrite everything**
+        dungeon_win.clear()
+        stats_win.clear()
+        combat_win.clear()
 
-        # Draw dungeon viewport centered on player
+        dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
+        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, playerone, combat_log)
+
+        # **Draw dungeon viewport in its designated window**
         for dy in range(-radius, radius + 1):
             for dx in range(-radius, radius + 1):
                 tile_x, tile_y = player_x + dx, player_y + dy
-                distance = (dx**2 + dy**2) ** 0.5
+                distance = (dx ** 2 + dy ** 2) ** 0.5
 
                 if distance > radius:
-                    ch = ' '  # Outside visible range
+                    ch = ' '
                 elif tile_x < 0 or tile_x >= grid_width or tile_y < 0 or tile_y >= grid_height:
-                    ch = '#'  # Walls if out of bounds
+                    ch = '#'
                 else:
                     ch = grid[tile_y][tile_x]
 
@@ -132,12 +135,19 @@ def main(stdscr):
                 if dx == 0 and dy == 0:
                     ch = '@'
 
-                stdscr.addch(dy + radius, dx + radius, ch)
+                dungeon_win.addch(dy + radius, dx + radius, ch)
 
-        # Draw player stats in the sidebar
-        display_player(stdscr, playerone)
+        # Draw **player stats in sidebar window**
+        statuslogs.display_player(stats_win, playerone)
 
-        stdscr.refresh()
+        # Draw **combat log below dungeon**
+        statuslogs.display_combat_log(combat_win, combat_log)
+
+        # Refresh all windows separately, **ensure order is correct**
+        dungeon_win.refresh()
+        stats_win.refresh()
+        combat_win.refresh()
+        stdscr.refresh()  # Refresh main screen **last**
 
         # Handle movement
         key = stdscr.getch()
@@ -152,7 +162,24 @@ def main(stdscr):
             new_x += 1
         elif key == ord('q'):
             break
+        elif key == ord('w'):
+            new_x += 0
+            new_y += 0
 
+        # Only move if valid
         if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == '.':
             player_x, player_y = new_x, new_y
+
+        # **Combat processing**
+        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log)
+
+        # **Game Over Check**
+        if playerone.health <= 0:
+            combat_log.append("Game Over - You have died!")
+            statuslogs.display_combat_log(combat_win, combat_log)
+            combat_win.refresh()  # Refresh combat log one last time
+            stdscr.getch()  # Pause before quitting
+            break
+
+
 curses.wrapper(main)

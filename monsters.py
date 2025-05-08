@@ -1,95 +1,110 @@
 # monsters.py
 import pathfinding
 import random
-
+import json
+import os
 
 class Monster:
-    def __init__(self, x, y, char='M'):
+    def __init__(self, x, y, name, hp, attack, damage, movement_description, behavior, char='M'):
         """
-        x, y: Global coordinates (same as defined by your room list).
-        char: The character representation of the monster.
+        Monster attributes:
+        - x, y: Position
+        - name: Name of the monster
+        - hp: Health points
+        - attack: Damage dealt per attack
+        - movement_description: Description of monster movement
+        - behavior: 'melee' or 'ranged'
+        - char: Character representation
         """
         self.x = x
         self.y = y
-        self.char = char
+        self.name = name
+        self.hp = hp
+        self.attack = attack
+        self.damage = damage
+        self.movement_description = movement_description
+        self.behavior = behavior
+        self.char = char  # Default 'M' for monsters
+
+    def take_damage(self, damage):
+        """Reduce monster's HP and check if defeated."""
+        self.hp -= damage
+        if self.hp <= 0:
+            return True  # Monster is defeated
+        return False
+
+def find_safe_position(grid, room_list, occupied_positions):
+    """Finds a valid empty tile to spawn a monster."""
+    while True:
+        room = random.choice(room_list)  # Pick a random room
+        x = room[0] + random.randint(1, room[2] - 2)
+        y = room[1] + random.randint(1, room[3] - 2)
+
+        # Ensure tile is open and not occupied
+        if grid[y][x] == '.' and (x, y) not in occupied_positions:
+            occupied_positions.add((x, y))  # Mark as taken
+            return x, y
+
+def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json")):
+    """Load monster data from a JSON file."""
+    with open(file_path, "r") as f:
+        data = json.load(f)
+
+    monster_list = []
+    for monster in data["monsters"]:
+        # Create a Monster object (adjust attributes based on your class structure)
+        new_monster = Monster(
+            x=0,  # This will be set later
+            y=0,
+            name=monster["name"],
+            hp=monster["hp"],
+            attack=monster["attack"],
+            damage=monster["damage"],
+            movement_description=monster["movement_description"],
+            behavior=monster["behavior"],
+            char=monster["icon"]
+        )
+
+        monster_list.append(new_monster)
+
+    return monster_list
+
+def place_monsters(grid, room_list, monster_data):
+    """Places monsters in valid locations using safety checks."""
+    placed_monsters = []
+    occupied_positions = set()  # Track taken spots
+
+    for monster in monster_data:
+        x, y = find_safe_position(grid, room_list, occupied_positions)
+        monster.x = x  # Update position here
+        monster.y = y
+        placed_monsters.append(monster)
+
+    return placed_monsters
 
 
-def move_toward_player(monsters, dijkstra_map, grid):
-    """
-    Moves each monster toward the player using the Dijkstra map.
 
-    Args:
-        monsters: List of Monster instances.
-        dijkstra_map: Precomputed Dijkstra map.
-        grid: The dungeon map.
-    """
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]  # Up, Down, Left, Right
+def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, player, combat_log):
+    """Moves monsters toward the player using Dijkstra map logic."""
+    directions = [
+        (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
+        (-1, -1), (-1, 1), (1, -1), (1, 1)  # Diagonal: NW, NE, SW, SE
+    ]  # Adjacent tiles
 
     for monster in monsters:
-        best_x, best_y = monster.x, monster.y
-        best_cost = dijkstra_map[monster.y][monster.x]
+        if monster.behavior == "melee":
+            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][monster.x] <= 10:
+                # Move toward the player, but stop adjacent
+                best_x, best_y = monster.x, monster.y
+                best_cost = dijkstra_map[monster.y][monster.x]
 
-        # Check neighboring tiles for lowest cost
-        for dx, dy in directions:
-            nx, ny = monster.x + dx, monster.y + dy
-            if grid[ny][nx] == '.' and dijkstra_map[ny][nx] < best_cost:
-                best_x, best_y = nx, ny
-                best_cost = dijkstra_map[ny][nx]
-
-        # Move the monster to the best tile found
-        monster.x, monster.y = best_x, best_y
-
-def place_monsters(room_list, num_monsters):
-    """
-    Choose random positions within rooms to spawn monsters.
-
-    Args:
-        room_list: A list of rooms, where each room is defined as [x, y, width, height].
-        num_monsters: Total number of monsters to populate.
-
-    Returns:
-        A list of Monster instances.
-    """
-    monsters = []
-    for _ in range(num_monsters):
-        # Randomly pick a room from the room list.
-        room = random.choice(room_list)
-        rx, ry, rw, rh = room
-        # Pick a random position within the chosen room.
-        monster_x = rx + random.randint(0, rw - 1)
-        monster_y = ry + random.randint(0, rh - 1)
-        monsters.append(Monster(monster_x, monster_y))
-    return monsters
-
-
-def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y):
-    """
-    Moves each monster toward the player using the Dijkstra map—but only if the monster can see the player.
-
-    Args:
-        monsters: List of Monster instances.
-        dijkstra_map: Precomputed Dijkstra map.
-        grid: The dungeon map.
-        player_x, player_y: Player's position.
-    """
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]  # Up, Down, Left, Right
-
-    for monster in monsters:
-        # Check if the monster has line-of-sight to the player
-        if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y):
-            # If visible, move toward the lowest-cost tile using the Dijkstra map
-            best_x, best_y = monster.x, monster.y
-            best_cost = dijkstra_map[monster.y][monster.x]
-
-            for dx, dy in directions:
-                nx, ny = monster.x + dx, monster.y + dy
-
-                # Ensure nx and ny are within the bounds of the grid
-                if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]):
-
-                    if grid[ny][nx] == '.' and dijkstra_map[ny][nx] < best_cost:
+                for dx, dy in directions:
+                    nx, ny = monster.x + dx, monster.y + dy
+                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][nx] < best_cost:
                         best_x, best_y = nx, ny
                         best_cost = dijkstra_map[ny][nx]
 
-            # Move the monster to the best tile found
-            monster.x, monster.y = best_x, best_y
+                # Prevent monster from occupying player's tile
+                if (best_x, best_y) != (player_x, player_y):
+                    monster.x, monster.y = best_x, best_y
+                    combat_log.append(monster.movement_description)

@@ -22,7 +22,10 @@ def generate_dijkstra_map(grid, player_x, player_y):
     # Breadth-first search queue (starting from player)
     queue = deque([(player_x, player_y)])
 
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]  # Up, Down, Left, Right
+    directions = [
+        (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
+        (-1, -1), (-1, 1), (1, -1), (1, 1)  # Diagonal: NW, NE, SW, SE
+    ]
 
     while queue:
         x, y = queue.popleft()
@@ -58,9 +61,13 @@ def has_line_of_sight(grid, x1, y1, x2, y2):
     err = dx - dy
 
     while True:
-        # If we encounter a wall ('#'), LoS is blocked
-        if grid[y1][x1] == '#':
+        if grid[y1][x1] == '#':  # Check if current tile is a wall
             return False
+
+        # If moving diagonally, ensure both adjacent tiles are passable
+        if abs(dx) == abs(dy):  # Diagonal step
+            if grid[y1][x1 - sx] == '#' and grid[y1 - sy][x1] == '#':  # Check corner blocking
+                return False
 
         # Reached the target (player)
         if x1 == x2 and y1 == y2:
