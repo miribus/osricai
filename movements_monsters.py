@@ -89,7 +89,7 @@ def main(stdscr):
     ascii_3d_width = 20  # Width of the 3D window
     ascii_3d_height = 10  # Height (same as combat log for symmetry)
     ascii_3d_x = dungeon_width - 20  # Positioned next to 2D map
-    ascii_3d_y = + 5  # Top of the screen
+    ascii_3d_y = 0  # Top of the screen
 
 
     # Create separate windows
@@ -119,7 +119,7 @@ def main(stdscr):
         dungeon_win.clear()
         stats_win.clear()
         combat_win.clear()
-        ascii_3d_win.clear()
+
 
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
@@ -149,7 +149,8 @@ def main(stdscr):
                 dungeon_win.addch(dy + radius, dx + radius, ch)
 
         # draw **3d window**
-        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=radius)
+        ascii_3d_win.clear()
+        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=10)
 
         # Draw **player stats in sidebar window**
         statuslogs.display_player(stats_win, playerone)
