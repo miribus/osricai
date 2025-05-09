@@ -1,0 +1,38 @@
+{
+  "diceNotation": {
+    "description": "Dice are noted in 'd' notation with a number before and after. For example, '1d4' refers to rolling a four-sided die once, while '3d6' refers to rolling a six-sided die three consecutive times and summing the results. Modifiers, such as '+3', indicate additional values to be added to the total roll.",
+    "examples": [
+      { "notation": "1d4", "meaning": "Roll a four-sided die once." },
+      { "notation": "3d6", "meaning": "Roll a six-sided die three consecutive times and add the results." },
+      { "notation": "2d8+3", "meaning": "Roll an eight-sided die twice, add the results, and then add 3." }
+    ],
+    "diceTypes": {
+      "d4": "Four-sided die, sides 1, 2, 3, 4.",
+      "d6": "Six-sided die, sides 1, 2, 3, 4, 5, 6.",
+      "d8": "Eight-sided die, sides 1, 2, 3, 4, 5, 6, 7, 8.",
+      "d10": "Ten-sided die, sides 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.",
+      "d12": "Twelve-sided die, sides 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.",
+      "d20": "Twenty-sided die, sides 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.",
+      "d%": "Percentile die, sides numbered 0 through 99. A roll of 0 is treated as 'one-hundred'."
+    },
+    "modifiers": {
+      "description": "Modifiers are additional values that are added to dice rolls to account for attributes or magic effects.",
+      "examples": [
+        { "notation": "+2", "meaning": "Add 2 to the total result of the roll." },
+        { "notation": "-1", "meaning": "Subtract 1 from the total result of the roll." }
+      ]
+    }
+  },
+  "savingThrows": {
+    "rule": "Rolls for Saving Throws must be equal to, or higher than the class and level values, including all modifiers for spells or attribute affects."
+  },
+  "abilityChecks": {
+    "rule": "Rolls for ability and attribute checks must be equal to, or lower than the character attribute score, including all situational modifiers."
+  },
+  "toHitRolls": {
+    "rule": "To hit rolls are calculated by several factors but the result required for success depends on the class To Hit vs Armor Class table and level vs the given Armor Class"
+  },
+  "thiefAbilities": {
+    "rule": "Thief ability (for example, pick pockets, hide in shadows, move silent) percentile chance rolls must be equal to, or lower than, the required score after all modifiers"
+  }
+}

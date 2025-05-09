@@ -1,0 +1,22 @@
+{
+  "adventuresInTown": {
+    "description": "Most in-town activities, such as gathering information, hiring men-at-arms or guides, purchasing equipment, liquidating treasure, resting, healing, hiring NPC spellcasters, or training to gain new levels, are typically handled abstractly. Players update their records, the GM notes the number of days passed, and the game resumes when the party is ready for the next adventure.",
+    "freeFormPlay": {
+      "description": "Groups may choose to play out certain in-town activities for added depth, ranging from brief interactions (e.g., interviewing potential hirelings or convincing a wizard to reverse an unfortunate transformation) to entire sessions dedicated to town-based quests like murder mysteries or political negotiations.",
+      "mechanics": "Unlike dungeon or wilderness adventures, town activities are often conducted abstractly. Mapping, supply record-keeping, strict marching order, and unified party movement are rarely required. Characters may split up to handle different tasks (e.g., one visiting a temple while another gathers rumors at an inn)."
+    },
+    "dangerousAreas": {
+      "description": "In dangerous areas, such as a Thieves’ Quarter where ambushes are likely, the norms of dungeon exploration may apply, including time measured in turns, movement in tens of feet, and wandering monster checks every 3rd turn.",
+      "wanderingMonsters": "Town encounters typically involve beggars, urchins, pickpockets, members of the town watch, or other NPCs rather than traditional monsters."
+    },
+    "gmGuidance": {
+      "difficulty": "Town adventures are more freeform than dungeon or wilderness exploration, making them harder to run. GMs risk overlooking important details without a structured flow.",
+      "playerEngagement": "Town adventures often focus on one-on-one interactions between players and NPCs, which can leave uninvolved players bored. GMs should aim to maintain engagement and avoid downtime for other players."
+    },
+    "recommendations": {
+      "experience": "Town adventures are best suited for experienced GMs who can manage freeform play effectively.",
+      "groupSize": "Recommended for small groups of players to minimize downtime.",
+      "roleplayFocus": "Ideal for groups that enjoy in-character negotiation and play-acting aspects of the game."
+    }
+  }
+}

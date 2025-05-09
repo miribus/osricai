@@ -1,0 +1,189 @@
+{
+  "menAtArms": [
+    {
+      "role": "Artillerist",
+      "description": "Required for the operation of siege weapons and other engines of war; in desperate circumstances, artillerists will fight in the manner of light footmen.",
+      "typicalEquipment": [
+        "studded armour",
+        "short sword",
+        "dagger"
+      ]
+    },
+    {
+      "role": "Bowman, Long",
+      "description": "Expert in the use of powerful bows, long bowmen also serve as light footmen when required.",
+      "typicalEquipment": [
+        "studded armour",
+        "long bow",
+        "quiver with twelve arrows",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Bowman, Short",
+      "description": "Proficient in the use of bows, short bowmen can also fight as light footmen, but usually will not.",
+      "typicalEquipment": [
+        "studded armour",
+        "short bow",
+        "quiver with twelve arrows",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Bowman (Mounted)",
+      "description": "Skilled at shooting from the saddle, but generally unwilling to close to melee; mounted bowmen have a reputation for poor discipline.",
+      "typicalEquipment": [
+        "light warhorse with gear",
+        "studded armour",
+        "short bow",
+        "quiver with twelve arrows",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Captain",
+      "description": "Equivalent to a fifth to eighth level fighter, but incapable of conventional advancement by level. A captain may lead twenty men-at-arms and one lieutenant for every level of experience he possesses, as well as the necessary number of sergeants; his monthly wage is equal to his level multiplied by 100 gold pieces.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Crossbowman",
+      "description": "Practiced in the use of crossbows and willing to fight as light footmen when required. A heavy crossbowman will often require a light footman to shield him whilst reloading.",
+      "typicalEquipment": [
+        "studded armour",
+        "light crossbow",
+        "quiver with twelve light bolts",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Crossbowman (Mounted)",
+      "description": "Trained to shoot and reload light crossbows from horseback, mounted crossbowmen are also willing to fight hand-to-hand when necessary.",
+      "typicalEquipment": [
+        "light warhorse with gear",
+        "studded leather",
+        "light crossbow",
+        "quiver with twelve light bolts",
+        "light pick"
+      ]
+    },
+    {
+      "role": "Footman, Heavy",
+      "description": "Intended primarily for fighting and manoeuvring in close order on open ground, heavy footmen employ the appropriate arms and armour.",
+      "typicalEquipment": [
+        "scale armour",
+        "halberd",
+        "short sword"
+      ]
+    },
+    {
+      "role": "Footman, Heavy (Mounted)",
+      "description": "Familiar enough with horses to ride them, but not trained to fight from horseback; mounted heavy footmen dismount to fight. Horses need to be looked after during combat, which requires one man for every four mounts.",
+      "typicalEquipment": [
+        "riding horse with gear",
+        "scale armour",
+        "halberd",
+        "short sword"
+      ]
+    },
+    {
+      "role": "Footman, Light",
+      "description": "Accustomed to fighting in open order and traversing broken or rough terrain, light footmen are armed and armoured accordingly.",
+      "typicalEquipment": [
+        "studded armour",
+        "large shield",
+        "spear",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Footman, Light (Mounted)",
+      "description": "Familiar enough with horses to ride them, but not trained to fight from horseback; mounted light footmen dismount to fight. Horses need to be looked after during combat, which requires one man for every four mounts.",
+      "typicalEquipment": [
+        "riding horse with gear",
+        "studded armour",
+        "large shield",
+        "spear",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Horseman, Heavy",
+      "description": "Most effective when attacking in very close order on open terrain, heavy horsemen are well armed and fearsome in combat.",
+      "typicalEquipment": [
+        "heavy warhorse with gear",
+        "mail barding",
+        "mail armour",
+        "large shield",
+        "lance",
+        "long sword",
+        "dagger"
+      ]
+    },
+    {
+      "role": "Horseman, Medium",
+      "description": "Capable of delivering a powerful charge over open ground and in close order, well used medium horsemen can prove decisive.",
+      "typicalEquipment": [
+        "medium warhorse with gear",
+        "scale barding",
+        "scale armour",
+        "large shield",
+        "lance",
+        "broad sword",
+        "dagger"
+      ]
+    },
+    {
+      "role": "Horseman, Light",
+      "description": "Swift in pursuit and quick to retreat, light horsemen fight in open order and make excellent skirmishers.",
+      "typicalEquipment": [
+        "light warhorse with gear",
+        "leather barding",
+        "studded armour",
+        "small shield",
+        "lance",
+        "hand axe"
+      ]
+    },
+    {
+      "role": "Lieutenant",
+      "description": "Equivalent to a second or third level fighter, but incapable of conventional advancement by level. A lieutenant may lead ten men at arms for every level of experience he possesses, as well as the necessary number of unassigned sergeants equal to his level. When serving a captain, only the lieutenant counts against the number of men that may be led. The monthly wage demanded by a lieutenant is equal to his level multiplied by 100 gold pieces.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Pikeman",
+      "description": "Trained to fight with long pikes and manoeuvre in close formation on flat terrain, pikemen will also fight as heavy footmen. Mixed formations of more than one hundred pikemen and heavy foot require at least two months of drilling to be effective.",
+      "typicalEquipment": [
+        "scale armour",
+        "pike",
+        "short sword"
+      ]
+    },
+    {
+      "role": "Sapper",
+      "description": "Necessary for the use of assault towers, the construction or undermining of fortifications, and other siege works. Sappers fight in the manner of heavy footmen, but are usually lightly armoured and unwilling to engage in combat.",
+      "typicalEquipment": [
+        "studded armour",
+        "short sword",
+        "dagger"
+      ]
+    },
+    {
+      "role": "Sergeant",
+      "description": "Equivalent to a first level fighter, but incapable of conventional advancement by level. A sergeant can lead up to ten men independently or in service to a lieutenant or captain. In any given company, there must be one sergeant for every five to ten men at arms. The monthly wage required by a sergeant is ten times that of the troop type he leads.",
+      "typicalEquipment": []
+    },
+    {
+      "role": "Slinger",
+      "description": "Adept in the use of the sling to disrupt and harass the enemy, slingers are also able to fight as light footmen, though they are generally restricted to light armour and weapons.",
+      "typicalEquipment": [
+        "studded armour",
+        "small shield",
+        "sling",
+        "pouch with twelve bullets",
+        "hand axe"
+      ]
+    }
+  ],
+  "optionalRules": "At the discretion of the game master, a player character fighter of the appropriate level may serve as a sergeant, lieutenant, or captain, as might an allied non-player character fighter or henchman. A character of a related class, such as a ranger or paladin, might also suffice if the circumstances warrant such an allowance.",
+  "nonHumanMercenaries": "The opportunity to retain the services of non-human mercenaries depends on the individual campaign milieu; however, it is typically more difficult than enlisting standard men at arms. Individuals of mixed ancestry, such as half-elves or half-orcs, may be found amongst the ranks of either parentage. In general, demi-humans will only agree to take service with a champion of their race or in a cause that is directly in their interest, with the aid of elves being the most difficult to obtain. As an exception, dwarf mercenaries might, for double normal pay, be successfully recruited to fight in the causes of others. Many humanoids, such as kobolds, goblins, orcs, hobgoblins, bugbears, or gnolls, may take service with evil-aligned characters that are powerful enough to master or insidiously manipulate them. They may serve for less than half pay, but such soldiery are prone to breaches of discipline, vile behavior, despoliation of any territory they pass through, and the intolerable abuse or murder of any unfortunate inhabitants."
+}

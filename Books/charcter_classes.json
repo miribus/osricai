@@ -1,0 +1,5428 @@
+{
+  "category": "Character Classes",
+  "rules": {
+    "Class Selection": {
+      "Definition": "A player chooses a class based on ability scores and race. High-requirement classes, such as Paladins, should be rare.",
+      "Non-Player Characters": {
+        "Zero-Level NPCs": "Most NPCs lack a class, known as '0-level'. Their abilities are treated as fighters at level 0.",
+        "NPC Class Frequency": "Roughly 1 in 100 NPCs will have a class, increasing in borderlands and wilderness areas.  Fighters and Thieves are by far the most frequently encountered class (75%) followed by Clerics (10%), Assassins, Rangers and Druids (5%), then other classes with increasing rarity.  This applies to a given world as a whole, not a specific area.  For example in a Church or Temple you are most likely to find Clerics or Paladins."
+      }
+    },
+    "Assassin": {
+      "Definition": "Assassins are stealthy killers trained by guilds in spying, disguise, poison, and murder. Higher-level assassins are legendary figures feared by all.",
+      "Alignment": "Must be evil.",
+      "Guild Membership": {
+        "Local Guilds": "Most cities and towns have Assassin guilds with 6-24 members. Freelance assassins are heavily discouraged.",
+        "Guildmaster Requirement": "To reach level 14, an assassin must kill the existing guildmaster.",
+        "Grandmaster Requirement": "To reach level 15, an assassin must defeat a current Grandmaster Assassin."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 12,
+          "Dexterity": 12,
+          "Constitution": 6,
+          "Intelligence": 11,
+          "Wisdom": 6
+        },
+        "Hit Die Type": "d6 (Max 15)",
+        "Experience Bonus": "None"
+      },
+      "Equipment": {
+        "Armor & Shields": "Leather or studded leather only (shields allowed).",
+        "Weapon Proficiencies": "Any weapon; begins with 3 and gains +1 per 4 levels."
+      },
+      "Combat Abilities": {
+        "Assassination": {
+          "Chance to Kill": "50% base chance. Bonus of 5% per assassin level; penalty of 5% per 2 levels of target.",
+          "Modifiers": "Assassination can only be attempted once per day per target.  Arbitrary bonuses and penalties of 1-5% can be applied for situations where the target is guarded, aware of an attempt, daylight vs darkness, alone vs in a crowd.  The player will not know the modifiers, the chance must always be 1% at minimum, and never exceed 99% "
+        },
+        "Backstab": {
+          "Damage Multipliers": {
+            "Level 1-4": "x2",
+            "Level 5-8": "x3",
+            "Level 9-12": "x4",
+            "Level 13-15": "x5"
+          },
+          "Bonus to Hit": "+4 instead of +2.",
+          "Modifiers": "Target must be unaware of the attacker.  Can only be attempted once per target.  Only certain weapons can be used for backstab: Dagger, Hand Axe, Long or Short Sword."
+        },
+        "To-Hit Table": {
+          "1-4": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 19,
+            "AC 3": 18,
+            "AC 4": 17,
+            "AC 5": 16,
+            "AC 6": 15,
+            "AC 7": 14,
+            "AC 8": 13,
+            "AC 9": 12,
+            "AC 10": 11
+          },
+          "5-8": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 11,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "9-12": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "13-15": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          }
+        },
+        "Class Abilities": {
+          "Disguise": "Masters of disguise, can alter appearance within reason. Observers have a base 2% chance to detect a disguise.",
+          "Poison": "No inherent advantage, but assassins frequently encounter poisons.",
+          "Thief Abilities": "Has thief abilities at two levels lower than assassin level.",
+          "Advanced Abilities": {
+            "Languages (Level 9+)": "May learn alignment tongues, thieves' cant, and druids' cant. Max 4 special languages.",
+            "Read Scrolls (Level 12+)": "Can cast spells from arcane scrolls."
+          }
+        },
+        "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d6)": 1,
+            "Notes": "None"
+          },
+          "2": {
+            "Base Experience Points": 1600,
+            "Hit Dice (d6)": 2,
+            "Notes": "None"
+          },
+          "3": {
+            "Base Experience Points": 3000,
+            "Hit Dice (d6)": 3,
+            "Notes": "None"
+          },
+          "4": {
+            "Base Experience Points": 5750,
+            "Hit Dice (d6)": 4,
+            "Notes": "The assassin may recruit assassins as henchmen."
+          },
+          "5": {
+            "Base Experience Points": 12250,
+            "Hit Dice (d6)": 5,
+            "Notes": "None"
+          },
+          "6": {
+            "Base Experience Points": 24750,
+            "Hit Dice (d6)": 6,
+            "Notes": "None"
+          },
+          "7": {
+            "Base Experience Points": 50000,
+            "Hit Dice (d6)": 7,
+            "Notes": "None"
+          },
+          "8": {
+            "Base Experience Points": 99000,
+            "Hit Dice (d6)": 8,
+            "Notes": "The assassin may recruit thieves as henchmen."
+          },
+          "9": {
+            "Base Experience Points": 200500,
+            "Hit Dice (d6)": 9,
+            "Notes": "Master Assassin"
+          },
+          "10": {
+            "Base Experience Points": 300000,
+            "Hit Dice (d6)": 10,
+            "Notes": "None"
+          },
+          "11": {
+            "Base Experience Points": 400000,
+            "Hit Dice (d6)": 11,
+            "Notes": "None"
+          },
+          "12": {
+            "Base Experience Points": 600000,
+            "Hit Dice (d6)": 12,
+            "Notes": "The assassin may recruit henchmen of any class."
+          },
+          "13": {
+            "Base Experience Points": 750000,
+            "Hit Dice (d6)": 13,
+            "Notes": "None"
+          },
+          "14": {
+            "Base Experience Points": 1000000,
+            "Hit Dice (d6)": 14,
+            "Notes": "Guildmaster"
+          },
+          "15": {
+            "Base Experience Points": 1500000,
+            "Hit Dice (d6)": 15,
+            "Notes": "Grandmaster Assassin (Level cap, XP beyond this is lost)"
+          }
+        }
+      },
+        "Saving Throws": {
+          "Levels 1-4": {
+            "Aimed Magic Items": 14,
+            "Breath Weapons": 16,
+            "Death/Paralysis/Poison": 13,
+            "Petrification/Polymorph": 12,
+            "Spells": 15
+          },
+          "Levels 5-8": {
+            "Aimed Magic Items": 12,
+            "Breath Weapons": 15,
+            "Death/Paralysis/Poison": 12,
+            "Petrification/Polymorph": 11,
+            "Spells": 13
+          },
+          "Levels 9-12": {
+            "Aimed Magic Items": 10,
+            "Breath Weapons": 14,
+            "Death/Paralysis/Poison": 11,
+            "Petrification/Polymorph": 10,
+            "Spells": 11
+          },
+          "Levels 13-15": {
+            "Aimed Magic Items": 8,
+            "Breath Weapons": 13,
+            "Death/Paralysis/Poison": 10,
+            "Petrification/Polymorph": 9,
+            "Spells": 9
+          }
+        }
+      }
+    },
+    "Cleric": {
+      "Definition": "Clerics are warriors of faith who preach the will of the gods, interpret omens, and combat the forces of evil. They serve a patron deity or alignment-based pantheon and wield divine power.",
+      "Alignment": "Any alignment.",
+      "Divine Intervention": {
+        "Spell Allocation": "Clerics acquire spells automatically as they level, requiring no learning check.",
+        "Punishments": "Gods may intervene in rare cases to alter or deny spells, typically due to alignment transgressions."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 6,
+          "Dexterity": 3,
+          "Constitution": 6,
+          "Intelligence": 6,
+          "Wisdom": 9,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d8 (Max 9)",
+        "Experience Bonus": "Granted for Wisdom 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Any armor and shields permitted.",
+        "Weapons Permitted": "Blunt weapons only (club, flail, hammer, mace, oil, staff)."
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 2, gains +1 every 3 levels.",
+        "Penalty for Non-Proficiency": "-3 to attack rolls.",
+        "To-Hit Table": {
+          "1-3": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "4-6": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "7-9": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "10-12": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "13-15": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "16-18": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          },
+          "19+": {
+            "AC -10": 19,
+            "AC -9": 18,
+            "AC -8": 17,
+            "AC -7": 16,
+            "AC -6": 15,
+            "AC -5": 14,
+            "AC -4": 13,
+            "AC -3": 12,
+            "AC -2": 11,
+            "AC -1": 10,
+            "AC 0": 9,
+            "AC 1": 8,
+            "AC 2": 7,
+            "AC 3": 6,
+            "AC 4": 5,
+            "AC 5": 4,
+            "AC 6": 3,
+            "AC 7": 2,
+            "AC 8": 1,
+            "AC 9": 0,
+            "AC 10": -1
+          }
+        }
+      },
+      "Class Abilities": {
+        "Spell Casting": "Clerics can memorize and cast clerical spells according to level tables.",
+        "Turning Undead": "Clerics can “turn” the undead, making them flee from the cleric’s holiness (or, in the case of an evil cleric, bringing them to heel as servants and minions).  Because paladins are also capable of turning undead (though not with the same power as a cleric), rules for turning the undead are found later in this book rather than repeating them in the  descriptions of both the paladin and cleric classes.",
+        "Wisdom Bonus Spells": {
+        "Wisdom Scores": {
+          "9": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 15
+          },
+          "10": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 10
+          },
+          "11": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 5
+          },
+          "12": {
+            "Bonus Spells": "0",
+            "Chance of Spell Failure (%)": 1
+          },
+          "13": {
+            "Bonus Spells": "1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "14": {
+            "Bonus Spells": "2",
+            "Chance of Spell Failure (%)": 0
+          },
+          "15": {
+            "Bonus Spells": "2/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "16": {
+            "Bonus Spells": "2/2",
+            "Chance of Spell Failure (%)": 0
+          },
+          "17": {
+            "Bonus Spells": "2/2/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "18": {
+            "Bonus Spells": "2/2/1/1",
+            "Chance of Spell Failure (%)": 0
+          },
+          "19": {
+            "Bonus Spells": "3/2/1/1",
+            "Chance of Spell Failure (%)": 0
+          }
+        }
+      }
+      },
+      "Temple Establishment": {
+        "Level Requirement": "At level 9, a cleric can establish a temple or stronghold.",
+        "Followers": "Acolytes and devotees will flock to a cleric's banner."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d8)": 1,
+            "Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 1550,
+            "Hit Dice (d8)": 2,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 2900,
+            "Hit Dice (d8)": 3,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 6000,
+            "Hit Dice (d8)": 4,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 13250,
+            "Hit Dice (d8)": 5,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 1,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 27000,
+            "Hit Dice (d8)": 6,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 55000,
+            "Hit Dice (d8)": 7,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 110000,
+            "Hit Dice (d8)": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 220000,
+            "Hit Dice (d8)": 9,
+            "Notes": "High Priest(ess)",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 1,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 450000,
+            "Hit Dice (d8)": "9d8+2",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 675000,
+            "Hit Dice (d8)": "9d8+4",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 1,
+              "7th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 900000,
+            "Hit Dice (d8)": "9d8+6",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 1125000,
+            "Hit Dice (d8)": "9d8+8",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 4,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "14": {
+            "Base Experience Points": 1350000,
+            "Hit Dice (d8)": "9d8+10",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 5,
+              "5th Level": 3,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "15": {
+            "Base Experience Points": 1575000,
+            "Hit Dice (d8)": "9d8+12",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 7,
+              "2nd Level": 7,
+              "3rd Level": 7,
+              "4th Level": 5,
+              "5th Level": 4,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "16": {
+            "Base Experience Points": 1800000,
+            "Hit Dice (d8)": "9d8+14",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 7,
+              "2nd Level": 7,
+              "3rd Level": 7,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 3,
+              "7th Level": 1
+            }
+          },
+          "17": {
+            "Base Experience Points": 2025000,
+            "Hit Dice (d8)": "9d8+16",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 8,
+              "2nd Level": 8,
+              "3rd Level": 8,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 3,
+              "7th Level": 1
+            }
+          },
+          "18": {
+            "Base Experience Points": 2250000,
+            "Hit Dice (d8)": "9d8+18",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 8,
+              "2nd Level": 8,
+              "3rd Level": 8,
+              "4th Level": 7,
+              "5th Level": 6,
+              "6th Level": 6,
+              "7th Level": 1
+            }
+          },
+          "19": {
+            "Base Experience Points": 2475000,
+            "Hit Dice (d8)": "9d8+20",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 7,
+              "5th Level": 6,
+              "6th Level": 4,
+              "7th Level": 2
+            }
+          },
+          "20": {
+            "Base Experience Points": 2700000,
+            "Hit Dice (d8)": "9d8+22",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 8,
+              "5th Level": 7,
+              "6th Level": 5,
+              "7th Level": 2
+            }
+          },
+          "21": {
+            "Base Experience Points": 2925000,
+            "Hit Dice (d8)": "9d8+24",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 8,
+              "6th Level": 6,
+              "7th Level": 2
+            }
+          },
+          "22": {
+            "Base Experience Points": 3150000,
+            "Hit Dice (d8)": "9d8+26",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 6,
+              "7th Level": 3
+            }
+          },
+          "23": {
+            "Base Experience Points": 3375000,
+            "Hit Dice (d8)": "9d8+28",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 7,
+              "7th Level": 3
+            }
+          },
+          "24": {
+            "Base Experience Points": 3600000,
+            "Hit Dice (d8)": "9d8+30",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 9,
+              "2nd Level": 9,
+              "3rd Level": 9,
+              "4th Level": 9,
+              "5th Level": 9,
+              "6th Level": 8,
+              "7th Level": 3
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 225000,
+            "Hit Point Bonus Per Level": 2,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-3": {
+          "Aimed Magic Items": 14,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 13,
+          "Spells": 15
+        },
+        "Levels 4-6": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 9,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 7-9": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 7,
+          "Petrification/Polymorph": 10,
+          "Spells": 12
+        }
+      }
+    },
+    "Druid": {
+      "Definition": "Druids are nature priests who maintain harmony between civilization and the wild. They possess mystical magic tied to fire, stone, weather, plant, and animal life.",
+      "Alignment": "Neutral only.",
+      "Divine Connection": {
+        "Spellcasting Focus": "Druids require mistletoe, holly, or oak leaves to cast spells.",
+        "Harvesting Rules": {
+          "Mistletoe & Holly": "Must be gathered during a full or new moon for full efficacy. Otherwise, spells have half normal effect.",
+          "Oak Leaves": "Always produce half-strength spells; improperly harvested oak leaves yield one-quarter strength spells."
+        }
+      },
+      "Limited High-Level Druids": {
+        "High Druid (Level 12)": "No more than 3 in existence.",
+        "Archdruid (Level 13)": "No more than 2 in existence.",
+        "Supreme Druid (Level 14)": "Only one can exist."
+      },
+      "Druid Challenge System": {
+        "Level Advancement": "If all positions for higher-level Druids are filled, a challenge must be issued.",
+        "Contest Rules": "Contests may involve duels or other trials. The loser drops to the next lowest level."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 6,
+          "Dexterity": 6,
+          "Constitution": 6,
+          "Intelligence": 6,
+          "Wisdom": 12,
+          "Charisma": 15
+        },
+        "Hit Die Type": "d8 (Max 14)",
+        "Experience Bonus": "Granted for Wisdom & Charisma 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Leather armor only, wooden shields only.",
+        "Weapons Permitted": ["Club", "Dagger", "Dart", "Hammer", "Oil", "Scimitar", "Sling", "Spear", "Staff"]
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 2, gains +1 every 3 levels.",
+        "Penalty for Non-Proficiency": "-4 to attack rolls.",
+        "To-Hit Table": {
+          "1-3": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "4-6": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "7-9": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "10-12": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "13-14": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          }
+        }
+      },
+      "Class Abilities": {
+        "Druids' Cant": "A secret language spoken only by Druids.",
+        "Saving Throw Bonus": "+2 against fire and lightning attacks.",
+        "Spell Casting": "Druids may memorize and cast spells in accordance with level tables."
+      },
+      "Advanced Abilities": {
+        "Druid’s Knowledge (Level 3)": "Identify plant and animal types, determine safe drinking water.",
+        "Wilderness Movement (Level 3)": "Move through undergrowth without leaving a trace.",
+        "Immunity to Fey Charm (Level 7)": "Immune to enchantments cast by dryads, pixies, brownies, etc.",
+        "Shapeshift (Level 7+)": "Transform into natural animals up to 3 times per day. Recovers 1d6 × 10% of lost HP."
+      },
+      "Saving Throws": {
+        "Levels 1-3": {
+          "Aimed Magic Items": 14,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 13,
+          "Spells": 15
+        },
+        "Levels 4-6": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 9,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 7-9": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 7,
+          "Petrification/Polymorph": 10,
+          "Spells": 12
+        },
+        "Levels 10-12": {
+          "Aimed Magic Items": 10,
+          "Breath Weapons": 12,
+          "Death/Paralysis/Poison": 6,
+          "Petrification/Polymorph": 9,
+          "Spells": 11
+        },
+        "Levels 13-14": {
+          "Aimed Magic Items": 9,
+          "Breath Weapons": 11,
+          "Death/Paralysis/Poison": 5,
+          "Petrification/Polymorph": 8,
+          "Spells": 10
+        }
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d8)": 1,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 2000,
+            "Hit Dice (d8)": 2,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 4000,
+            "Hit Dice (d8)": 3,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement",
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 1,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 8000,
+            "Hit Dice (d8)": 4,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 2,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 12000,
+            "Hit Dice (d8)": 5,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 20000,
+            "Hit Dice (d8)": 6,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 35000,
+            "Hit Dice (d8)": 7,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 60000,
+            "Hit Dice (d8)": 8,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 90000,
+            "Hit Dice (d8)": 9,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 1,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 125000,
+            "Hit Dice (d8)": 10,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 200000,
+            "Hit Dice (d8)": 11,
+            "Notes": "Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 3,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 1,
+              "7th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 300000,
+            "Hit Dice (d8)": 12,
+            "Notes": "Title: High Druid.  Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 4,
+              "4th Level": 4,
+              "5th Level": 3,
+              "6th Level": 2,
+              "7th Level": 1
+            }
+          },
+          "13": {
+            "Base Experience Points": 750000,
+            "Hit Dice (d8)": 13,
+            "Notes": "Title: Archdruid.  Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 4,
+              "6th Level": 3,
+              "7th Level": 2
+            }
+          },
+          "14": {
+            "Base Experience Points": 1500000,
+            "Hit Dice (d8)": 14,
+            "Notes": "Title: Supreme Druid. Gain abilities: Druid’s Knowledge; Wilderness Movement; Immunity to Fey Charm; Shapeshift.  Maximum Level, 14th level (at 1,500,000 experience points) is the ceiling for druids. Any further experience points the druid receives will simply be lost",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 4,
+              "7th Level": 3
+            }
+          }
+        }
+      }
+    },
+    "Fighter": {
+      "Definition": "Fighters are trained warriors, experts in melee and ranged combat. They form the backbone of an adventuring party, holding the line in battle.",
+      "Alignment": "Any alignment.",
+      "Role in Combat": {
+        "Melee Mastery": "Fighters excel in direct combat, possessing the highest hit points and best chance to hit.",
+        "Missile Combat": "Fighters can use any weapon, excelling in both close and ranged attacks."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 9,
+          "Dexterity": 6,
+          "Constitution": 7,
+          "Intelligence": 3,
+          "Wisdom": 6,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d10 (Max 9)",
+        "Experience Bonus": "Granted for Strength 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Any armor and shields permitted.",
+        "Weapons Permitted": "Any weapon."
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 4, gains +1 every 2 levels.",
+        "Penalty for Non-Proficiency": "-2 to attack rolls.",
+        "To-Hit Table": {
+          "0": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 20,
+            "AC 3": 19,
+            "AC 4": 18,
+            "AC 5": 17,
+            "AC 6": 16,
+            "AC 7": 15,
+            "AC 8": 14,
+            "AC 9": 13,
+            "AC 10": 12
+          },
+          "1": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "2": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 12,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "3": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 19,
+            "AC 0": 18,
+            "AC 1": 17,
+            "AC 2": 16,
+            "AC 3": 15,
+            "AC 4": 14,
+            "AC 5": 13,
+            "AC 6": 12,
+            "AC 7": 11,
+            "AC 8": 10,
+            "AC 9": 9,
+            "AC 10": 8
+          },
+          "4": {
+            "AC -10": 22,
+            "AC -9": 21,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "5": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "6": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "7": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "8": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 19,
+            "AC -5": 18,
+            "AC -4": 17,
+            "AC -3": 16,
+            "AC -2": 15,
+            "AC -1": 14,
+            "AC 0": 13,
+            "AC 1": 12,
+            "AC 2": 11,
+            "AC 3": 10,
+            "AC 4": 9,
+            "AC 5": 8,
+            "AC 6": 7,
+            "AC 7": 6,
+            "AC 8": 5,
+            "AC 9": 4,
+            "AC 10": 3
+          },
+          "9": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "10": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 19,
+            "AC -7": 18,
+            "AC -6": 17,
+            "AC -5": 16,
+            "AC -4": 15,
+            "AC -3": 14,
+            "AC -2": 13,
+            "AC -1": 12,
+            "AC 0": 11,
+            "AC 1": 10,
+            "AC 2": 9,
+            "AC 3": 8,
+            "AC 4": 7,
+            "AC 5": 6,
+            "AC 6": 5,
+            "AC 7": 4,
+            "AC 8": 3,
+            "AC 9": 2,
+            "AC 10": 1
+          },
+          "11": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          },
+          "12": {
+            "AC -10": 19,
+            "AC -9": 18,
+            "AC -8": 17,
+            "AC -7": 16,
+            "AC -6": 15,
+            "AC -5": 14,
+            "AC -4": 13,
+            "AC -3": 12,
+            "AC -2": 11,
+            "AC -1": 10,
+            "AC 0": 9,
+            "AC 1": 8,
+            "AC 2": 7,
+            "AC 3": 6,
+            "AC 4": 5,
+            "AC 5": 4,
+            "AC 6": 3,
+            "AC 7": 2,
+            "AC 8": 1,
+            "AC 9": 0,
+            "AC 10": -1
+          },
+          "13": {
+            "AC -10": 18,
+            "AC -9": 17,
+            "AC -8": 16,
+            "AC -7": 15,
+            "AC -6": 14,
+            "AC -5": 13,
+            "AC -4": 12,
+            "AC -3": 11,
+            "AC -2": 10,
+            "AC -1": 9,
+            "AC 0": 8,
+            "AC 1": 7,
+            "AC 2": 6,
+            "AC 3": 5,
+            "AC 4": 4,
+            "AC 5": 3,
+            "AC 6": 2,
+            "AC 7": 1,
+            "AC 8": 0,
+            "AC 9": -1,
+            "AC 10": -2
+          },
+          "14": {
+            "AC -10": 17,
+            "AC -9": 16,
+            "AC -8": 15,
+            "AC -7": 14,
+            "AC -6": 13,
+            "AC -5": 12,
+            "AC -4": 11,
+            "AC -3": 10,
+            "AC -2": 9,
+            "AC -1": 8,
+            "AC 0": 7,
+            "AC 1": 6,
+            "AC 2": 5,
+            "AC 3": 4,
+            "AC 4": 3,
+            "AC 5": 2,
+            "AC 6": 1,
+            "AC 7": 0,
+            "AC 8": -1,
+            "AC 9": -2,
+            "AC 10": -3
+          },
+          "15": {
+            "AC -10": 16,
+            "AC -9": 15,
+            "AC -8": 14,
+            "AC -7": 13,
+            "AC -6": 12,
+            "AC -5": 11,
+            "AC -4": 10,
+            "AC -3": 9,
+            "AC -2": 8,
+            "AC -1": 7,
+            "AC 0": 6,
+            "AC 1": 5,
+            "AC 2": 4,
+            "AC 3": 3,
+            "AC 4": 2,
+            "AC 5": 1,
+            "AC 6": 0,
+            "AC 7": -1,
+            "AC 8": -2,
+            "AC 9": -3,
+            "AC 10": -4
+          },
+          "16": {
+            "AC -10": 15,
+            "AC -9": 14,
+            "AC -8": 13,
+            "AC -7": 12,
+            "AC -6": 11,
+            "AC -5": 10,
+            "AC -4": 9,
+            "AC -3": 8,
+            "AC -2": 7,
+            "AC -1": 6,
+            "AC 0": 5,
+            "AC 1": 4,
+            "AC 2": 3,
+            "AC 3": 2,
+            "AC 4": 1,
+            "AC 5": 0,
+            "AC 6": -1,
+            "AC 7": -2,
+            "AC 8": -3,
+            "AC 9": -4,
+            "AC 10": -5
+          },
+          "17": {
+            "AC -10": 14,
+            "AC -9": 13,
+            "AC -8": 12,
+            "AC -7": 11,
+            "AC -6": 10,
+            "AC -5": 9,
+            "AC -4": 8,
+            "AC -3": 7,
+            "AC -2": 6,
+            "AC -1": 5,
+            "AC 0": 4,
+            "AC 1": 3,
+            "AC 2": 2,
+            "AC 3": 1,
+            "AC 4": 0,
+            "AC 5": -1,
+            "AC 6": -2,
+            "AC 7": -3,
+            "AC 8": -4,
+            "AC 9": -5,
+            "AC 10": -6
+          },
+          "18": {
+            "AC -10": 13,
+            "AC -9": 12,
+            "AC -8": 11,
+            "AC -7": 10,
+            "AC -6": 9,
+            "AC -5": 8,
+            "AC -4": 7,
+            "AC -3": 6,
+            "AC -2": 5,
+            "AC -1": 4,
+            "AC 0": 3,
+            "AC 1": 2,
+            "AC 2": 1,
+            "AC 3": 0,
+            "AC 4": -1,
+            "AC 5": -2,
+            "AC 6": -3,
+            "AC 7": -4,
+            "AC 8": -5,
+            "AC 9": -6,
+            "AC 10": -7
+          },
+          "19": {
+            "AC -10": 12,
+            "AC -9": 11,
+            "AC -8": 10,
+            "AC -7": 9,
+            "AC -6": 8,
+            "AC -5": 7,
+            "AC -4": 6,
+            "AC -3": 5,
+            "AC -2": 4,
+            "AC -1": 3,
+            "AC 0": 2,
+            "AC 1": 1,
+            "AC 2": 0,
+            "AC 3": -1,
+            "AC 4": -2,
+            "AC 5": -3,
+            "AC 6": -4,
+            "AC 7": -5,
+            "AC 8": -6,
+            "AC 9": -7,
+            "AC 10": -8
+          },
+          "20+": {
+            "AC -10": 11,
+            "AC -9": 10,
+            "AC -8": 9,
+            "AC -7": 8,
+            "AC -6": 7,
+            "AC -5": 6,
+            "AC -4": 5,
+            "AC -3": 4,
+            "AC -2": 3,
+            "AC -1": 2,
+            "AC 0": 1,
+            "AC 1": 0,
+            "AC 2": -1,
+            "AC 3": -2,
+            "AC 4": -3,
+            "AC 5": -4,
+            "AC 6": -5,
+            "AC 7": -6,
+            "AC 8": -7,
+            "AC 9": -8,
+            "AC 10": -9
+          }
+        }
+      },
+      "Class Abilities": {
+        "Bonus Attacks": {
+          "Levels 1-6": "1 attack per round (1/1).",
+          "Levels 7-12": "3 attacks every 2 rounds (3/2).",
+          "Levels 13+": "2 attacks per round (2/1)."
+        },
+        "Fighting the Unskilled": "Against creatures with less than 1d8 HP, fighters receive attacks equal to their level.",
+        "Initiative Rule": "Fighters with multiple attacks automatically strike first with one attack, and last, with another, unless the opponent also has multiple attacks in which case initiative is normal.",
+        "Additional Damage Option": "Optional Rule: Where a fighter of extremely high level or with many bonuses “to hit” actually requires a negative score to hit his or her target, then at the GM’s option, the negative score may be converted to a positive and applied as additional damage to the automatic hit. Thus, for example, a 20th level fighter with 19 strength and a +5 sword attacking an AC 2 dragon would require a roll of -8 to hit it; the character would be allowed to modify his or her damage roll by +8."
+      },
+      "Weapon Specialization (Optional)": {
+        "Selection": "Must be chosen at character creation.",
+        "Specialization Bonuses": {
+          "Melee & Crossbows": "+1 to hit, +2 to damage.",
+          "Missile Weapons (except crossbows)": "Requires two proficiency slots."
+        },
+        "Double Specialization": "For non-polearm melee weapons, fighters may increase their bonuses to +3 to hit and +3 damage."
+      },
+      "Stronghold Establishment": {
+        "Level Requirement": "At level 9, a fighter who builds a castle and clears a 20-mile area of monsters attracts mercenaries.",
+        "Leadership & Taxation": "Able to tax each freeholder up to 1 gp per month per resident."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d10)": 1,
+            "Notes": "None"
+          },
+          "2": {
+            "Base Experience Points": 1900,
+            "Hit Dice (d10)": 2,
+            "Notes": "None"
+          },
+          "3": {
+            "Base Experience Points": 4250,
+            "Hit Dice (d10)": 3,
+            "Notes": "None"
+          },
+          "4": {
+            "Base Experience Points": 7750,
+            "Hit Dice (d10)": 4,
+            "Notes": "None"
+          },
+          "5": {
+            "Base Experience Points": 16000,
+            "Hit Dice (d10)": 5,
+            "Notes": "None"
+          },
+          "6": {
+            "Base Experience Points": 35000,
+            "Hit Dice (d10)": 6,
+            "Notes": "None"
+          },
+          "7": {
+            "Base Experience Points": 75000,
+            "Hit Dice (d10)": 7,
+            "Notes": "Bonus attacks"
+          },
+          "8": {
+            "Base Experience Points": 125000,
+            "Hit Dice (d10)": 8,
+            "Notes": "None"
+          },
+          "9": {
+            "Base Experience Points": 250000,
+            "Hit Dice (d10)": 9,
+            "Notes": "Lord (Lady)"
+          },
+          "10": {
+            "Base Experience Points": 500000,
+            "Hit Dice (d10)": "9+3",
+            "Notes": "No Constitution-based HP adjustments apply."
+          },
+          "11": {
+            "Base Experience Points": 750000,
+            "Hit Dice (d10)": "9+6",
+            "Notes": "No Constitution-based HP adjustments apply."
+          },
+          "Beyond 11": {
+            "Base Experience Points Required Per Level": 250000,
+            "Hit Point Bonus Per Level": 3,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Level 0": {
+          "Aimed Magic Items": 18,
+          "Breath Weapons": 20,
+          "Death/Paralysis/Poison": 16,
+          "Petrification/Polymorph": 17,
+          "Spells": 19
+        },
+        "Levels 1-2": {
+          "Aimed Magic Items": 16,
+          "Breath Weapons": 17,
+          "Death/Paralysis/Poison": 14,
+          "Petrification/Polymorph": 15,
+          "Spells": 17
+        },
+        "Levels 3-4": {
+          "Aimed Magic Items": 15,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 13,
+          "Petrification/Polymorph": 14,
+          "Spells": 16
+        },
+        "Levels 5-6": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 7-8": {
+          "Aimed Magic Items": 12,
+          "Breath Weapons": 12,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 11,
+          "Spells": 13
+        },
+        "Levels 9-10": {
+          "Aimed Magic Items": 10,
+          "Breath Weapons": 9,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 9,
+          "Spells": 11
+        },
+        "Levels 11-12": {
+          "Aimed Magic Items": 9,
+          "Breath Weapons": 8,
+          "Death/Paralysis/Poison": 7,
+          "Petrification/Polymorph": 8,
+          "Spells": 10
+        },
+        "Levels 13-14": {
+          "Aimed Magic Items": 7,
+          "Breath Weapons": 5,
+          "Death/Paralysis/Poison": 5,
+          "Petrification/Polymorph": 6,
+          "Spells": 8
+        },
+        "Levels 15-16": {
+          "Aimed Magic Items": 6,
+          "Breath Weapons": 4,
+          "Death/Paralysis/Poison": 4,
+          "Petrification/Polymorph": 5,
+          "Spells": 7
+        },
+        "Levels 17-18": {
+          "Aimed Magic Items": 5,
+          "Breath Weapons": 4,
+          "Death/Paralysis/Poison": 3,
+          "Petrification/Polymorph": 4,
+          "Spells": 6
+        },
+        "Levels 19+": {
+          "Aimed Magic Items": 4,
+          "Breath Weapons": 3,
+          "Death/Paralysis/Poison": 2,
+          "Petrification/Polymorph": 3,
+          "Spells": 5
+        }
+      }
+    },
+    "Illusionist": {
+      "Definition": "Illusionists are masters of phantasmal magic, capable of influencing minds and senses. At higher levels, their magic interacts with shadow realms beyond the Prime Material Plane.",
+      "Alignment": "Any alignment.",
+      "Magic System": {
+        "Spell Acquisition": "Illusionists rely on spell books and may only cast spells they have learned, except from illusionist scrolls.",
+        "Automatic Spell Gain": "Upon leveling up, they automatically receive one spell of the highest spell level they can cast.",
+        "Spell Learning Limitations": "Limited by Intelligence in spell comprehension according to the same table as magic users.",
+        "Phantasmal Script": "Illusionist spells are written in a unique script decipherable only by illusionists. They do not require the read magic spell."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 6,
+          "Dexterity": 16,
+          "Intelligence": 15,
+          "Wisdom": 6,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d4 (Max 10)",
+        "Experience Bonus": "None"
+      },
+      "Equipment": {
+        "Armor & Shields": "None permitted.",
+        "Weapons Permitted": ["Dagger", "Dart", "Oil", "Staff"]
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 1, gains +1 every 5 levels.",
+        "Penalty for Non-Proficiency": "-5 to attack rolls.",
+        "To-Hit Table": {
+          "1-5": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 19,
+            "AC 3": 18,
+            "AC 4": 17,
+            "AC 5": 16,
+            "AC 6": 15,
+            "AC 7": 14,
+            "AC 8": 13,
+            "AC 9": 12,
+            "AC 10": 11
+          },
+          "6-10": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 11,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "11-15": {
+            "AC -10": 22,
+            "AC -9": 21,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "16-20": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "21+": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 19,
+            "AC -5": 18,
+            "AC -4": 17,
+            "AC -3": 16,
+            "AC -2": 15,
+            "AC -1": 14,
+            "AC 0": 13,
+            "AC 1": 12,
+            "AC 2": 11,
+            "AC 3": 10,
+            "AC 4": 9,
+            "AC 5": 8,
+            "AC 6": 7,
+            "AC 7": 6,
+            "AC 8": 5,
+            "AC 9": 4,
+            "AC 10": 3
+          }
+        }
+      },
+      "Class Abilities": {
+        "Spell Casting": "Illusionists can memorize and cast spells according to level tables.",
+        "Starting Spells": {
+          "Chosen Spells": "Players select 2 spells from the first-level spell list.",
+          "Random Spells": "2 additional first-level spells are determined randomly."
+        }
+      },
+      "Stronghold Establishment": {
+        "Level Requirement": "At level 10, an Illusionist may establish a tower or keep."
+      },
+      "Saving Throws": {
+        "Levels 1-5": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 14,
+          "Petrification/Polymorph": 13,
+          "Spells": 12
+        },
+        "Levels 6-10": {
+          "Aimed Magic Items": 9,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 13,
+          "Petrification/Polymorph": 11,
+          "Spells": 10
+        },
+        "Levels 11-15": {
+          "Aimed Magic Items": 7,
+          "Breath Weapons": 11,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 9,
+          "Spells": 8
+        },
+        "Levels 16-20": {
+          "Aimed Magic Items": 5,
+          "Breath Weapons": 9,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 7,
+          "Spells": 6
+        },
+        "Levels 21+": {
+          "Aimed Magic Items": 3,
+          "Breath Weapons": 7,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 5,
+          "Spells": 4
+        }
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d4)": 1,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 2500,
+            "Hit Dice (d4)": 2,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 4750,
+            "Hit Dice (d4)": 3,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 9000,
+            "Hit Dice (d4)": 4,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 18000,
+            "Hit Dice (d4)": 5,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 1,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 35000,
+            "Hit Dice (d4)": 6,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 60250,
+            "Hit Dice (d4)": 7,
+            "Notes": "May hire followers",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 95000,
+            "Hit Dice (d4)": 8,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 144500,
+            "Hit Dice (d4)": 9,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 220000,
+            "Hit Dice (d4)": 10,
+            "Notes": "Master of Phantasms",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 1,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 440000,
+            "Hit Dice (d4)": "10+1",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 0,
+              "7th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 660000,
+            "Hit Dice (d4)": "10+2",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 1,
+              "7th Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 880000,
+            "Hit Dice (d4)": "10+3",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 0
+            }
+          },
+          "14": {
+            "Base Experience Points": 1100000,
+            "Hit Dice (d4)": "10+4",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 1
+            }
+          },
+          "15": {
+            "Base Experience Points": 1320000,
+            "Hit Dice (d4)": "10+5",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 4,
+              "4th Level": 4,
+              "5th Level": 2,
+              "6th Level": 2,
+              "7th Level": 2
+            }
+          },
+          "16": {
+            "Base Experience Points": 1540000,
+            "Hit Dice (d4)": "10+6",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 3,
+              "6th Level": 2,
+              "7th Level": 2
+            }
+          },
+          "17": {
+            "Base Experience Points": 1760000,
+            "Hit Dice (d4)": "10+7",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 3,
+              "6th Level": 3,
+              "7th Level": 2
+            }
+          },
+          "18": {
+            "Base Experience Points": 1980000,
+            "Hit Dice (d4)": "10+8",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 4,
+              "6th Level": 3,
+              "7th Level": 2
+            }
+          },
+          "19": {
+            "Base Experience Points": 2200000,
+            "Hit Dice (d4)": "10+9",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 3,
+              "7th Level": 2
+            }
+          },
+          "20": {
+            "Base Experience Points": 2420000,
+            "Hit Dice (d4)": "10+10",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 4,
+              "7th Level": 2
+            }
+          },
+          "21": {
+            "Base Experience Points": 2640000,
+            "Hit Dice (d4)": "10+11",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 4,
+              "7th Level": 3
+            }
+          },
+          "22": {
+            "Base Experience Points": 2860000,
+            "Hit Dice (d4)": "10+12",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 5,
+              "7th Level": 3
+            }
+          },
+          "23": {
+            "Base Experience Points": 3080000,
+            "Hit Dice (d4)": "10+13",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 6,
+              "6th Level": 5,
+              "7th Level": 4
+            }
+          },
+          "24": {
+            "Base Experience Points": 3300000,
+            "Hit Dice (d4)": "10+14",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 6,
+              "6th Level": 6,
+              "7th Level": 5
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 220000,
+            "Hit Point Bonus Per Level": 1,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      }
+    },
+    "Magic User": {
+      "Definition": "Magic Users wield arcane magic through study and practice. While physically weak, they possess the most powerful and versatile spells in the game.",
+      "Alignment": "Any alignment.",
+      "Magic System": {
+        "Spell Acquisition": "Magic Users rely on their spell books and may only cast spells they have learned, except from arcane scrolls.",
+        "Automatic Spell Gain": "Upon leveling up, they automatically receive one spell of the highest spell level they can cast.",
+        "Spell Learning Limitations": "Limited by Intelligence in spell comprehension according to the Magic User Spell Acquisition Table."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 3,
+          "Dexterity": 6,
+          "Intelligence": 9,
+          "Wisdom": 6,
+          "Constitution": 6,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d4 (Max 11)",
+        "Experience Bonus": "Granted for Intelligence 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "None permitted.",
+        "Weapons Permitted": ["Dagger", "Dart", "Oil", "Staff"]
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 1, gains +1 every 5 levels.",
+        "Penalty for Non-Proficiency": "-5 to attack rolls.",
+        "To-Hit Table": {
+          "1-5": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 19,
+            "AC 3": 18,
+            "AC 4": 17,
+            "AC 5": 16,
+            "AC 6": 15,
+            "AC 7": 14,
+            "AC 8": 13,
+            "AC 9": 12,
+            "AC 10": 11
+          },
+          "6-10": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 11,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "11-15": {
+            "AC -10": 22,
+            "AC -9": 21,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "16-20": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "21+": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 19,
+            "AC -5": 18,
+            "AC -4": 17,
+            "AC -3": 16,
+            "AC -2": 15,
+            "AC -1": 14,
+            "AC 0": 13,
+            "AC 1": 12,
+            "AC 2": 11,
+            "AC 3": 10,
+            "AC 4": 9,
+            "AC 5": 8,
+            "AC 6": 7,
+            "AC 7": 6,
+            "AC 8": 5,
+            "AC 9": 4,
+            "AC 10": 3
+          }
+        }
+      },
+      "Class Abilities": {
+        "Spell Casting": "Magic Users can memorize and cast spells according to level tables.",
+        "Starting Spells": {
+          "Mandatory": "Begins with Read Magic.",
+          "Chosen Spells": "Players select 1 spell from the first-level spell list.",
+          "Random Spells": "2 additional first-level spells are determined randomly."
+        }
+      },
+
+      "Spell Acquisition": {
+        "Intelligence Scores": {
+          "9": {
+            "Chance to Understand Spells (%)": 35,
+            "Minimum Spells Per Level": 4,
+            "Maximum Spells Per Level": 6
+          },
+          "10-12": {
+            "Chance to Understand Spells (%)": 45,
+            "Minimum Spells Per Level": 5,
+            "Maximum Spells Per Level": 7
+          },
+          "13-14": {
+            "Chance to Understand Spells (%)": 55,
+            "Minimum Spells Per Level": 6,
+            "Maximum Spells Per Level": 9
+          },
+          "15-16": {
+            "Chance to Understand Spells (%)": 65,
+            "Minimum Spells Per Level": 7,
+            "Maximum Spells Per Level": 11
+          },
+          "17": {
+            "Chance to Understand Spells (%)": 75,
+            "Minimum Spells Per Level": 8,
+            "Maximum Spells Per Level": 14
+          },
+          "18": {
+            "Chance to Understand Spells (%)": 85,
+            "Minimum Spells Per Level": 9,
+            "Maximum Spells Per Level": 18
+          },
+          "19": {
+            "Chance to Understand Spells (%)": 90,
+            "Minimum Spells Per Level": 10,
+            "Maximum Spells Per Level": 22
+          }
+        }
+      },
+      "Advanced Abilities": {
+        "Eldritch Craft (Level 7)": "Can create potions, scribe scrolls, and recharge rods/staves/wands. Overseen by the GM, requiring rare and expensive components.",
+        "Eldritch Power (Level 12)": "Can create magical items using the enchant an item spell. Requires rare materials and is not guaranteed."
+      },
+      "Stronghold Establishment": {
+        "Level Requirement": "At level 11, a Magic User may establish a tower or keep."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d4)": 1,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 2400,
+            "Hit Dice (d4)": 2,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 4800,
+            "Hit Dice (d4)": 3,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 10250,
+            "Hit Dice (d4)": 4,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 0,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 22000,
+            "Hit Dice (d4)": 5,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 2,
+              "3rd Level": 1,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 40000,
+            "Hit Dice (d4)": 6,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 0,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 60000,
+            "Hit Dice (d4)": 7,
+            "Notes": "Eldritch Craft",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 60000,
+            "Hit Dice (d4)": 7,
+            "Notes": "Eldritch Craft",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 80000,
+            "Hit Dice (d4)": 8,
+            "Notes": "Eldritch Craft",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 0,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 140000,
+            "Hit Dice (d4)": 9,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 1,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 250000,
+            "Hit Dice (d4)": 10,
+            "Notes": "None",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 2,
+              "5th Level": 2,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 375000,
+            "Hit Dice (d4)": 11,
+            "Notes": "Wizard",
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 3,
+              "6th Level": 0,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 750000,
+            "Hit Dice (d4)": "11+1",
+            "Notes": "Eldritch Power; No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 3,
+              "6th Level": 1,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 1125000,
+            "Hit Dice (d4)": "11+2",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3,
+              "5th Level": 3,
+              "6th Level": 2,
+              "7th Level": 0,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "14": {
+            "Base Experience Points": 1500000,
+            "Hit Dice (d4)": "11+3",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 4,
+              "6th Level": 2,
+              "7th Level": 1,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "15": {
+            "Base Experience Points": 1875000,
+            "Hit Dice (d4)": "11+4",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 4,
+              "6th Level": 3,
+              "7th Level": 2,
+              "8th Level": 0,
+              "9th Level": 0
+            }
+          },
+          "16": {
+            "Base Experience Points": 2250000,
+            "Hit Dice (d4)": "11+5",
+            "Notes": "Mage; No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 4,
+              "5th Level": 4,
+              "6th Level": 3,
+              "7th Level": 2,
+              "8th Level": 1,
+              "9th Level": 0
+            }
+          },
+          "17": {
+            "Base Experience Points": 2625000,
+            "Hit Dice (d4)": "11+6",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 4,
+              "7th Level": 3,
+              "8th Level": 2,
+              "9th Level": 0
+            }
+          },
+          "18": {
+            "Base Experience Points": 3000000,
+            "Hit Dice (d4)": "11+7",
+            "Notes": "Archmage; No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 4,
+              "7th Level": 3,
+              "8th Level": 2,
+              "9th Level": 1
+            }
+          },
+          "19": {
+            "Base Experience Points": 3375000,
+            "Hit Dice (d4)": "11+8",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 5,
+              "7th Level": 4,
+              "8th Level": 3,
+              "9th Level": 1
+            }
+          },
+          "20": {
+            "Base Experience Points": 3750000,
+            "Hit Dice (d4)": "11+9",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 5,
+              "2nd Level": 5,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 5,
+              "7th Level": 4,
+              "8th Level": 3,
+              "9th Level": 2
+            }
+          },
+          "21": {
+            "Base Experience Points": 4125000,
+            "Hit Dice (d4)": "11+10",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 5,
+              "4th Level": 5,
+              "5th Level": 5,
+              "6th Level": 5,
+              "7th Level": 4,
+              "8th Level": 4,
+              "9th Level": 2
+            }
+          },
+          "22": {
+            "Base Experience Points": 4500000,
+            "Hit Dice (d4)": "11+11",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 5,
+              "6th Level": 5,
+              "7th Level": 5,
+              "8th Level": 4,
+              "9th Level": 2
+            }
+          },
+          "23": {
+            "Base Experience Points": 4875000,
+            "Hit Dice (d4)": "11+12",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 6,
+              "6th Level": 6,
+              "7th Level": 5,
+              "8th Level": 4,
+              "9th Level": 3
+            }
+          },
+          "24": {
+            "Base Experience Points": 5250000,
+            "Hit Dice (d4)": "11+13",
+            "Notes": "No Constitution-based HP adjustments apply.",
+            "Spells": {
+              "1st Level": 6,
+              "2nd Level": 6,
+              "3rd Level": 6,
+              "4th Level": 6,
+              "5th Level": 6,
+              "6th Level": 6,
+              "7th Level": 6,
+              "8th Level": 5,
+              "9th Level": 3
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 375000,
+            "Hit Point Bonus Per Level": 1,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-5": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 14,
+          "Petrification/Polymorph": 13,
+          "Spells": 12
+        },
+        "Levels 6-10": {
+          "Aimed Magic Items": 9,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 13,
+          "Petrification/Polymorph": 11,
+          "Spells": 10
+        },
+        "Levels 11-15": {
+          "Aimed Magic Items": 7,
+          "Breath Weapons": 11,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 9,
+          "Spells": 8
+        },
+        "Levels 16-20": {
+          "Aimed Magic Items": 5,
+          "Breath Weapons": 9,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 7,
+          "Spells": 6
+        },
+        "Levels 21+": {
+          "Aimed Magic Items": 3,
+          "Breath Weapons": 7,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 5,
+          "Spells": 4
+        }
+      }
+    },
+    "Paladin": {
+      "Definition": "Paladins are Lawful Good warriors bound to righteousness. If they ever intentionally break their vow, they permanently lose all special abilities and become normal fighters.",
+      "Alignment": "Lawful Good only.",
+      "Moral Code & Restrictions": {
+        "Magic Item Limit": "A paladin may never possess more than ten magic items, only one magical suit of armor, and one magic shield.",
+        "Tithing Requirement": "Paladins must donate 10% of any money they receive to a Lawful Good cause.",
+        "Association Restriction": "Paladins do not associate with non-Good characters unless GM-approved in exceptional circumstances."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 12,
+          "Dexterity": 6,
+          "Constitution": 9,
+          "Intelligence": 9,
+          "Wisdom": 13,
+          "Charisma": 17
+        },
+        "Hit Die Type": "d10 (Max 9)",
+        "Experience Bonus": "Granted for Strength & Wisdom 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Any armor and shields permitted.",
+        "Weapons Permitted": "Any weapon."
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 3, gains +1 every 2 levels.",
+        "Penalty for Non-Proficiency": "-2 to attack rolls.",
+        "To-Hit Table": {
+          "0": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 20,
+            "AC 3": 19,
+            "AC 4": 18,
+            "AC 5": 17,
+            "AC 6": 16,
+            "AC 7": 15,
+            "AC 8": 14,
+            "AC 9": 13,
+            "AC 10": 12
+          },
+          "1": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "2": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 12,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "3": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 19,
+            "AC 0": 18,
+            "AC 1": 17,
+            "AC 2": 16,
+            "AC 3": 15,
+            "AC 4": 14,
+            "AC 5": 13,
+            "AC 6": 12,
+            "AC 7": 11,
+            "AC 8": 10,
+            "AC 9": 9,
+            "AC 10": 8
+          },
+          "4": {
+            "AC -10": 22,
+            "AC -9": 21,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "5": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "6": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "7": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "8": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 19,
+            "AC -5": 18,
+            "AC -4": 17,
+            "AC -3": 16,
+            "AC -2": 15,
+            "AC -1": 14,
+            "AC 0": 13,
+            "AC 1": 12,
+            "AC 2": 11,
+            "AC 3": 10,
+            "AC 4": 9,
+            "AC 5": 8,
+            "AC 6": 7,
+            "AC 7": 6,
+            "AC 8": 5,
+            "AC 9": 4,
+            "AC 10": 3
+          },
+          "9": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "10": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 19,
+            "AC -7": 18,
+            "AC -6": 17,
+            "AC -5": 16,
+            "AC -4": 15,
+            "AC -3": 14,
+            "AC -2": 13,
+            "AC -1": 12,
+            "AC 0": 11,
+            "AC 1": 10,
+            "AC 2": 9,
+            "AC 3": 8,
+            "AC 4": 7,
+            "AC 5": 6,
+            "AC 6": 5,
+            "AC 7": 4,
+            "AC 8": 3,
+            "AC 9": 2,
+            "AC 10": 1
+          },
+          "11": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          },
+          "12": {
+            "AC -10": 19,
+            "AC -9": 18,
+            "AC -8": 17,
+            "AC -7": 16,
+            "AC -6": 15,
+            "AC -5": 14,
+            "AC -4": 13,
+            "AC -3": 12,
+            "AC -2": 11,
+            "AC -1": 10,
+            "AC 0": 9,
+            "AC 1": 8,
+            "AC 2": 7,
+            "AC 3": 6,
+            "AC 4": 5,
+            "AC 5": 4,
+            "AC 6": 3,
+            "AC 7": 2,
+            "AC 8": 1,
+            "AC 9": 0,
+            "AC 10": -1
+          },
+          "13": {
+            "AC -10": 18,
+            "AC -9": 17,
+            "AC -8": 16,
+            "AC -7": 15,
+            "AC -6": 14,
+            "AC -5": 13,
+            "AC -4": 12,
+            "AC -3": 11,
+            "AC -2": 10,
+            "AC -1": 9,
+            "AC 0": 8,
+            "AC 1": 7,
+            "AC 2": 6,
+            "AC 3": 5,
+            "AC 4": 4,
+            "AC 5": 3,
+            "AC 6": 2,
+            "AC 7": 1,
+            "AC 8": 0,
+            "AC 9": -1,
+            "AC 10": -2
+          },
+          "14": {
+            "AC -10": 17,
+            "AC -9": 16,
+            "AC -8": 15,
+            "AC -7": 14,
+            "AC -6": 13,
+            "AC -5": 12,
+            "AC -4": 11,
+            "AC -3": 10,
+            "AC -2": 9,
+            "AC -1": 8,
+            "AC 0": 7,
+            "AC 1": 6,
+            "AC 2": 5,
+            "AC 3": 4,
+            "AC 4": 3,
+            "AC 5": 2,
+            "AC 6": 1,
+            "AC 7": 0,
+            "AC 8": -1,
+            "AC 9": -2,
+            "AC 10": -3
+          },
+          "15": {
+            "AC -10": 16,
+            "AC -9": 15,
+            "AC -8": 14,
+            "AC -7": 13,
+            "AC -6": 12,
+            "AC -5": 11,
+            "AC -4": 10,
+            "AC -3": 9,
+            "AC -2": 8,
+            "AC -1": 7,
+            "AC 0": 6,
+            "AC 1": 5,
+            "AC 2": 4,
+            "AC 3": 3,
+            "AC 4": 2,
+            "AC 5": 1,
+            "AC 6": 0,
+            "AC 7": -1,
+            "AC 8": -2,
+            "AC 9": -3,
+            "AC 10": -4
+          },
+          "16": {
+            "AC -10": 15,
+            "AC -9": 14,
+            "AC -8": 13,
+            "AC -7": 12,
+            "AC -6": 11,
+            "AC -5": 10,
+            "AC -4": 9,
+            "AC -3": 8,
+            "AC -2": 7,
+            "AC -1": 6,
+            "AC 0": 5,
+            "AC 1": 4,
+            "AC 2": 3,
+            "AC 3": 2,
+            "AC 4": 1,
+            "AC 5": 0,
+            "AC 6": -1,
+            "AC 7": -2,
+            "AC 8": -3,
+            "AC 9": -4,
+            "AC 10": -5
+          },
+          "17": {
+            "AC -10": 14,
+            "AC -9": 13,
+            "AC -8": 12,
+            "AC -7": 11,
+            "AC -6": 10,
+            "AC -5": 9,
+            "AC -4": 8,
+            "AC -3": 7,
+            "AC -2": 6,
+            "AC -1": 5,
+            "AC 0": 4,
+            "AC 1": 3,
+            "AC 2": 2,
+            "AC 3": 1,
+            "AC 4": 0,
+            "AC 5": -1,
+            "AC 6": -2,
+            "AC 7": -3,
+            "AC 8": -4,
+            "AC 9": -5,
+            "AC 10": -6
+          },
+          "18": {
+            "AC -10": 13,
+            "AC -9": 12,
+            "AC -8": 11,
+            "AC -7": 10,
+            "AC -6": 9,
+            "AC -5": 8,
+            "AC -4": 7,
+            "AC -3": 6,
+            "AC -2": 5,
+            "AC -1": 4,
+            "AC 0": 3,
+            "AC 1": 2,
+            "AC 2": 1,
+            "AC 3": 0,
+            "AC 4": -1,
+            "AC 5": -2,
+            "AC 6": -3,
+            "AC 7": -4,
+            "AC 8": -5,
+            "AC 9": -6,
+            "AC 10": -7
+          },
+          "19": {
+            "AC -10": 12,
+            "AC -9": 11,
+            "AC -8": 10,
+            "AC -7": 9,
+            "AC -6": 8,
+            "AC -5": 7,
+            "AC -4": 6,
+            "AC -3": 5,
+            "AC -2": 4,
+            "AC -1": 3,
+            "AC 0": 2,
+            "AC 1": 1,
+            "AC 2": 0,
+            "AC 3": -1,
+            "AC 4": -2,
+            "AC 5": -3,
+            "AC 6": -4,
+            "AC 7": -5,
+            "AC 8": -6,
+            "AC 9": -7,
+            "AC 10": -8
+          },
+          "20+": {
+            "AC -10": 11,
+            "AC -9": 10,
+            "AC -8": 9,
+            "AC -7": 8,
+            "AC -6": 7,
+            "AC -5": 6,
+            "AC -4": 5,
+            "AC -3": 4,
+            "AC -2": 3,
+            "AC -1": 2,
+            "AC 0": 1,
+            "AC 1": 0,
+            "AC 2": -1,
+            "AC 3": -2,
+            "AC 4": -3,
+            "AC 5": -4,
+            "AC 6": -5,
+            "AC 7": -6,
+            "AC 8": -7,
+            "AC 9": -8,
+            "AC 10": -9
+          }
+        }
+      },
+      "Class Abilities": {
+        "Improved Saving Throws": "Paladins use a more favorable saving throw table than other classes.",
+        "Cure Disease": "Can cure disease by touch once per week; twice per week at level 6+, and three times per week at level 11+. Paladins are immune to disease.",
+        "Detect Evil": "May detect evil at will within a 60 ft range, with concentration.",
+        "Protection from Evil": "Radiates an aura within a 10 ft radius, equivalent to the clerical spell protection from evil.",
+        "Lay on Hands": "Once per day, heals 2 HP per level to a touched creature (e.g., a level 3 paladin heals 6 HP)."
+      },
+      "Advanced Abilities": {
+        "Turn Undead (Level 3)": "Turns undead as a cleric does, but at two levels lower than their current level.",
+        "Summon Warhorse (Level 4)": "Can summon a special Paladin’s Warhorse once every ten years.",
+        "Bonus Attacks (Level 8)": "Gains additional attacks like fighters, but more slowly: 3/2 attacks at levels 8-14, and 2 attacks per round at level 15+.",
+        "Clerical Spellcasting (Level 9)": "Can cast certain cleric spells starting at level 9."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d10)": 1,
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 2550,
+            "Hit Dice (d10)": 2,
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 5500,
+            "Hit Dice (d10)": 3,
+            "Notes": "Turn Undead",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 12500,
+            "Hit Dice (d10)": 4,
+            "Notes": "Warhorse",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 25000,
+            "Hit Dice (d10)": 5,
+            "Notes": "None",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 45000,
+            "Hit Dice (d10)": 6,
+            "Notes": "None",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 95000,
+            "Hit Dice (d10)": 7,
+            "Notes": "None",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 175000,
+            "Hit Dice (d10)": 8,
+            "Notes": "Bonus Attacks",
+            "Spell Casting Level": 0,
+            "Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 325000,
+            "Hit Dice (d10)": 9,
+            "Notes": "Knight",
+            "Spell Casting Level": 1,
+            "Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 600000,
+            "Hit Dice (d10)": "9+3",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 2,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 1000000,
+            "Hit Dice (d10)": "9+6",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 3,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 1350000,
+            "Hit Dice (d10)": "9+9",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 4,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 0,
+              "4th Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 1700000,
+            "Hit Dice (d10)": "9+12",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 5,
+            "Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 1,
+              "4th Level": 0
+            }
+          },
+          "14": {
+            "Base Experience Points": 2050000,
+            "Hit Dice (d10)": "9+15",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 1,
+              "4th Level": 0
+            }
+          },
+          "15": {
+            "Base Experience Points": 2400000,
+            "Hit Dice (d10)": "9+18",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 7,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 1,
+              "4th Level": 1
+            }
+          },
+          "16": {
+            "Base Experience Points": 2750000,
+            "Hit Dice (d10)": "9+21",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 1,
+              "4th Level": 1
+            }
+          },
+          "17": {
+            "Base Experience Points": 3100000,
+            "Hit Dice (d10)": "9+24",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2,
+              "4th Level": 1
+            }
+          },
+          "18": {
+            "Base Experience Points": 3450000,
+            "Hit Dice (d10)": "9+27",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 1
+            }
+          },
+          "19": {
+            "Base Experience Points": 3800000,
+            "Hit Dice (d10)": "9+30",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 2
+            }
+          },
+          "20": {
+            "Base Experience Points": 4150000,
+            "Hit Dice (d10)": "9+33",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 3
+            }
+          },
+          "21": {
+            "Base Experience Points": 4500000,
+            "Hit Dice (d10)": "9+36",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 3,
+              "4th Level": 3
+            }
+          },
+          "22": {
+            "Base Experience Points": 4850000,
+            "Hit Dice (d10)": "9+39",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 3,
+              "4th Level": 3
+            }
+          },
+          "23": {
+            "Base Experience Points": 5200000,
+            "Hit Dice (d10)": "9+42",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 3
+            }
+          },
+          "24": {
+            "Base Experience Points": 5550000,
+            "Hit Dice (d10)": "9+45",
+            "Notes": "Constitution-based hp adjustments no longer apply",
+            "Spell Casting Level": 8,
+            "Spells": {
+              "1st Level": 4,
+              "2nd Level": 4,
+              "3rd Level": 4,
+              "4th Level": 4
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 350000,
+            "Hit Point Bonus Per Level": 3,
+            "Notes": "No Constitution-based HP adjustments apply. Paladins do not gain spells past 4th level.  They do not get spell bonuses due to Wisdom like Clerics or Druids."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-2": {
+          "Aimed Magic Items": 14,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 12,
+          "Petrification/Polymorph": 13,
+          "Spells": 15
+        },
+        "Levels 3-4": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 14,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 5-6": {
+          "Aimed Magic Items": 11,
+          "Breath Weapons": 11,
+          "Death/Paralysis/Poison": 9,
+          "Petrification/Polymorph": 10,
+          "Spells": 12
+        },
+        "Levels 7-8": {
+          "Aimed Magic Items": 10,
+          "Breath Weapons": 10,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 9,
+          "Spells": 11
+        },
+        "Levels 9-10": {
+          "Aimed Magic Items": 8,
+          "Breath Weapons": 7,
+          "Death/Paralysis/Poison": 6,
+          "Petrification/Polymorph": 7,
+          "Spells": 9
+        },
+        "Levels 11-12": {
+          "Aimed Magic Items": 7,
+          "Breath Weapons": 6,
+          "Death/Paralysis/Poison": 5,
+          "Petrification/Polymorph": 6,
+          "Spells": 8
+        },
+        "Levels 13-14": {
+          "Aimed Magic Items": 5,
+          "Breath Weapons": 3,
+          "Death/Paralysis/Poison": 3,
+          "Petrification/Polymorph": 4,
+          "Spells": 6
+        },
+        "Levels 15-16": {
+          "Aimed Magic Items": 4,
+          "Breath Weapons": 2,
+          "Death/Paralysis/Poison": 2,
+          "Petrification/Polymorph": 3,
+          "Spells": 5
+        },
+        "Levels 17-18": {
+          "Aimed Magic Items": 3,
+          "Breath Weapons": 2,
+          "Death/Paralysis/Poison": 2,
+          "Petrification/Polymorph": 2,
+          "Spells": 4
+        },
+        "Levels 19+": {
+          "Aimed Magic Items": 2,
+          "Breath Weapons": 2,
+          "Death/Paralysis/Poison": 2,
+          "Petrification/Polymorph": 2,
+          "Spells": 3
+        }
+      }
+    },
+    "Ranger": {
+      "Definition": "Rangers are wilderness experts who defend civilization from evil forces lurking beyond settled lands. They are skilled fighters and trackers, bound by a strict code of conduct.",
+      "Alignment": "Any good alignment (Lawful, Neutral, or Chaotic).",
+      "Moral Code & Restrictions": {
+        "Alignment Requirement": "A ranger must always remain of good alignment. A deliberate change results in permanent loss of ranger status.",
+        "Mercenaries & Servants": "May not hire mercenaries or servants until level 8+, and only if they are of good alignment.",
+        "Group Limit": "A maximum of three rangers may travel or operate together at any time.",
+        "Treasure Limit": "May not keep more treasure than they can carry (including steed capacity)."
+      },
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 13,
+          "Dexterity": 6,
+          "Constitution": 14,
+          "Intelligence": 13,
+          "Wisdom": 14,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d8 (Max 11 at 10th level)",
+        "Initial Hit Die": "2d8 at level 1, then 1d8 per level until max.",
+        "Experience Bonus": "Granted for Strength, Intelligence, and Wisdom 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Any armor and shields permitted.",
+        "Weapons Permitted": "Any weapon."
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 3, gains +1 every 2 levels.",
+        "Penalty for Non-Proficiency": "-2 to attack rolls.",
+        "To-Hit Table": {
+          "0": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 20,
+            "AC 3": 19,
+            "AC 4": 18,
+            "AC 5": 17,
+            "AC 6": 16,
+            "AC 7": 15,
+            "AC 8": 14,
+            "AC 9": 13,
+            "AC 10": 12
+          },
+          "1": {
+            "AC -10": 25,
+            "AC -9": 24,
+            "AC -8": 23,
+            "AC -7": 22,
+            "AC -6": 21,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 19,
+            "AC 2": 18,
+            "AC 3": 17,
+            "AC 4": 16,
+            "AC 5": 15,
+            "AC 6": 14,
+            "AC 7": 13,
+            "AC 8": 12,
+            "AC 9": 11,
+            "AC 10": 10
+          },
+          "2": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 12,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "3": {
+            "AC -10": 23,
+            "AC -9": 22,
+            "AC -8": 21,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 19,
+            "AC 0": 18,
+            "AC 1": 17,
+            "AC 2": 16,
+            "AC 3": 15,
+            "AC 4": 14,
+            "AC 5": 13,
+            "AC 6": 12,
+            "AC 7": 11,
+            "AC 8": 10,
+            "AC 9": 9,
+            "AC 10": 8
+          },
+          "4": {
+            "AC -10": 22,
+            "AC -9": 21,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 19,
+            "AC -1": 18,
+            "AC 0": 17,
+            "AC 1": 16,
+            "AC 2": 15,
+            "AC 3": 14,
+            "AC 4": 13,
+            "AC 5": 12,
+            "AC 6": 11,
+            "AC 7": 10,
+            "AC 8": 9,
+            "AC 9": 8,
+            "AC 10": 7
+          },
+          "5": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "6": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 19,
+            "AC -3": 18,
+            "AC -2": 17,
+            "AC -1": 16,
+            "AC 0": 15,
+            "AC 1": 14,
+            "AC 2": 13,
+            "AC 3": 12,
+            "AC 4": 11,
+            "AC 5": 10,
+            "AC 6": 9,
+            "AC 7": 8,
+            "AC 8": 7,
+            "AC 9": 6,
+            "AC 10": 5
+          },
+          "7": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "8": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 19,
+            "AC -5": 18,
+            "AC -4": 17,
+            "AC -3": 16,
+            "AC -2": 15,
+            "AC -1": 14,
+            "AC 0": 13,
+            "AC 1": 12,
+            "AC 2": 11,
+            "AC 3": 10,
+            "AC 4": 9,
+            "AC 5": 8,
+            "AC 6": 7,
+            "AC 7": 6,
+            "AC 8": 5,
+            "AC 9": 4,
+            "AC 10": 3
+          },
+          "9": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "10": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 19,
+            "AC -7": 18,
+            "AC -6": 17,
+            "AC -5": 16,
+            "AC -4": 15,
+            "AC -3": 14,
+            "AC -2": 13,
+            "AC -1": 12,
+            "AC 0": 11,
+            "AC 1": 10,
+            "AC 2": 9,
+            "AC 3": 8,
+            "AC 4": 7,
+            "AC 5": 6,
+            "AC 6": 5,
+            "AC 7": 4,
+            "AC 8": 3,
+            "AC 9": 2,
+            "AC 10": 1
+          },
+          "11": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          },
+          "12": {
+            "AC -10": 19,
+            "AC -9": 18,
+            "AC -8": 17,
+            "AC -7": 16,
+            "AC -6": 15,
+            "AC -5": 14,
+            "AC -4": 13,
+            "AC -3": 12,
+            "AC -2": 11,
+            "AC -1": 10,
+            "AC 0": 9,
+            "AC 1": 8,
+            "AC 2": 7,
+            "AC 3": 6,
+            "AC 4": 5,
+            "AC 5": 4,
+            "AC 6": 3,
+            "AC 7": 2,
+            "AC 8": 1,
+            "AC 9": 0,
+            "AC 10": -1
+          },
+          "13": {
+            "AC -10": 18,
+            "AC -9": 17,
+            "AC -8": 16,
+            "AC -7": 15,
+            "AC -6": 14,
+            "AC -5": 13,
+            "AC -4": 12,
+            "AC -3": 11,
+            "AC -2": 10,
+            "AC -1": 9,
+            "AC 0": 8,
+            "AC 1": 7,
+            "AC 2": 6,
+            "AC 3": 5,
+            "AC 4": 4,
+            "AC 5": 3,
+            "AC 6": 2,
+            "AC 7": 1,
+            "AC 8": 0,
+            "AC 9": -1,
+            "AC 10": -2
+          },
+          "14": {
+            "AC -10": 17,
+            "AC -9": 16,
+            "AC -8": 15,
+            "AC -7": 14,
+            "AC -6": 13,
+            "AC -5": 12,
+            "AC -4": 11,
+            "AC -3": 10,
+            "AC -2": 9,
+            "AC -1": 8,
+            "AC 0": 7,
+            "AC 1": 6,
+            "AC 2": 5,
+            "AC 3": 4,
+            "AC 4": 3,
+            "AC 5": 2,
+            "AC 6": 1,
+            "AC 7": 0,
+            "AC 8": -1,
+            "AC 9": -2,
+            "AC 10": -3
+          },
+          "15": {
+            "AC -10": 16,
+            "AC -9": 15,
+            "AC -8": 14,
+            "AC -7": 13,
+            "AC -6": 12,
+            "AC -5": 11,
+            "AC -4": 10,
+            "AC -3": 9,
+            "AC -2": 8,
+            "AC -1": 7,
+            "AC 0": 6,
+            "AC 1": 5,
+            "AC 2": 4,
+            "AC 3": 3,
+            "AC 4": 2,
+            "AC 5": 1,
+            "AC 6": 0,
+            "AC 7": -1,
+            "AC 8": -2,
+            "AC 9": -3,
+            "AC 10": -4
+          },
+          "16": {
+            "AC -10": 15,
+            "AC -9": 14,
+            "AC -8": 13,
+            "AC -7": 12,
+            "AC -6": 11,
+            "AC -5": 10,
+            "AC -4": 9,
+            "AC -3": 8,
+            "AC -2": 7,
+            "AC -1": 6,
+            "AC 0": 5,
+            "AC 1": 4,
+            "AC 2": 3,
+            "AC 3": 2,
+            "AC 4": 1,
+            "AC 5": 0,
+            "AC 6": -1,
+            "AC 7": -2,
+            "AC 8": -3,
+            "AC 9": -4,
+            "AC 10": -5
+          },
+          "17": {
+            "AC -10": 14,
+            "AC -9": 13,
+            "AC -8": 12,
+            "AC -7": 11,
+            "AC -6": 10,
+            "AC -5": 9,
+            "AC -4": 8,
+            "AC -3": 7,
+            "AC -2": 6,
+            "AC -1": 5,
+            "AC 0": 4,
+            "AC 1": 3,
+            "AC 2": 2,
+            "AC 3": 1,
+            "AC 4": 0,
+            "AC 5": -1,
+            "AC 6": -2,
+            "AC 7": -3,
+            "AC 8": -4,
+            "AC 9": -5,
+            "AC 10": -6
+          },
+          "18": {
+            "AC -10": 13,
+            "AC -9": 12,
+            "AC -8": 11,
+            "AC -7": 10,
+            "AC -6": 9,
+            "AC -5": 8,
+            "AC -4": 7,
+            "AC -3": 6,
+            "AC -2": 5,
+            "AC -1": 4,
+            "AC 0": 3,
+            "AC 1": 2,
+            "AC 2": 1,
+            "AC 3": 0,
+            "AC 4": -1,
+            "AC 5": -2,
+            "AC 6": -3,
+            "AC 7": -4,
+            "AC 8": -5,
+            "AC 9": -6,
+            "AC 10": -7
+          },
+          "19": {
+            "AC -10": 12,
+            "AC -9": 11,
+            "AC -8": 10,
+            "AC -7": 9,
+            "AC -6": 8,
+            "AC -5": 7,
+            "AC -4": 6,
+            "AC -3": 5,
+            "AC -2": 4,
+            "AC -1": 3,
+            "AC 0": 2,
+            "AC 1": 1,
+            "AC 2": 0,
+            "AC 3": -1,
+            "AC 4": -2,
+            "AC 5": -3,
+            "AC 6": -4,
+            "AC 7": -5,
+            "AC 8": -6,
+            "AC 9": -7,
+            "AC 10": -8
+          },
+          "20+": {
+            "AC -10": 11,
+            "AC -9": 10,
+            "AC -8": 9,
+            "AC -7": 8,
+            "AC -6": 7,
+            "AC -5": 6,
+            "AC -4": 5,
+            "AC -3": 4,
+            "AC -2": 3,
+            "AC -1": 2,
+            "AC 0": 1,
+            "AC 1": 0,
+            "AC 2": -1,
+            "AC 3": -2,
+            "AC 4": -3,
+            "AC 5": -4,
+            "AC 6": -5,
+            "AC 7": -6,
+            "AC 8": -7,
+            "AC 9": -8,
+            "AC 10": -9
+          }
+        }
+      },
+      "Class Abilities": {
+        "Alert Against Surprise": "Surprised only on a 1 (1d6), while more likely to surprise others (1-3 on 1d6).",
+        "Damage Bonus vs Humanoids": "+1 damage per ranger level against evil humanoids and giants.",
+        "Tracking": {
+          "Base Chance (Rural)": "90% success (modified by GM based on terrain, trail age, and weather).",
+          "Base Chance (Urban/Dungeon)": "65% success (modified by GM based on local conditions)."
+        }
+      },
+      "Advanced Abilities": {
+        "Bonus Attacks (Level 8)": "Gains extra attacks at level 8+ following fighter progression.",
+        "Spell Casting (Level 8)": "Receives limited spell powers from Druid and Magic User spell lists.",
+        "Band of Followers (Level 10)": "Acquires a group of special followers, determined by the GM.",
+        "Scrying Device Use (Level 10)": "May use magical scrying tools such as crystal balls."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d8)": 2,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "2": {
+            "Base Experience Points": 2250,
+            "Hit Dice (d8)": 3,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "3": {
+            "Base Experience Points": 4500,
+            "Hit Dice (d8)": 4,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "4": {
+            "Base Experience Points": 9500,
+            "Hit Dice (d8)": 5,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "5": {
+            "Base Experience Points": 20000,
+            "Hit Dice (d8)": 6,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "6": {
+            "Base Experience Points": 40000,
+            "Hit Dice (d8)": 7,
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "7": {
+            "Base Experience Points": 90000,
+            "Hit Dice (d8)": 8,
+            "Notes": "May employ followers",
+            "Spell Casting Level": 0,
+            "Druid Spells": {
+              "1st Level": 0,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "8": {
+            "Base Experience Points": 150000,
+            "Hit Dice (d8)": 9,
+            "Notes": "Bonus attacks",
+            "Spell Casting Level": 1,
+            "Druid Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 0,
+              "2nd Level": 0
+            }
+          },
+          "9": {
+            "Base Experience Points": 225000,
+            "Hit Dice (d8)": 10,
+            "Notes": "Bonus attacks",
+            "Spell Casting Level": 1,
+            "Druid Spells": {
+              "1st Level": 1,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 1,
+              "2nd Level": 0
+            }
+          },
+          "10": {
+            "Base Experience Points": 325000,
+            "Hit Dice (d8)": 11,
+            "Notes": "Ranger Lord (Lady)",
+            "Spell Casting Level": 2,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 1,
+              "2nd Level": 0
+            }
+          },
+          "11": {
+            "Base Experience Points": 650000,
+            "Hit Dice (d8)": "11+2",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 2,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 0,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 0
+            }
+          },
+          "12": {
+            "Base Experience Points": 975000,
+            "Hit Dice (d8)": "11+4",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 3,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 0
+            }
+          },
+          "13": {
+            "Base Experience Points": 1300000,
+            "Hit Dice (d8)": "11+6",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 3,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 1,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 1
+            }
+          },
+          "14": {
+            "Base Experience Points": 1625000,
+            "Hit Dice (d8)": "11+8",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 4,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 1
+            }
+          },
+          "15": {
+            "Base Experience Points": 1950000,
+            "Hit Dice (d8)": "11+10",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 4,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 0
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 2
+            }
+          },
+          "16": {
+            "Base Experience Points": 2275000,
+            "Hit Dice (d8)": "11+12",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 5,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 1
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 2
+            }
+          },
+          "17": {
+            "Base Experience Points": 2600000,
+            "Hit Dice (d8)": "11+14",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 5,
+            "Druid Spells": {
+              "1st Level": 2,
+              "2nd Level": 2,
+              "3rd Level": 2
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 2
+            }
+          },
+          "18": {
+            "Base Experience Points": 2925000,
+            "Hit Dice (d8)": "11+16",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 3,
+              "2nd Level": 2,
+              "3rd Level": 2
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 2
+            }
+          },
+          "19": {
+            "Base Experience Points": 3250000,
+            "Hit Dice (d8)": "11+18",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2
+            },
+            "Mage Spells": {
+              "1st Level": 2,
+              "2nd Level": 2
+            }
+          },
+          "20": {
+            "Base Experience Points": 3575000,
+            "Hit Dice (d8)": "11+20",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2
+            },
+            "Mage Spells": {
+              "1st Level": 3,
+              "2nd Level": 2
+            }
+          },
+          "21": {
+            "Base Experience Points": 3900000,
+            "Hit Dice (d8)": "11+22",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 2
+            },
+            "Mage Spells": {
+              "1st Level": 3,
+              "2nd Level": 3
+            }
+          },
+          "22": {
+            "Base Experience Points": 4225000,
+            "Hit Dice (d8)": "11+24",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 3,
+              "2nd Level": 3,
+              "3rd Level": 3
+            },
+            "Mage Spells": {
+              "1st Level": 3,
+              "2nd Level": 3
+            }
+          },
+          "23": {
+            "Base Experience Points": 4550000,
+            "Hit Dice (d8)": "11+26",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 3
+            },
+            "Mage Spells": {
+              "1st Level": 3,
+              "2nd Level": 3
+            }
+          },
+          "24": {
+            "Base Experience Points": 4875000,
+            "Hit Dice (d8)": "11+28",
+            "Notes": "Constitution-based HP adjustments no longer apply",
+            "Spell Casting Level": 6,
+            "Druid Spells": {
+              "1st Level": 4,
+              "2nd Level": 3,
+              "3rd Level": 3
+            },
+            "Mage Spells": {
+              "1st Level": 4,
+              "2nd Level": 3
+            }
+          },
+          "Beyond 24": {
+            "Base Experience Points Required Per Level": 325000,
+            "Hit Point Bonus Per Level": 2,
+            "Notes": "No Constitution-based HP adjustments apply. Rangers cannot cast spells beyond 6th-level."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-2": {
+          "Aimed Magic Items": 16,
+          "Breath Weapons": 17,
+          "Death/Paralysis/Poison": 14,
+          "Petrification/Polymorph": 15,
+          "Spells": 17
+        },
+        "Levels 3-4": {
+          "Aimed Magic Items": 15,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 13,
+          "Petrification/Polymorph": 14,
+          "Spells": 16
+        },
+        "Levels 5-6": {
+          "Aimed Magic Items": 13,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 12,
+          "Spells": 14
+        },
+        "Levels 7-8": {
+          "Aimed Magic Items": 12,
+          "Breath Weapons": 12,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 11,
+          "Spells": 13
+        },
+        "Levels 9-10": {
+          "Aimed Magic Items": 10,
+          "Breath Weapons": 9,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 9,
+          "Spells": 11
+        },
+        "Levels 11-12": {
+          "Aimed Magic Items": 9,
+          "Breath Weapons": 8,
+          "Death/Paralysis/Poison": 7,
+          "Petrification/Polymorph": 8,
+          "Spells": 10
+        },
+        "Levels 13-14": {
+          "Aimed Magic Items": 7,
+          "Breath Weapons": 5,
+          "Death/Paralysis/Poison": 5,
+          "Petrification/Polymorph": 6,
+          "Spells": 8
+        },
+        "Levels 15-16": {
+          "Aimed Magic Items": 6,
+          "Breath Weapons": 4,
+          "Death/Paralysis/Poison": 4,
+          "Petrification/Polymorph": 5,
+          "Spells": 7
+        },
+        "Levels 17-18": {
+          "Aimed Magic Items": 5,
+          "Breath Weapons": 4,
+          "Death/Paralysis/Poison": 3,
+          "Petrification/Polymorph": 4,
+          "Spells": 6
+        },
+        "Levels 19+": {
+          "Aimed Magic Items": 4,
+          "Breath Weapons": 3,
+          "Death/Paralysis/Poison": 2,
+          "Petrification/Polymorph": 3,
+          "Spells": 5
+        }
+      }
+    },
+    "Thief": {
+      "Definition": "Thieves are cunning, stealthy adventurers who rely on agility and deception. Often trained by a thieves’ guild, they excel at burglary, scouting, and disabling traps.",
+      "Alignment": "Any neutral or any evil alignment (Neutral Good permitted).",
+      "Character Attributes": {
+        "Minimum Ability Scores": {
+          "Strength": 6,
+          "Dexterity": 9,
+          "Constitution": 6,
+          "Intelligence": 6,
+          "Charisma": 6
+        },
+        "Hit Die Type": "d6",
+        "Initial Hit Die": 1,
+        "Experience Bonus": "Granted for Dexterity 16+"
+      },
+      "Equipment": {
+        "Armor & Shields": "Leather or studded leather only, no shields.",
+        "Weapons Permitted": ["Club", "Dagger", "Dart", "Oil", "Sling", "Single-handed swords (except bastard swords)"]
+      },
+      "Combat Abilities": {
+        "Weapon Proficiencies": "Starts with 2, gains +1 every 4 levels.",
+        "Penalty for Non-Proficiency": "-3 to attack rolls.",
+        "Combat Abilities": {
+        "To-Hit Table": {
+          "Levels 1-4": {
+            "AC -10": 26,
+            "AC -9": 25,
+            "AC -8": 24,
+            "AC -7": 23,
+            "AC -6": 22,
+            "AC -5": 21,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 20,
+            "AC 1": 20,
+            "AC 2": 19,
+            "AC 3": 18,
+            "AC 4": 17,
+            "AC 5": 16,
+            "AC 6": 15,
+            "AC 7": 14,
+            "AC 8": 13,
+            "AC 9": 12,
+            "AC 10": 11
+          },
+          "Levels 5-8": {
+            "AC -10": 24,
+            "AC -9": 23,
+            "AC -8": 22,
+            "AC -7": 21,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 20,
+            "AC -2": 20,
+            "AC -1": 20,
+            "AC 0": 19,
+            "AC 1": 18,
+            "AC 2": 17,
+            "AC 3": 16,
+            "AC 4": 15,
+            "AC 5": 14,
+            "AC 6": 13,
+            "AC 7": 12,
+            "AC 8": 11,
+            "AC 9": 10,
+            "AC 10": 9
+          },
+          "Levels 9-12": {
+            "AC -10": 21,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 20,
+            "AC -4": 20,
+            "AC -3": 19,
+            "AC -2": 18,
+            "AC -1": 17,
+            "AC 0": 16,
+            "AC 1": 15,
+            "AC 2": 14,
+            "AC 3": 13,
+            "AC 4": 12,
+            "AC 5": 11,
+            "AC 6": 10,
+            "AC 7": 9,
+            "AC 8": 8,
+            "AC 9": 7,
+            "AC 10": 6
+          },
+          "Levels 13-16": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 20,
+            "AC -6": 20,
+            "AC -5": 19,
+            "AC -4": 18,
+            "AC -3": 17,
+            "AC -2": 16,
+            "AC -1": 15,
+            "AC 0": 14,
+            "AC 1": 13,
+            "AC 2": 12,
+            "AC 3": 11,
+            "AC 4": 10,
+            "AC 5": 9,
+            "AC 6": 8,
+            "AC 7": 7,
+            "AC 8": 6,
+            "AC 9": 5,
+            "AC 10": 4
+          },
+          "Levels 17-20": {
+            "AC -10": 20,
+            "AC -9": 20,
+            "AC -8": 20,
+            "AC -7": 19,
+            "AC -6": 18,
+            "AC -5": 17,
+            "AC -4": 16,
+            "AC -3": 15,
+            "AC -2": 14,
+            "AC -1": 13,
+            "AC 0": 12,
+            "AC 1": 11,
+            "AC 2": 10,
+            "AC 3": 9,
+            "AC 4": 8,
+            "AC 5": 7,
+            "AC 6": 6,
+            "AC 7": 5,
+            "AC 8": 4,
+            "AC 9": 3,
+            "AC 10": 2
+          },
+          "Levels 21+": {
+            "AC -10": 20,
+            "AC -9": 19,
+            "AC -8": 18,
+            "AC -7": 17,
+            "AC -6": 16,
+            "AC -5": 15,
+            "AC -4": 14,
+            "AC -3": 13,
+            "AC -2": 12,
+            "AC -1": 11,
+            "AC 0": 10,
+            "AC 1": 9,
+            "AC 2": 8,
+            "AC 3": 7,
+            "AC 4": 6,
+            "AC 5": 5,
+            "AC 6": 4,
+            "AC 7": 3,
+            "AC 8": 2,
+            "AC 9": 1,
+            "AC 10": 0
+          }
+        }
+      }
+      },
+      "Class Abilities": {
+        "Backstab": "If attacking from stealth, gains +4 to hit and increased damage: double at level 1, triple at level 5+, quadruple at level 9+, and quintuple at level 13+.",
+        "Climb": "Able to scale sheer surfaces. Must check every 10 feet of climbing.",
+        "Find Traps": "Requires a full turn (10 minutes) to visually inspect an area for concealed dangers.",
+        "Hide in Shadows": "Successful checks render the thief effectively invisible until they attack or move from hiding.",
+        "Move Quietly": "Allows silent movement even over unstable or noisy surfaces.",
+        "Open Locks / Disarm Traps": "Exclusive ability to unlock doors and disable traps. Thieves can also set traps.",
+        "Pick Pockets": "Failure by 20% or more alerts the victim, leading to likely hostile action.",
+        "Read Languages": "May attempt to decipher non-magical scripts and ciphers.",
+        "Thieves' Cant": "Thieves have their own secret language used for coded communication.",
+        "Base Chance by Level": {
+          "1": {
+            "Climb Walls": 80,
+            "Find Traps": 25,
+            "Hear Noise": 10,
+            "Hide in Shadows": 20,
+            "Move Quietly": 20,
+            "Open Locks": 30,
+            "Pick Pockets": 35,
+            "Read Languages": 1
+          },
+          "10": {
+            "Climb Walls": 94,
+            "Find Traps": 61,
+            "Hear Noise": 37,
+            "Hide in Shadows": 65,
+            "Move Quietly": 65,
+            "Open Locks": 66,
+            "Pick Pockets": 71,
+            "Read Languages": 45
+          },
+          "20": {
+            "Climb Walls": 99,
+            "Find Traps": 95,
+            "Hear Noise": 67,
+            "Hide in Shadows": 95,
+            "Move Quietly": 95,
+            "Open Locks": 95,
+            "Pick Pockets": 95,
+            "Read Languages": 92
+          },
+          "24": {
+            "Climb Walls": 99,
+            "Find Traps": 99,
+            "Hear Noise": 79,
+            "Hide in Shadows": 99,
+            "Move Quietly": 99,
+            "Open Locks": 99,
+            "Pick Pockets": 99,
+            "Read Languages": 99
+          }
+        },
+        "Dexterity Adjustments": {
+          "9": {
+            "Climb Walls": -15,
+            "Find Traps": -10,
+            "Hear Noise": -20,
+            "Hide in Shadows": -10,
+            "Move Quietly": -15
+          },
+          "17": {
+            "Climb Walls": 5,
+            "Find Traps": 5,
+            "Hear Noise": 5,
+            "Hide in Shadows": 10
+          },
+          "18": {
+            "Climb Walls": 10,
+            "Find Traps": 10,
+            "Hear Noise": 10,
+            "Hide in Shadows": 15,
+            "Open Locks": 5
+          },
+          "19": {
+            "Climb Walls": 15,
+            "Find Traps": 15,
+            "Hear Noise": 15,
+            "Hide in Shadows": 20,
+            "Open Locks": 15
+          }
+        },
+        "Racial Adjustments": {
+          "Dwarf": {
+            "Climb Walls": -10,
+            "Find Traps": 15,
+            "Move Quietly": -5,
+            "Open Locks": 15,
+            "Pick Pockets": -5
+          },
+          "Elf": {
+            "Climb Walls": -5,
+            "Find Traps": 5,
+            "Hear Noise": 5,
+            "Hide in Shadows": 10,
+            "Move Quietly": 5,
+            "Pick Pockets": -5,
+            "Read Languages": 10
+          },
+          "Gnome": {
+            "Climb Walls": -15,
+            "Hear Noise": 5,
+            "Read Languages": 10
+          },
+          "Halfling": {
+            "Climb Walls": -15,
+            "Hear Noise": 5,
+            "Hide in Shadows": 15,
+            "Move Quietly": 15,
+            "Pick Pockets": -5
+          },
+          "Half-Orc": {
+            "Climb Walls": 5,
+            "Find Traps": 5,
+            "Hear Noise": 5,
+            "Move Quietly": 5,
+            "Pick Pockets": -5
+          },
+          "Human": {
+            "Climb Walls": 5,
+            "Hear Noise": 5
+          }
+        },
+        "General Rules": {
+          "Minimum Success Rate": "Cannot fall below 1%",
+          "Maximum Success Rate": "Cannot exceed 99%",
+          "GM Discretion": "Exceptional circumstances may override these limits."
+        }
+      },
+      "Advanced Abilities": {
+        "Read Scrolls (Level 10)": "Can attempt to cast spells from arcane or phantasmal scrolls. Failure may result in unintended effects."
+      },
+      "Level Advancement": {
+        "Levels": {
+          "1": {
+            "Base Experience Points": 0,
+            "Hit Dice (d6)": 1,
+            "Notes": "None"
+          },
+          "2": {
+            "Base Experience Points": 1250,
+            "Hit Dice (d6)": 2,
+            "Notes": "None"
+          },
+          "3": {
+            "Base Experience Points": 2500,
+            "Hit Dice (d6)": 3,
+            "Notes": "None"
+          },
+          "4": {
+            "Base Experience Points": 5000,
+            "Hit Dice (d6)": 4,
+            "Notes": "None"
+          },
+          "5": {
+            "Base Experience Points": 10000,
+            "Hit Dice (d6)": 5,
+            "Notes": "None"
+          },
+          "6": {
+            "Base Experience Points": 20000,
+            "Hit Dice (d6)": 6,
+            "Notes": "None"
+          },
+          "7": {
+            "Base Experience Points": 40000,
+            "Hit Dice (d6)": 7,
+            "Notes": "None"
+          },
+          "8": {
+            "Base Experience Points": 70000,
+            "Hit Dice (d6)": 8,
+            "Notes": "None"
+          },
+          "9": {
+            "Base Experience Points": 110000,
+            "Hit Dice (d6)": 9,
+            "Notes": "None"
+          },
+          "10": {
+            "Base Experience Points": 160000,
+            "Hit Dice (d6)": 10,
+            "Notes": "Master Thief; may read scrolls"
+          },
+          "11": {
+            "Base Experience Points": 220000,
+            "Hit Dice (d6)": "10+2",
+            "Notes": "No Constitution-based HP adjustments apply."
+          },
+          "12": {
+            "Base Experience Points": 440000,
+            "Hit Dice (d6)": "10+4",
+            "Notes": "No Constitution-based HP adjustments apply."
+          },
+          "Beyond 12": {
+            "Base Experience Points Required Per Level": 220000,
+            "Hit Point Bonus Per Level": 2,
+            "Notes": "No Constitution-based HP adjustments apply."
+          }
+        }
+      },
+      "Saving Throws": {
+        "Levels 1-4": {
+          "Aimed Magic Items": 14,
+          "Breath Weapons": 16,
+          "Death/Paralysis/Poison": 13,
+          "Petrification/Polymorph": 12,
+          "Spells": 15
+        },
+        "Levels 5-8": {
+          "Aimed Magic Items": 12,
+          "Breath Weapons": 15,
+          "Death/Paralysis/Poison": 12,
+          "Petrification/Polymorph": 11,
+          "Spells": 13
+        },
+        "Levels 9-12": {
+          "Aimed Magic Items": 10,
+          "Breath Weapons": 14,
+          "Death/Paralysis/Poison": 11,
+          "Petrification/Polymorph": 10,
+          "Spells": 11
+        },
+        "Levels 13-16": {
+          "Aimed Magic Items": 8,
+          "Breath Weapons": 13,
+          "Death/Paralysis/Poison": 10,
+          "Petrification/Polymorph": 9,
+          "Spells": 9
+        },
+        "Levels 17-20": {
+          "Aimed Magic Items": 6,
+          "Breath Weapons": 12,
+          "Death/Paralysis/Poison": 9,
+          "Petrification/Polymorph": 8,
+          "Spells": 7
+        },
+        "Levels 21+": {
+          "Aimed Magic Items": 4,
+          "Breath Weapons": 11,
+          "Death/Paralysis/Poison": 8,
+          "Petrification/Polymorph": 7,
+          "Spells": "Not listed"
+        }
+      }
+    },
+    "Multi-Classing": {
+      "Definition": "Available only to non-human characters, multi-classing allows simultaneous advancement in two or more different classes.",
+      "Experience Distribution": "Any experience points gained are divided evenly between the character’s classes.",
+      "Hit Point Calculation": "Upon advancing in a class, hit points are determined by rolling the appropriate die, adding the Constitution modifier, and dividing by the number of classes involved.",
+      "Class Restrictions": {
+        "Armor & Spellcasting": "Gnomes are limited to leather armor for casting spells, while elves are not restricted. Some GMs enforce a rule where elven and half-elven fighter/magic users can only cast arcane spells if unarmored, unless wearing elfin chain."
+      },
+      "Extreme Level Example": "A half-orc cleric/assassin can theoretically be level 4 in cleric and level 15 in assassin."
+    },
+    "Dual-Classing": {
+      "Definition": "Available only to human characters, dual-classing allows switching to a new class and advancing exclusively in it.",
+      "Ability Score Requirements": {
+        "Original Class": "Must have at least 15+ in the prime requisite of the original class.",
+        "New Class": "Must have at least 17+ in the prime requisite of the new class."
+      },
+      "Hit Point Retention": "The character retains their existing hit points. No additional hit points are gained until they surpass their original class level.",
+      "Experience Loss Rule": "If the character uses abilities from their original class before surpassing its level in the new class, they forfeit experience for that adventure.",
+      "Restrictions on Class Abilities": "Dual-classed characters cannot perform functions from multiple classes at the same time (e.g., a human fighter/magic user must remove armor to cast arcane spells, unlike an elven fighter/magic user).",
+      "Allowed Class Combinations": "Any combination of classes is possible, provided the character meets ability and alignment requirements. High ability scores may allow combinations such as cleric/paladin or magic user/illusionist."
+    }
+  }
+}

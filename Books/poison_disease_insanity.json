@@ -1,0 +1,128 @@
+{
+  "chapter": "POISON, DISEASE AND INSANITY",
+  "sections": [
+    {
+      "title": "Poison",
+      "description": "Poisons include animal venoms, vegetable toxins, and magical poisons. When a character is exposed to poison, they must roll a saving throw against poison to avoid death.",
+      "rules": [
+        "Saving throws may have modifiers based on the poison's strength (e.g., +2 for weak toxins, -4 for lethal ones).",
+        "Failure results in incapacitation and eventual death unless slow poison or neutralize poison is cast within approximately 15 minutes.",
+        "If a character dies from poison, the poison must be flushed from their system before raise dead or resurrection can succeed.",
+        "Player characters cannot easily employ poisons. Venom loses effectiveness quickly, and creating or handling poisons carries risks (e.g., accidental exposure requiring a saving throw).",
+        "Certain creatures, such as dragons, are immune to poison due to their size or unique biology."
+      ],
+      "notes": "Poisons in the hands of player characters can disrupt game balance and should be discouraged."
+    },
+    {
+      "title": "Disease",
+      "description": "Diseases may be contracted from monsters, plagues, or infected wounds.",
+      "types": [
+        {
+          "name": "Plague",
+          "rules": [
+            "Contact with plague requires a saving throw against poison. Success grants +4 to future saves against the same disease.",
+            "Failure results in an incubation period of 2d8 days, followed by a -1d6 penalty to all characteristics and rolls for 2d8 days.",
+            "If either die shows an 8, the character dies at the end of the disease period. Otherwise, recovery occurs at a rate of 1 point per day."
+          ]
+        },
+        {
+          "name": "Infected Wounds",
+          "rules": [
+            "Infections occur when a character with an open wound engages in high-risk activities (e.g., exploring sewers).",
+            "A saving throw against poison is required to avoid infection.",
+            "Effects are similar to plague, but onset time is measured in hours rather than days."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Insanity",
+      "description": "Certain spells or monster attacks can cause insanity. The type of insanity is determined by the GM or rolled randomly.",
+      "insanityTable": [
+        { "range": "01-06", "type": "Agoraphobia" },
+        { "range": "07-13", "type": "Alcoholism" },
+        { "range": "14-20", "type": "Amnesia" },
+        { "range": "21-26", "type": "Anorexia" },
+        { "range": "27-33", "type": "Catatonia" },
+        { "range": "34-40", "type": "Claustrophobia" },
+        { "range": "41-46", "type": "Dementia" },
+        { "range": "47-54", "type": "Homicidal Mania" },
+        { "range": "55-60", "type": "Kleptomania" },
+        { "range": "61-66", "type": "Manic-Depressive" },
+        { "range": "67-74", "type": "Megalomania" },
+        { "range": "75-80", "type": "Paranoia" },
+        { "range": "81-86", "type": "Pathological Liar" },
+        { "range": "87-93", "type": "Phobia" },
+        { "range": "94-97", "type": "Schizophrenia" },
+        { "range": "98-00", "type": "Suicidal Mania" }
+      ],
+      "notes": "This section is intended for gaming purposes and is not reflective of real-world mental health conditions.",
+      "insanities": [
+    {
+      "name": "Agoraphobia",
+      "description": "The individual avoids outdoor or wide open spaces. If forced outside, there is a 50% chance of violent behavior."
+    },
+    {
+      "name": "Alcoholism",
+      "description": "The character requires strong drink daily and may become violent (50%) if denied. When alcohol is available, the character must drink and has a 3-in-6 chance of insisting on more until passing out."
+    },
+    {
+      "name": "Amnesia",
+      "description": "Dangerous for spellcasters. There is a 50% chance of forgetting a spell during casting, requiring re-memorization. Weapon proficiencies may also be forgotten, with a daily re-roll to recall them."
+    },
+    {
+      "name": "Anorexia",
+      "description": "The character refuses all food or nourishment. If force-fed, there is a 50% chance of induced vomiting."
+    },
+    {
+      "name": "Catatonia",
+      "description": "The character loses volition and may ignore situations as irrelevant (50% chance)."
+    },
+    {
+      "name": "Claustrophobia",
+      "description": "The individual avoids enclosed spaces and fights to escape them. If trapped, there is a 50% chance of violent behavior."
+    },
+    {
+      "name": "Dementia",
+      "description": "The character loses 1d6 points each of intelligence, wisdom, and charisma."
+    },
+    {
+      "name": "Homicidal Mania",
+      "description": "The character has an insatiable urge to kill, targeting victims of the same race and usually (75%) the opposite gender. The character must kill at least once a week until cured."
+    },
+    {
+      "name": "Kleptomania",
+      "description": "The character feels compelled to steal gems, coins, or small magic items. If stolen objects are taken away, there is a 50% chance of violent behavior."
+    },
+    {
+      "name": "Manic-Depressive",
+      "description": "The character cycles through manic, intermediary, and depressive phases, each lasting 2d6 days. During mania, the character becomes overly excited and fixates on a goal (often inappropriate). During depression, the character assumes failure and seeks safety indoors, preferably in bed."
+    },
+      {
+      "name": "Megalomania",
+      "description": "The character believes they are the best at everything. They demand to be the leader of the party and issue peremptory orders to others. There is a 50% chance that the megalomaniac will become violent if their orders or demands are not obeyed, and any suggestion that they are not the leader or the most qualified will always provoke violence."
+    },
+    {
+      "name": "Paranoia",
+      "description": "The paranoid character is convinced that 'they' are out to get them. They suspect everyone—especially party members—of collusion against them, leading to disobedience of orders and strained relationships. Over time, this persistent distrust typically causes the character to withdraw from or flee their group entirely."
+    },
+    {
+      "name": "Pathological Liar",
+      "description": "The pathological liar is obsessed with deception. While capable of telling the truth, they normally choose to lie—responding to every question with falsehoods unless they believe that the truth won't be believed. This compulsion to fabricate is a defining aspect of their insanity."
+    },
+    {
+      "name": "Phobia",
+      "description": "The character suffers from an intense, completely irrational fear of a particular substance, creature, or situation. This phobia can inhibit their actions and may lead to panic or avoidance behavior in scenarios involving the feared object or circumstance."
+    },
+    {
+      "name": "Schizophrenia",
+      "description": "The character's personality splits into 1d3 separate, distinct personalities. Each may have a different alignment or even class, and typically the multiple personalities are unaware of each other, causing unpredictable behavior in social and combat situations."
+    },
+    {
+      "name": "Suicidal Mania",
+      "description": "Driven to self-harm, the suicidal maniac will never flee from combat or any dangerous situation. Whether confronted with a pit, chasm, locked chest, or an enemy, the character feels compelled to engage—jumping over hazards, opening chests regardless of potential traps, or fighting adversaries even when it would be wiser to avoid combat."
+    }
+  ]
+    }
+  ]
+}
