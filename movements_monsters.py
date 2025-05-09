@@ -82,14 +82,14 @@ def main(stdscr):
 
     # Define window sizes correctly
     dungeon_height = height - 12  # Leave space for combat log
-    dungeon_width = width - 30  # Leave space for stats sidebar
+    dungeon_width = width - 45  # Leave space for stats sidebar
     stats_width = 20
     log_height = 10
 
     ascii_3d_width = 20  # Width of the 3D window
     ascii_3d_height = 10  # Height (same as combat log for symmetry)
-    ascii_3d_x = dungeon_width + 2  # Positioned next to 2D map
-    ascii_3d_y = 0  # Top of the screen
+    ascii_3d_x = dungeon_width - 20  # Positioned next to 2D map
+    ascii_3d_y = + 5  # Top of the screen
 
 
     # Create separate windows
@@ -119,6 +119,8 @@ def main(stdscr):
         dungeon_win.clear()
         stats_win.clear()
         combat_win.clear()
+        ascii_3d_win.clear()
+
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
         monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, playerone, combat_log)
@@ -146,20 +148,20 @@ def main(stdscr):
 
                 dungeon_win.addch(dy + radius, dx + radius, ch)
 
+        # draw **3d window**
+        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=radius)
+
         # Draw **player stats in sidebar window**
         statuslogs.display_player(stats_win, playerone)
 
         # Draw **combat log below dungeon**
         statuslogs.display_combat_log(combat_win, combat_log)
 
-        # draw **3d window**
-
-        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=radius)
-
         # Refresh all windows separately, **ensure order is correct**
         dungeon_win.refresh()
         stats_win.refresh()
         combat_win.refresh()
+        ascii_3d_win.refresh()
         stdscr.refresh()  # Refresh main screen **last**
 
         # Handle movement
