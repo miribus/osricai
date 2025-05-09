@@ -2,6 +2,8 @@ def render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=1
     """Render a basic faux ASCII 3D perspective based on the dungeon layout."""
     ascii_3d_win.clear()
 
+    max_width = ascii_3d_win.getmaxyx()[1] - 1  # Ensure within bounds
+
     # Loop through depth layers (from close to far)
     for depth in range(view_distance, 0, -1):
         line = ""
@@ -16,6 +18,8 @@ def render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=1
             else:
                 line += "▒"  # Background shading
 
-        ascii_3d_win.addstr(view_distance - depth, 0, line[:ascii_3d_win.getmaxyx()[1]])
+        # Only write inside valid rows AFTER building the `line`
+        if 0 <= view_distance - depth < ascii_3d_win.getmaxyx()[0]:
+            ascii_3d_win.addstr(view_distance - depth, 0, line[:min(len(line), max_width)])
 
     ascii_3d_win.refresh()
