@@ -7,6 +7,7 @@ import player
 import time
 import statuslogs
 import combat
+import threedee
 
 gen = mapgen.Generator()
 gen.gen_level()
@@ -85,10 +86,16 @@ def main(stdscr):
     stats_width = 20
     log_height = 10
 
+    ascii_3d_width = 20  # Width of the 3D window
+    ascii_3d_height = 10  # Height (same as combat log for symmetry)
+    ascii_3d_x = dungeon_width + 2  # Positioned next to 2D map
+    ascii_3d_y = 0  # Top of the screen
+
     # Create separate windows
     dungeon_win = curses.newwin(dungeon_height, dungeon_width, 0, 30)  # Dungeon viewport
     stats_win = curses.newwin(dungeon_height, stats_width, 0, dungeon_width)  # Sidebar
     combat_win = curses.newwin(log_height, width, dungeon_height, 0)  # Combat log below dungeon
+    ascii_3d_win = curses.newwin(ascii_3d_height, ascii_3d_width, ascii_3d_y, ascii_3d_x)
 
     playerone = player.Player("MyName")
     grid, offset_x, offset_y = generate_dungeon_map(room_list, corridor_list)
@@ -142,6 +149,9 @@ def main(stdscr):
 
         # Draw **combat log below dungeon**
         statuslogs.display_combat_log(combat_win, combat_log)
+
+        # draw **3d window**
+        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y)
 
         # Refresh all windows separately, **ensure order is correct**
         dungeon_win.refresh()

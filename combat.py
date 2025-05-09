@@ -23,9 +23,9 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
                     monsters.remove(monster)
                 elif pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and \
                             dijkstra_map[monster.y][monster.x] <= monster.line_of_sight:
-                        combat_log.append(monster.movement_description)
-                        combat_log.append(f"{monster.name} shoots at you! (-{monster.attack} HP)")
-                        player.take_damage(monster.attack)
+                    combat_log.append(monster.movement_description)
+                    combat_log.append(f"{monster.name} shoots at you! (-{monster.attack} HP)")
+                    player.take_damage(monster.attack)
 
             # Player can attack melee monsters **before they strike**
             elif monster.behavior == "melee" and distance == 1:  # Adjacent
