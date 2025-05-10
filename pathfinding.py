@@ -66,7 +66,8 @@ def has_line_of_sight(grid, x1, y1, x2, y2):
 
         # If moving diagonally, ensure both adjacent tiles are passable
         if abs(dx) == abs(dy):  # Diagonal step
-            if grid[y1][x1 - sx] == '#' and grid[y1 - sy][x1] == '#':  # Check corner blocking
+            if (0 <= x1 - sx < len(grid[0]) and 0 <= y1 - sy < len(grid)) and \
+                    grid[y1][x1 - sx] == '#' and grid[y1 - sy][x1] == '#':  # Check corner blocking
                 return False
 
         # Reached the target (player)

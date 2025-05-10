@@ -9,11 +9,7 @@ import statuslogs
 import combat
 import threedee
 
-gen = mapgen.Generator()
-gen.gen_level()
-gen.gen_tiles_level()
-room_list = gen.room_list
-corridor_list = gen.corridor_list
+
 
 def generate_dungeon_map(room_list, corridor_list):
     """
@@ -77,33 +73,51 @@ def generate_dungeon_map(room_list, corridor_list):
 
 
 def main(stdscr):
+    gen = mapgen.Generator(style="indoor")
+    gen.gen_level()
+    gen.gen_tiles_level()
+    room_list = gen.room_list
+    corridor_list = gen.corridor_list
     curses.curs_set(0)  # Hide cursor
     height, width = stdscr.getmaxyx()  # Get screen size
 
     # Define window sizes correctly
     dungeon_height = height - 12  # Leave space for combat log
-    dungeon_width = width - 45  # Leave space for stats sidebar
+    print(dungeon_height, "dheight")
+    dungeon_width = width - 65  # Leave space for stats sidebar
+    print(dungeon_width, "dwidth")
     stats_width = 20
+    print(stats_width, "statsw")
     log_height = 10
+    print(log_height, "logw")
 
     ascii_3d_width = 20  # Width of the 3D window
     ascii_3d_height = 10  # Height (same as combat log for symmetry)
+    print(ascii_3d_width, ascii_3d_height, "a3d")
     ascii_3d_x = dungeon_width - 20  # Positioned next to 2D map
     ascii_3d_y = 0  # Top of the screen
 
+    dbascii_3d_width = 20  # Width of the 3D window
+    dbascii_3d_height = 10  # Height (same as combat log for symmetry)
+    print(dbascii_3d_width, dbascii_3d_height, "dba3d")
+    dbascii_3d_x = dungeon_width - 40  # Positioned next to 2D map
+    dbascii_3d_y = 0  # Top of the screen
+
 
     # Create separate windows
-    dungeon_win = curses.newwin(dungeon_height, dungeon_width, 0, 30)  # Dungeon viewport
-    stats_win = curses.newwin(dungeon_height, stats_width, 0, dungeon_width)  # Sidebar
+    dungeon_win = curses.newwin(dungeon_height, dungeon_width, 0, 0)  # Dungeon viewport
+    #dbascii_3d_win = curses.newwin(dbascii_3d_height, dbascii_3d_width, 0, dungeon_width+1)
+    #ascii_3d_win = curses.newwin(ascii_3d_height, ascii_3d_width, 0, dungeon_width+dbascii_3d_width+2)
+    stats_win = curses.newwin(dungeon_height, stats_width, 0, dungeon_width+dbascii_3d_width+ascii_3d_width+3)  # Sidebar
     combat_win = curses.newwin(log_height, width, dungeon_height, 0)  # Combat log below dungeon
-    ascii_3d_win = curses.newwin(ascii_3d_height, ascii_3d_width, ascii_3d_y, ascii_3d_x)
+
 
 
     playerone = player.Player("MyName")
     grid, offset_x, offset_y = generate_dungeon_map(room_list, corridor_list)
     grid_height, grid_width = len(grid), len(grid[0])
 
-    radius = 5  # Viewport size
+    #radius = 5  # Viewport size
     first_room = room_list[0]
     player_x = first_room[0] + first_room[2] // 2 - offset_x
     player_y = first_room[1] + first_room[3] // 2 - offset_y
@@ -123,34 +137,41 @@ def main(stdscr):
 
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
-        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, playerone, combat_log)
+        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log)
 
         # **Draw dungeon viewport in its designated window**
-        for dy in range(-radius, radius + 1):
-            for dx in range(-radius, radius + 1):
-                tile_x, tile_y = player_x + dx, player_y + dy
-                distance = (dx ** 2 + dy ** 2) ** 0.5
+        if gen.style == "indoor":
+            for dy in range(-playerone.indoorsight, playerone.indoorsight + 1):
+                for dx in range(-playerone.indoorsight, playerone.indoorsight + 1):
+                    tile_x, tile_y = player_x + dx, player_y + dy
+                    distance = (dx ** 2 + dy ** 2) ** 0.5
 
-                if distance > radius:
-                    ch = ' '
-                elif tile_x < 0 or tile_x >= grid_width or tile_y < 0 or tile_y >= grid_height:
-                    ch = '#'
-                else:
-                    ch = grid[tile_y][tile_x]
+                    if distance > playerone.indoorsight:
+                        ch = ' '
+                    elif tile_x < 0 or tile_x >= grid_width or tile_y < 0 or tile_y >= grid_height:
+                        ch = '#'
+                    else:
+                        ch = grid[tile_y][tile_x]
 
-                for m in monster_list:
-                    if m.x == tile_x and m.y == tile_y:
-                        ch = m.char
-                        break
+                    for m in monster_list:
+                        if m.x == tile_x and m.y == tile_y:
+                            ch = m.char
+                            break
 
-                if dx == 0 and dy == 0:
-                    ch = '@'
+                    if dx == 0 and dy == 0:
+                        ch = '@'
 
-                dungeon_win.addch(dy + radius, dx + radius, ch)
+                    dungeon_win.addch(dy + playerone.indoorsight, dx + playerone.indoorsight, ch)
 
-        # draw **3d window**
-        ascii_3d_win.clear()
-        threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=10)
+        # Initialize facing direction
+        player_facing = "south"  # Default direction at game start
+        player_last = "south"
+
+        # draw **3d window**  # This didn't ever work as planned, might go back to it later
+        # ascii_3d_win.clear()
+        # dbascii_3d_win.clear()
+        # threedee.render_ascii_3d_view(ascii_3d_win, grid, player_x, player_y, view_distance=10, player_facing="south")
+        # threedee.render_ascii_3d_debug(dbascii_3d_win, grid, player_x, player_y, view_distance=10, player_facing="south")
 
         # Draw **player stats in sidebar window**
         statuslogs.display_player(stats_win, playerone)
@@ -162,32 +183,40 @@ def main(stdscr):
         dungeon_win.refresh()
         stats_win.refresh()
         combat_win.refresh()
-        ascii_3d_win.refresh()
+        # ascii_3d_win.refresh()
+        # dbascii_3d_win.refresh()
         stdscr.refresh()  # Refresh main screen **last**
 
         # Handle movement
         key = stdscr.getch()
         new_x, new_y = player_x, player_y
+
+        # Handle movement and directional updates
+        key = stdscr.getch()
         if key == curses.KEY_UP:
             new_y -= 1
+            # player_facing = "north"
         elif key == curses.KEY_DOWN:
             new_y += 1
+            # player_facing = "south"
         elif key == curses.KEY_LEFT:
             new_x -= 1
+            # player_facing = "west"
         elif key == curses.KEY_RIGHT:
             new_x += 1
+            # player_facing = "east"
+        elif key == ord(' '):  # SPACEBAR (null movement)
+            pass  # Player stays in place, but keeps their last facing direction
         elif key == ord('q'):
             break
-        elif key == ord('w'):
-            new_x += 0
-            new_y += 0
 
         # Only move if valid
         if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == '.':
             player_x, player_y = new_x, new_y
 
         # **Combat processing**
-        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log)
+
+        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log, gen)
 
         # **Game Over Check**
         if playerone.health <= 0:

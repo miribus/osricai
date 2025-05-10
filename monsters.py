@@ -5,7 +5,7 @@ import json
 import os
 
 class Monster:
-    def __init__(self, x, y, name, hp, attack, damage, movement_description, behavior, char='M'):
+    def __init__(self, x, y, name, hp, attack, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
         """
         Monster attributes:
         - x, y: Position
@@ -22,6 +22,8 @@ class Monster:
         self.hp = hp
         self.attack = attack
         self.damage = damage
+        self.indoorsight = indoorsight
+        self.outoorsight = outdoorsight
         self.movement_description = movement_description
         self.behavior = behavior
         self.char = char  # Default 'M' for monsters
@@ -60,6 +62,8 @@ def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters"
             hp=monster["hp"],
             attack=monster["attack"],
             damage=monster["damage"],
+            indoorsight=monster["indoorsight"],
+            outdoorsight=monster["outdoorsight"],
             movement_description=monster["movement_description"],
             behavior=monster["behavior"],
             char=monster["icon"]
@@ -84,7 +88,7 @@ def place_monsters(grid, room_list, monster_data):
 
 
 
-def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, player, combat_log):
+def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log):
     """Moves monsters toward the player using Dijkstra map logic."""
     directions = [
         (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right

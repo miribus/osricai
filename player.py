@@ -11,9 +11,43 @@ class Player:
         self.intelligence = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
         self.wisdom = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
         self.charisma = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.health = (random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1)*3
-        self.attack = int(round(self.strength/3))+1
 
+        roll = random.randrange(0, 4)
+        if roll == 0:
+            self.type = "FTR"
+            self.strength += 2
+            self.constitution += 2
+            self.outdoorsight = 6
+            self.indoorsight = 3
+            self.m_hitbase = 101
+            self.r_hitbase = 76
+        elif roll == 1:
+            self.type = "THF"
+            self.dexterity += 2
+            self.charisma += 2
+            self.outdoorsight = 12
+            self.indoorsight = 5
+            self.m_hitbase = 76
+            self.r_hitbase = 101
+        elif roll == 2:
+            self.type = "ELF"
+            self.dexterity += 2
+            self.strength += 2
+            self.outdoorsight = 12
+            self.indoorsight = 8
+            self.m_hitbase = 76
+            self.r_hitbase = 126
+        elif roll == 3:
+            self.type = "DWF"
+            self.constitution += 3
+            self.strength += 1
+            self.outdoorsight = 5
+            self.indoorsight = 12
+            self.m_hitbase = 101
+            self.r_hitbase = 50
+        self.attack = int(round(self.strength / 3)) + 1
+        self.range = int(round(self.strength / 3)) + int(round(self.strength / 3)) + 1
+        self.health = self.constitution * 3 + 1
 
     def take_damage(self, damage):
         """Reduce player's HP when attacked."""
