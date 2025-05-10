@@ -142,7 +142,14 @@ def main(stdscr):
 
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
-        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log)
+        placed = False
+        while not placed:
+            try:
+                monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log)
+                placed = True
+            except UnboundLocalError as e:
+                error_handling.pc_failure()
+                monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log)
 
         # **Draw dungeon viewport in its designated window**
         if gen.style == "indoor":
