@@ -7,7 +7,7 @@
             "indoorsight": 10,
             "outdoorsight": 3,
             "damage": 2,
-            "movement_description": "You hear the sound of tiny, padded feet and the clank of light armor.",
+            "movement_description": "You hear the sound of tiny, padded feet and the\n clank of light armor.",
             "behavior": "melee",
             "spawn_zone": "random_room",
             "icon": "G"
@@ -19,7 +19,7 @@
             "damage": 1,
             "indoorsight": 3,
             "outdoorsight": 10,
-            "movement_description": "You hear the clatter of dry bones and the release of crack of a loosed bow.",
+            "movement_description": "You hear the clatter of dry bones and the release\n of crack of a loosed bow.",
             "behavior": "ranged",
             "spawn_zone": "corridor",
             "icon": "S"

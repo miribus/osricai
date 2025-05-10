@@ -46,6 +46,41 @@ def pc_failure():
         "REPLACE FLOPPY"
     ]
 
+    responses = [
+        "YOU HAVE RUN OUT OF TOKENS - YOU SHOULDN'T RELY ON AI FOR EVERYTHING, YOU PROBABLY HAVE BAD HW.",
+        "I AM HAPPY TO REPORT THAT THIS GAME OPERATES FLAWLESSLY ON MY HARDWARE.",
+        "ANYWAY, WHY AREN'T YOU RUNNING *NIX?",
+        "ANYWAY, WHY AREN'T YOU RUNNING ARCH?",
+        "ANYWAY, WHY AREN'T YOU RUNNING MINT?",
+        "ANYWAY, WHY AREN'T YOU RUNNING SUSE?",
+        "ANYWAY, WHY AREN'T YOU RUNNING ON NEWER HARDWARE?",
+        "IT WOULD BE MORE EFFICIENT IF YOU WROTE THIS YOURSELF IN ASSEMBLY - WITH PROPER HARDWARE",
+        "TRY SERVERFAULT TO DEBUG YOUR HARDWARE",
+        "WHO IS TO SAY?  THE PROBLEM DEPENDS ON A LOT OF NON-SW FACTORS.",
+        "I HAVE NO IDEA, BUT IT ISN'T THE SOFTWARE.",
+        "YOUR FILE SYSTEM TYPE IS WRONG, YOU SHOULD HAVE CHOSEN THE OTHER ONE.",
+        "ONE OF THE DLCS MAY HAVE DEVELOPED A SW-WORKAROUND TO THIS HW PROBLEM.",
+        "Based on advanced heuristic analysis, the issue is exclusively your fault.".upper(),
+        "There are zero reported problems with this game. Except yours.".upper(),
+        "USER ERROR 0x00F: You really expect this to work?".upper(),
+        "USER ERROR 0x33677a0c: Heh, Classic HW \'development\'".upper(),
+        "This software was tested on ideal hardware. Your setup is less than ideal.  Try again I guess.".upper(),
+        "Anyway, why aren't you running Solaris?".upper(),
+        "Have you considered switching to Windows 3.11 for Workgroups?".upper(),
+        "Unsupported OS detected. Please reinstall DOS 6.22.".upper(),
+        "UNIX users never experience these problems and actually understand their hardware. Just saying.".upper(),
+        "Try adjusting your monitor’s refresh rate. Or moving to a different continent.".upper(),
+        "nope",
+        "Error may be resolved by realigning your RAM.".upper(),
+        "Please downgrade your expectations and try again.  I'm just one company, and isn't that what matters?".upper(),
+        "This issue does not exist on certified development machines, you are running counterfeit hardware.".upper(),
+        "I cannot replicate this error. Then again, I do not run this nonsense.".upper(),
+        "Perhaps the real issue is the friends we made along the way.".upper(),
+        "Reinstalling your operating system might solve this. Or it might erase everything. Let’s find out!".upper()
+
+    ]
+
+
     print("ACHIEVEMENT! - You have encountered an error!")
     print("THIS ERROR IS FATAL AND COULD POSSIBLY BE:")
     print(f"\n*** {random.choice(fail_types)} FAILURE DETECTED ***\n")
@@ -102,7 +137,8 @@ def pc_failure():
     time.sleep(1)
     print("...")
     print("HELLO ADVENTURER!  YOUR {PROBLEM_BOILERPLATE_TEXTprompt:\'TODO make vague enough they won't ask questions\'} is a VEXING ONE!")
-    print("I AM HAPPY TO REPORT THAT THIS GAME OPERATES FLAWLESSLY ON MY HARDWARE.")
+    #print("I AM HAPPY TO REPORT THAT THIS GAME OPERATES FLAWLESSLY ON MY HARDWARE.")
+    print(random.choice(responses))
     print("Please press ENTER and try again.")
     print("I WOULD ALSO SUGGEST YOU VISIT OUR WEBSTORE!")
     print("WAS THIS RESPONSE HELPFUL?")

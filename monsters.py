@@ -3,6 +3,8 @@ import pathfinding
 import random
 import json
 import os
+import error_handling
+
 
 class Monster:
     def __init__(self, x, y, name, hp, attack, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
@@ -43,9 +45,14 @@ def find_safe_position(grid, room_list, occupied_positions):
         y = room[1] + random.randint(1, room[3] - 2)
 
         # Ensure tile is open and not occupied
-        if grid[y][x] == '.' and (x, y) not in occupied_positions:
-            occupied_positions.add((x, y))  # Mark as taken
-            return x, y
+        try:
+            if grid[y][x] == '.' and (x, y) not in occupied_positions:
+                occupied_positions.add((x, y))  # Mark as taken
+                return x, y
+        except:
+            error_handling.pc_failure()
+            input("PRESS ENTER TO CONTINUE")
+            return False
 
 def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json")):
     """Load monster data from a JSON file."""
@@ -109,6 +116,8 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
                         best_cost = dijkstra_map[ny][nx]
 
                 # Prevent monster from occupying player's tile
+                movement_description = monster.movement_description.split("\n")
                 if (best_x, best_y) != (player_x, player_y):
                     monster.x, monster.y = best_x, best_y
-                    combat_log.append(monster.movement_description)
+                    for m in movement_description:
+                        combat_log.append(m)

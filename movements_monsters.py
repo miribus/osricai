@@ -124,7 +124,11 @@ def main(stdscr):
     player_y = first_room[1] + first_room[3] // 2 - offset_y
 
     monster_data = monsters.load_monsters_from_json()
-    monster_list = monsters.place_monsters(grid, room_list, monster_data)
+    try:
+        monster_list = monsters.place_monsters(grid, room_list, monster_data)
+    except:
+        error_handling.pc_failure()
+        input("PRESS ENTER TO CONTINUE")
 
     combat_log = []  # Combat event storage
 
@@ -227,13 +231,12 @@ def main(stdscr):
             stdscr.getch()  # Pause before quitting
             break
 
-
-running = False
-while not running:
-    try:
-        curses.wrapper(main)
-        running = True
-    except curses.error:
-        error_handling.pc_failure()
-        input("")
-
+def rungame():
+    running = False
+    while not running:
+        try:
+            curses.wrapper(main)
+            running = True
+        except curses.error:
+            error_handling.pc_failure()
+            input("")
