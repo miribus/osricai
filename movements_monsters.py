@@ -8,6 +8,7 @@ import time
 import statuslogs
 import combat
 import threedee
+import error_handling
 
 
 
@@ -91,25 +92,25 @@ def main(stdscr):
     log_height = 10
     print(log_height, "logw")
 
-    ascii_3d_width = 20  # Width of the 3D window
-    ascii_3d_height = 10  # Height (same as combat log for symmetry)
-    print(ascii_3d_width, ascii_3d_height, "a3d")
-    ascii_3d_x = dungeon_width - 20  # Positioned next to 2D map
-    ascii_3d_y = 0  # Top of the screen
+    # ascii_3d_width = 20  # Width of the 3D window
+    # ascii_3d_height = 10  # Height (same as combat log for symmetry)
+    # print(ascii_3d_width, ascii_3d_height, "a3d")
+    # ascii_3d_x = dungeon_width - 20  # Positioned next to 2D map
+    # ascii_3d_y = 0  # Top of the screen
 
-    dbascii_3d_width = 20  # Width of the 3D window
-    dbascii_3d_height = 10  # Height (same as combat log for symmetry)
-    print(dbascii_3d_width, dbascii_3d_height, "dba3d")
-    dbascii_3d_x = dungeon_width - 40  # Positioned next to 2D map
-    dbascii_3d_y = 0  # Top of the screen
+    # dbascii_3d_width = 20  # Width of the 3D window
+    # dbascii_3d_height = 10  # Height (same as combat log for symmetry)
+    # print(dbascii_3d_width, dbascii_3d_height, "dba3d")
+    # dbascii_3d_x = dungeon_width - 40  # Positioned next to 2D map
+    # dbascii_3d_y = 0  # Top of the screen
 
 
     # Create separate windows
     dungeon_win = curses.newwin(dungeon_height, dungeon_width, 0, 0)  # Dungeon viewport
     #dbascii_3d_win = curses.newwin(dbascii_3d_height, dbascii_3d_width, 0, dungeon_width+1)
     #ascii_3d_win = curses.newwin(ascii_3d_height, ascii_3d_width, 0, dungeon_width+dbascii_3d_width+2)
-    stats_win = curses.newwin(dungeon_height, stats_width, 0, dungeon_width+dbascii_3d_width+ascii_3d_width+3)  # Sidebar
-    combat_win = curses.newwin(log_height, width, dungeon_height, 0)  # Combat log below dungeon
+    stats_win = curses.newwin(height-1, stats_width, 0, dungeon_width+1)  # Sidebar
+    combat_win = curses.newwin(log_height, dungeon_width, dungeon_height, 0)  # Combat log below dungeon
 
 
 
@@ -227,4 +228,12 @@ def main(stdscr):
             break
 
 
-curses.wrapper(main)
+running = False
+while not running:
+    try:
+        curses.wrapper(main)
+        running = True
+    except curses.error:
+        error_handling.pc_failure()
+        input("")
+

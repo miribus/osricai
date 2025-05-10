@@ -4,22 +4,42 @@ def display_player(stdscr, player):
     """Display player attributes in a sidebar on the right."""
     height, width = stdscr.getmaxyx()  # Get screen size
     stats_x = width - 20  # Reserve last 20 columns for stats
-
-    stdscr.addstr(0, stats_x, f"Player: {player.name}, {player.type}")
-    stdscr.addstr(1, stats_x, f"HP: {player.health}")
-    stdscr.addstr(2, stats_x, f"STR: {player.strength}")
-    stdscr.addstr(3, stats_x, f"DEX: {player.dexterity}")
-    stdscr.addstr(4, stats_x, f"CON: {player.constitution}")
-    stdscr.addstr(5, stats_x, f"INT: {player.intelligence}")
-    stdscr.addstr(6, stats_x, f"WIS: {player.wisdom}")
-    stdscr.addstr(7, stats_x, f"CHA: {player.charisma}")
-    stdscr.addstr(8, stats_x, f"----------------------")
-    stdscr.addstr(9, stats_x, f"Melee HB: {player.m_hitbase}")
-    stdscr.addstr(10, stats_x, f"Ranged HB: {player.r_hitbase}")
-    stdscr.addstr(11, stats_x, f"Attack: {player.attack}")
-    stdscr.addstr(12, stats_x, f"Sight: Indoor: {player.indoorsight}")
-    stdscr.addstr(13, stats_x, f"    -: Outdoor: {player.outdoorsight}")
-    stdscr.addstr(14, stats_x, f"Range Dis: {player.range}")
+    idx=0
+    stdscr.addstr(idx, stats_x, f"Player: {player.name}, {player.type}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"HP: {player.health}, Lvl: {player.level}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"STR: {player.strength}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"DEX: {player.dexterity}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"CON: {player.constitution}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"INT: {player.intelligence}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"WIS: {player.wisdom}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"CHA: {player.charisma}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"----------------------")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"Melee HB: {player.m_hitbase}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"Ranged HB: {player.r_hitbase}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"Attack: {player.attack}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"Sight: Indoor: {player.indoorsight}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"    -: Outdoor: {player.outdoorsight}")
+    idx += 1
+    stdscr.addstr(idx, stats_x, f"Range Dis: {player.range}")
+    idx += 1
+    for i in range(0, player.level+1):
+        if i in player.abilities:
+            for a in player.abilities[i]:
+                stdscr.addstr(idx, stats_x, f"Abil: {a}")
+                idx += 1
 
 
 def display_combat_log(combat_win, log_messages):
