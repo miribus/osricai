@@ -1,5 +1,4 @@
 import random
-
 import pathfinding
 
 def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_log, gen):
@@ -35,6 +34,7 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
                         or player_attack_range > player.outdoorsight:
 
                     chance = -50
+
                 roll = random.randrange(1,101)
                 hit = False
                 if roll in (1, player.r_hitbase-chance):
@@ -63,18 +63,5 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
                     if monster.take_damage(player.attack):
                         combat_log.append(f"{monster.name} is slain!")
                         monsters.remove(monster)
-                if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][monster.x] <= monster_attack_range:
-                    # Move toward the player, but stop adjacent
-                    best_x, best_y = monster.x, monster.y
-                    best_cost = dijkstra_map[monster.y][monster.x]
-
-                    for dx, dy in directions:
-                        nx, ny = monster.x + dx, monster.y + dy
-                        if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][nx] < best_cost:
-                            best_x, best_y = nx, ny
-                            best_cost = dijkstra_map[ny][nx]
-
-                    # Prevent monster from occupying player's tile
-                    if (best_x, best_y) != (player_x, player_y):
-                        monster.x, monster.y = best_x, best_y
-                        combat_log.append(monster.movement_description)
+                else:
+                    combat_log.append(f"You swing at {monster.name}! You MISS!)")

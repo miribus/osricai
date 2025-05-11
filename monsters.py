@@ -95,29 +95,38 @@ def place_monsters(grid, room_list, monster_data):
 
 
 
-def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log):
+def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen):
     """Moves monsters toward the player using Dijkstra map logic."""
     directions = [
         (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
         (-1, -1), (-1, 1), (1, -1), (1, 1)  # Diagonal: NW, NE, SW, SE
     ]  # Adjacent tiles
+    dijkstra_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
 
     for monster in monsters:
-        if monster.behavior == "melee":
-            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][monster.x] <= 10:
-                # Move toward the player, but stop adjacent
-                best_x, best_y = monster.x, monster.y
-                best_cost = dijkstra_map[monster.y][monster.x]
+        if gen.style == "indoor":
+            monster_attack_range = monster.indoorsight
+        else: # elif gen.style == "outdoor":
+            monster_attack_range = monster.outoorsight
+        if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
+            monster.x] <= monster_attack_range:
+            # Move toward the player, but stop adjacent
+            best_x, best_y = monster.x, monster.y
+            best_cost = dijkstra_map[monster.y][monster.x]
 
-                for dx, dy in directions:
-                    nx, ny = monster.x + dx, monster.y + dy
-                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][nx] < best_cost:
-                        best_x, best_y = nx, ny
-                        best_cost = dijkstra_map[ny][nx]
+            for dx, dy in directions:
+                nx, ny = monster.x + dx, monster.y + dy
+                if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][
+                    nx] < best_cost:
+                    best_x, best_y = nx, ny
+                    best_cost = dijkstra_map[ny][nx]
 
-                # Prevent monster from occupying player's tile
+            # Prevent monster from occupying player's tile
+            if (best_x, best_y) != (player_x, player_y):
+                monster.x, monster.y = best_x, best_y
                 movement_description = monster.movement_description.split("\n")
-                if (best_x, best_y) != (player_x, player_y):
-                    monster.x, monster.y = best_x, best_y
-                    for m in movement_description:
-                        combat_log.append(m)
+                for m in movement_description:
+                    combat_log.append(m)
+
+
+
