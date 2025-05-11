@@ -124,32 +124,7 @@ def main(stdscr):
     player_y = first_room[1] + first_room[3] // 2 - offset_y
 
     monster_data = monsters.load_monsters_from_json()
-    monsters_placed = False
     monster_list = monsters.place_monsters(grid, room_list, monster_data)
-    """
-    while not monsters_placed:
-        try:
-            monster_list = monsters.place_monsters(grid, room_list, monster_data)
-            monsters_placed = True
-        except:
-            print("....PLEASE WAIT....")
-            time.sleep(1)
-            print("!!!!YOUR HARDWARE FAULTED!!!!")
-            time.sleep(1)
-            print("PLEASE INSPECT YOUR SYSTEM!")
-            time.sleep(1)
-            print("ATTEMPTING TODD-AH! HW TROUBLESHOOTER...")
-            print("====== STATUS ======: Insufficient Performance Suspected.")
-            print("SUGGEST BOOT DISK")
-            time.sleep(1)
-            print("STARTING AUTOCOMPRESSION")
-            print("YOUR GAME DATA AND OTHER FILES MAY BE CORRUPTED!")
-            print("PLEASE CHOOSE CAREFULLY:")
-            time.sleep(1)
-            input("PRESS ENTER TO INITIALIZE.")
-    """
-
-
 
     combat_log = []  # Combat event storage
 
