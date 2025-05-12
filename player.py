@@ -43,7 +43,7 @@ class Player:
             self.strength += 2
             self.constitution += 2
             self.outdoorsight = 6
-            self.indoorsight = 3
+            self.indoorsight = 4
             self.m_hitbase = 101
             self.r_hitbase = 76
             self.attack = int(round(self.strength / 3)) + int(round(self.level / 2)) + 1
@@ -66,8 +66,8 @@ class Player:
             self.type = "THF"
             self.dexterity += 2
             self.charisma += 2
-            self.outdoorsight = 12
-            self.indoorsight = 5
+            self.outdoorsight = 8
+            self.indoorsight = 6
             self.m_hitbase = 76
             self.r_hitbase = 101
             self.attack = int(round(self.strength / 3)) + int(round(self.level / 4)) + 1
@@ -89,8 +89,8 @@ class Player:
             self.type = "ELF"
             self.dexterity += 2
             self.strength += 2
-            self.outdoorsight = 12
-            self.indoorsight = 8
+            self.outdoorsight = 9
+            self.indoorsight = 7
             self.m_hitbase = 76
             self.r_hitbase = 126
             self.attack = int(round(self.strength / 3)) + int(round(self.level / 4)) + 1
@@ -112,8 +112,8 @@ class Player:
             self.type = "DWF"
             self.constitution += 3
             self.strength += 1
-            self.outdoorsight = 5
-            self.indoorsight = 12
+            self.outdoorsight = 3
+            self.indoorsight = 9
             self.m_hitbase = 101
             self.r_hitbase = 50
             self.attack = int(round(self.strength / 3)) + int(round(self.level / 3)) + 1
@@ -136,7 +136,7 @@ class Player:
             self.wisdom += 1
             self.charisma += 1
             self.outdoorsight = 5
-            self.indoorsight = 12
+            self.indoorsight = 5
             self.m_hitbase = 25
             self.r_hitbase = 101
             self.attack = int(round(self.intelligence / 3)) + int(round(self.wisdom / 5)) + int(round(self.level / 4)) + 1

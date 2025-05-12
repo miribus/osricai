@@ -44,40 +44,45 @@ def find_safe_position(grid, room_list, occupied_positions):
         x = room[0] + random.randint(1, room[2] - 2)
         y = room[1] + random.randint(1, room[3] - 2)
 
-        # Ensure tile is open and not occupied
-        try:
-            if grid[y][x] == '.' and (x, y) not in occupied_positions:
-                occupied_positions.add((x, y))  # Mark as taken
-                return x, y
-        except:
-            error_handling.pc_failure()
-            input("PRESS ENTER TO CONTINUE")
-            return False
+        """Find a safe position in the grid."""
+        for y in range(len(grid)):
+            for x in range(len(grid[y])):
+                if grid[y][x] == '.' and (x, y) not in occupied_positions:
+                    return (x, y)
 
-def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json")):
+        print("WARNING: No safe position found!")
+        return None
+
+
+def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False):
     """Load monster data from a JSON file."""
     with open(file_path, "r") as f:
         data = json.load(f)
 
-    monster_list = []
-    for monster in data["monsters"]:
-        # Create a Monster object (adjust attributes based on your class structure)
-        new_monster = Monster(
-            x=0,  # This will be set later
-            y=0,
-            name=monster["name"],
-            hp=monster["hp"],
-            attack=monster["attack"],
-            damage=monster["damage"],
-            indoorsight=monster["indoorsight"],
-            outdoorsight=monster["outdoorsight"],
-            movement_description=monster["movement_description"],
-            behavior=monster["behavior"],
-            char=monster["icon"]
-        )
+    if not monster_list:
 
-        monster_list.append(new_monster)
+        monster_list = []
+        for monster in data["monsters"]:
+            if name in monster["name"] or name == "all":
+                spawn_count = random.randint(monster["spawn_min"], monster["spawn_max"])
+                # Create a Monster object (adjust attributes based on your class structure)
+                for _ in range(1, spawn_count):
+                    new_monster = Monster(
+                        x=0,  # This will be set later
+                        y=0,
+                        name=monster["name"],
+                        hp=monster["hp"],
+                        attack=monster["attack"],
+                        damage=monster["damage"],
+                        indoorsight=monster["indoorsight"],
+                        outdoorsight=monster["outdoorsight"],
+                        movement_description=monster["movement_description"],
+                        behavior=monster["behavior"],
+                        char=monster["icon"]
+                    )
+                    monster_list.append(new_monster)
 
+    print(monster_list, "ML")
     return monster_list
 
 def place_monsters(grid, room_list, monster_data):
