@@ -5,6 +5,7 @@ import json
 import os
 import error_handling
 
+occupied_positions = set()  # Track used positions
 
 class Monster:
     def __init__(self, x, y, name, hp, attack, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
@@ -37,6 +38,7 @@ class Monster:
             return True  # Monster is defeated
         return False
 
+'''
 def find_safe_position(grid, room_list, occupied_positions):
     """Finds a valid empty tile to spawn a monster."""
     while True:
@@ -52,7 +54,7 @@ def find_safe_position(grid, room_list, occupied_positions):
 
         print("WARNING: No safe position found!")
         return None
-
+'''
 
 def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False):
     """Load monster data from a JSON file."""
@@ -60,14 +62,14 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
         data = json.load(f)
 
     if not monster_list:
-        occupied_positions = set()  # Track used positions
+        global occupied_positions
         monster_list = []
         for monster in data["monsters"]:
             if name in monster["name"] or name == "all":
                 spawn_count = random.randint(monster["spawn_min"], monster["spawn_max"])
                 # Create a Monster object (adjust attributes based on your class structure)
                 for _ in range(spawn_count):
-                    x, y, occupied_positions = find_random_position(grid, occupied_positions)
+                    x, y, occupied_positions = find_random_position(grid)
                     new_monster = Monster(
                         x=x,
                         y=y,
@@ -87,7 +89,8 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
     return monster_list
 
 
-def find_random_position(grid, occupied_positions):
+def find_random_position(grid):
+    global occupied_positions
     """Find a random, unoccupied position in the grid."""
     max_x = len(grid[0])  # Width of grid
     max_y = len(grid)  # Height of grid
@@ -103,7 +106,6 @@ def find_random_position(grid, occupied_positions):
 def place_monsters(grid, room_list, monster_data):
     """Places monsters in valid locations using safety checks."""
     placed_monsters = []
-    occupied_positions = set()  # Track taken spots
 
     for monster in monster_data:
         # x, y = find_safe_position(grid, room_list, occupied_positions)
@@ -116,6 +118,7 @@ def place_monsters(grid, room_list, monster_data):
     return placed_monsters
 
 def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen):
+    global occupied_positions
     """Moves monsters toward the player using Dijkstra map logic."""
     directions = [
         (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
@@ -124,29 +127,55 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
     dijkstra_map = dijkstra_map
 
     for monster in monsters:
-        if gen.style == "indoor":
-            monster_attack_range = monster.indoorsight
-        else: # elif gen.style == "outdoor":
-            monster_attack_range = monster.outoorsight
-        if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
-            monster.x] <= monster_attack_range:
-            # Move toward the player, but stop adjacent
-            best_x, best_y = monster.x, monster.y
-            best_cost = dijkstra_map[monster.y][monster.x]
+        placed = False
+        retry = 10
+        while not placed and retry > 0:
+            if gen.style == "indoor":
+                monster_attack_range = monster.indoorsight
+            else: # elif gen.style == "outdoor":
+                monster_attack_range = monster.outoorsight
+            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
+                monster.x] <= monster_attack_range:
+                # Move toward the player, but stop adjacent
+                best_x, best_y = monster.x, monster.y
+                best_cost = dijkstra_map[monster.y][monster.x]
 
-            for dx, dy in directions:
-                nx, ny = monster.x + dx, monster.y + dy
-                if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][
-                    nx] < best_cost:
-                    best_x, best_y = nx, ny
-                    best_cost = dijkstra_map[ny][nx]
+                for dx, dy in directions:
+                    nx, ny = monster.x + dx, monster.y + dy
+                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][
+                        nx] < best_cost:
+                        best_x, best_y = nx, ny
+                        best_cost = dijkstra_map[ny][nx]
 
-            # Prevent monster from occupying player's tile
-            if (best_x, best_y) != (player_x, player_y):
-                monster.x, monster.y = best_x, best_y
-                movement_description = monster.movement_description.split("\n")
-                for m in movement_description:
-                    combat_log.append(m)
+                # Prevent monster from occupying player's tile
+                if (best_x, best_y) != (player_x, player_y):
+                    # Ensure the position isn't already occupied
+                    if (best_x, best_y) in occupied_positions:
+                        best_x, best_y = find_alternate_position(monster, player_x, player_y, occupied_positions)
+
+                        # Move the monster
+                        monster.x, monster.y = best_x, best_y
+                        occupied_positions.add((best_x, best_y))  # Update occupied positions
+                        monster.x, monster.y = best_x, best_y
+                        movement_description = monster.movement_description.split("\n")
+                        for m in movement_description:
+                            combat_log.append(m)
+                        placed = True
+            retry -= 1
 
 
+def find_alternate_position(monster, player_x, player_y, occupied_positions):
+    """Find the next best open position near the player."""
+    possible_moves = [
+        (monster.x + 1, monster.y),
+        (monster.x - 1, monster.y),
+        (monster.x, monster.y + 1),
+        (monster.x, monster.y - 1),
+        (monster.x + 1, monster.y + 1),
+        (monster.x - 1, monster.y - 1)
+    ]
 
+    # Filter out occupied positions
+    valid_moves = [pos for pos in possible_moves if pos not in occupied_positions]
+
+    return random.choice(valid_moves) if valid_moves else (monster.x, monster.y)  # Default to staying put
