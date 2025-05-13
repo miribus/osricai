@@ -129,15 +129,18 @@ def main(stdscr):
     combat_log = []  # Combat event storage
 
     while True:
-        time.sleep(.10)
+        time.sleep(0)
         # Clear each window separately, **don't overwrite everything**
         dungeon_win.clear()
         stats_win.clear()
         combat_win.clear()
 
-
-
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
+
+        # **Combat processing**
+
+        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log, gen)
+
         monster_turn = False
         while not monster_turn:
             try:
@@ -222,9 +225,7 @@ def main(stdscr):
         if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == '.':
             player_x, player_y = new_x, new_y
 
-        # **Combat processing**
 
-        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log, gen)
 
         # **Game Over Check**
         if playerone.health <= 0:

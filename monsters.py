@@ -134,10 +134,13 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
                 monster_attack_range = monster.indoorsight
             else: # elif gen.style == "outdoor":
                 monster_attack_range = monster.outoorsight
+            print("monster", monster.name, monster.indoorsight, monster_attack_range, player_x, player_y)
             if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
                 monster.x] <= monster_attack_range:
+                print("movecheck", monster.name)
                 # Move toward the player, but stop adjacent
                 best_x, best_y = monster.x, monster.y
+                print("movecheck", best_x, best_y, 'xy')
                 best_cost = dijkstra_map[monster.y][monster.x]
 
                 for dx, dy in directions:
