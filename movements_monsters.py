@@ -123,7 +123,7 @@ def main(stdscr):
     player_x = first_room[0] + first_room[2] // 2 - offset_x
     player_y = first_room[1] + first_room[3] // 2 - offset_y
 
-    monster_data = monsters.load_monsters_from_json()
+    monster_data = monsters.load_monsters_from_json(grid=grid)
     monster_list = monsters.place_monsters(grid, room_list, monster_data)
 
     combat_log = []  # Combat event storage
@@ -145,7 +145,7 @@ def main(stdscr):
                 monster_turn = True
             except UnboundLocalError as e:
                 error_handling.pc_failure()
-                monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
+                # monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
 
         # **Draw dungeon viewport in its designated window**
         if gen.style == "indoor":

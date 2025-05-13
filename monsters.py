@@ -54,22 +54,23 @@ def find_safe_position(grid, room_list, occupied_positions):
         return None
 
 
-def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False):
+def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False):
     """Load monster data from a JSON file."""
     with open(file_path, "r") as f:
         data = json.load(f)
 
     if not monster_list:
-
+        occupied_positions = set()  # Track used positions
         monster_list = []
         for monster in data["monsters"]:
             if name in monster["name"] or name == "all":
                 spawn_count = random.randint(monster["spawn_min"], monster["spawn_max"])
                 # Create a Monster object (adjust attributes based on your class structure)
-                for _ in range(1, spawn_count):
+                for _ in range(spawn_count):
+                    x, y, occupied_positions = find_random_position(grid, occupied_positions)
                     new_monster = Monster(
-                        x=0,  # This will be set later
-                        y=0,
+                        x=x,
+                        y=y,
                         name=monster["name"],
                         hp=monster["hp"],
                         attack=monster["attack"],
@@ -85,20 +86,34 @@ def load_monsters_from_json(file_path=os.path.join(os.getcwd(), "rogue_monsters"
     print(monster_list, "ML")
     return monster_list
 
+
+def find_random_position(grid, occupied_positions):
+    """Find a random, unoccupied position in the grid."""
+    max_x = len(grid[0])  # Width of grid
+    max_y = len(grid)  # Height of grid
+
+    while True:
+        x = random.randint(0, max_x - 1)
+        y = random.randint(0, max_y - 1)
+        if grid[y][x] == '.' and (x, y) not in occupied_positions:
+            occupied_positions.add((x, y))
+            return x, y, occupied_positions
+
+
 def place_monsters(grid, room_list, monster_data):
     """Places monsters in valid locations using safety checks."""
     placed_monsters = []
     occupied_positions = set()  # Track taken spots
 
     for monster in monster_data:
-        x, y = find_safe_position(grid, room_list, occupied_positions)
-        monster.x = x  # Update position here
-        monster.y = y
+        # x, y = find_safe_position(grid, room_list, occupied_positions)
+        # x, y = find_random_position(grid, room_list, occupied_positions)
+        # monster.x = x  # Update position here
+        # monster.y = y
+        print(f"Placing: {monster.name} at {monster.x} and {monster.y}")
         placed_monsters.append(monster)
 
     return placed_monsters
-
-
 
 def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen):
     """Moves monsters toward the player using Dijkstra map logic."""
@@ -106,7 +121,7 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
         (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
         (-1, -1), (-1, 1), (1, -1), (1, 1)  # Diagonal: NW, NE, SW, SE
     ]  # Adjacent tiles
-    dijkstra_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
+    dijkstra_map = dijkstra_map
 
     for monster in monsters:
         if gen.style == "indoor":
