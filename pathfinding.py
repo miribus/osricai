@@ -59,19 +59,23 @@ def has_line_of_sight(grid, x1, y1, x2, y2):
     sx = 1 if x1 < x2 else -1
     sy = 1 if y1 < y2 else -1
     err = dx - dy
-
+    print(f"DEBUG: Goblin at ({x1}, {y1}) checking sight to ({x2}, {y2})")
+    print(f"DEBUG: Grid value at goblin position: {grid[y1][x1]}")
     while True:
         if grid[y1][x1] == '#':  # Check if current tile is a wall
+            print("doesn't have line of sight - wall")
             return False
 
         # If moving diagonally, ensure both adjacent tiles are passable
         if abs(dx) == abs(dy):  # Diagonal step
             if (0 <= x1 - sx < len(grid[0]) and 0 <= y1 - sy < len(grid)) and \
                     grid[y1][x1 - sx] == '#' and grid[y1 - sy][x1] == '#':  # Check corner blocking
+                print("doesn't have line of sight - calc")
                 return False
 
         # Reached the target (player)
         if x1 == x2 and y1 == y2:
+            print("has line of sight")
             return True
 
         e2 = err * 2

@@ -36,7 +36,7 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
                     chance = -50
 
                 roll = random.randrange(1,101)
-                if roll in (1, player.r_hitbase-chance):
+                if roll in range(1, player.r_hitbase-chance):
                     combat_log.append(f"You fire at {monster.name}! (-{player.attack} HP)")
                     if monster.take_damage(player.attack):
                         combat_log.append(f"{monster.name} is slain!")
@@ -54,7 +54,9 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
             # Player can attack melee monsters **before they strike**
             elif monster.behavior == "melee" and distance == 1:  # Adjacent
                 roll = random.randrange(1, 101)
-                if roll in (1, player.m_hitbase):
+                print("roll", roll, "playerhit", player_y)
+                combat_log.append(f"your roll is {roll}")
+                if roll in range(1, player.m_hitbase):
                     combat_log.append(f"You strike first at {monster.name}! (-{player.attack} HP)")
                     if monster.take_damage(player.attack):
                         combat_log.append(f"{monster.name} is slain!")

@@ -236,11 +236,11 @@ def main(stdscr):
             break
 
 def rungame():
-    running = False
-    while not running:
-        try:
-            curses.wrapper(main)
-            running = True
-        except curses.error:
-            error_handling.pc_failure()
-            input("")
+    # running = False
+    # while not running:
+    #    try:
+    curses.wrapper(main)
+    #        running = True
+    #    except curses.error:
+    #        error_handling.pc_failure()
+    #        input("")

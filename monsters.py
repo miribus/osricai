@@ -128,13 +128,14 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
 
     for monster in monsters:
         placed = False
-        retry = 10
+        retry = 5
         while not placed and retry > 0:
             if gen.style == "indoor":
                 monster_attack_range = monster.indoorsight
             else: # elif gen.style == "outdoor":
-                monster_attack_range = monster.outoorsight
+                monster_attack_range = monster.outdoorsight
             print("monster", monster.name, monster.indoorsight, monster_attack_range, player_x, player_y)
+
             if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
                 monster.x] <= monster_attack_range:
                 print("movecheck", monster.name)
@@ -154,16 +155,18 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
                 if (best_x, best_y) != (player_x, player_y):
                     # Ensure the position isn't already occupied
                     if (best_x, best_y) in occupied_positions:
-                        best_x, best_y = find_alternate_position(monster, player_x, player_y, occupied_positions)
+                        alt_x, alt_y = find_alternate_position(monster, player_x, player_y, occupied_positions)
+                        if (alt_x, alt_y) != (best_x, best_y):  # Ensure a new position was found
+                            best_x, best_y = alt_x, alt_y
 
-                        # Move the monster
-                        monster.x, monster.y = best_x, best_y
-                        occupied_positions.add((best_x, best_y))  # Update occupied positions
-                        monster.x, monster.y = best_x, best_y
-                        movement_description = monster.movement_description.split("\n")
-                        for m in movement_description:
-                            combat_log.append(m)
-                        placed = True
+                    # Move the monster
+                    monster.x, monster.y = best_x, best_y
+                    occupied_positions.add((best_x, best_y))  # Update occupied positions
+                    movement_description = monster.movement_description.split("\n")
+                    for m in movement_description:
+                        combat_log.append(m)
+                    placed = True
+            print("retry", retry)
             retry -= 1
 
 
@@ -181,4 +184,10 @@ def find_alternate_position(monster, player_x, player_y, occupied_positions):
     # Filter out occupied positions
     valid_moves = [pos for pos in possible_moves if pos not in occupied_positions]
 
-    return random.choice(valid_moves) if valid_moves else (monster.x, monster.y)  # Default to staying put
+    if valid_moves:
+        # Prioritize positions that move the monster toward the player
+        valid_moves.sort(key=lambda pos: abs(pos[0] - player_x) + abs(pos[1] - player_y))
+
+        return valid_moves[0]  # Choose the closest valid move to the player
+
+    return monster.x, monster.y  # Default to staying put
