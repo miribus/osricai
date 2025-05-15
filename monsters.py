@@ -49,7 +49,7 @@ def find_safe_position(grid, room_list, occupied_positions):
         """Find a safe position in the grid."""
         for y in range(len(grid)):
             for x in range(len(grid[y])):
-                if grid[y][x] == '.' and (x, y) not in occupied_positions:
+                if grid[y][x] == ' ' and (x, y) not in occupied_positions:
                     return (x, y)
 
         print("WARNING: No safe position found!")
@@ -98,7 +98,7 @@ def find_random_position(grid):
     while True:
         x = random.randint(0, max_x - 1)
         y = random.randint(0, max_y - 1)
-        if grid[y][x] == '.' and (x, y) not in occupied_positions:
+        if grid[y][x] == ' ' and (x, y) not in occupied_positions:
             occupied_positions.add((x, y))
             return x, y, occupied_positions
 
@@ -146,7 +146,7 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
 
                 for dx, dy in directions:
                     nx, ny = monster.x + dx, monster.y + dy
-                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == '.' and dijkstra_map[ny][
+                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == ' ' and dijkstra_map[ny][
                         nx] < best_cost:
                         best_x, best_y = nx, ny
                         best_cost = dijkstra_map[ny][nx]

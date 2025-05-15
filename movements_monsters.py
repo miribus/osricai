@@ -15,7 +15,7 @@ import error_handling
 def generate_dungeon_map(room_list, corridor_list):
     """
     Generates a 2D grid representing the dungeon.
-    Walls are '#' and floors are '.'. Computes an offset so that
+    Walls are '#' and floors are ' '. Computes an offset so that
     the grid indices start at 0.
     """
     # Determine the boundaries of the dungeon.
@@ -51,7 +51,7 @@ def generate_dungeon_map(room_list, corridor_list):
         offset_y = ry - min_y
         for j in range(rh):
             for i in range(rw):
-                grid[offset_y + j][offset_x + i] = '.'
+                grid[offset_y + j][offset_x + i] = ' '
 
     # Carve out corridors.
     for corridor in corridor_list:
@@ -61,11 +61,11 @@ def generate_dungeon_map(room_list, corridor_list):
             # Horizontal corridor.
             if y1 == y2:
                 for x in range(min(x1, x2), max(x1, x2) + 1):
-                    grid[y1 - min_y][x - min_x] = '.'
+                    grid[y1 - min_y][x - min_x] = ' '
             # Vertical corridor.
             elif x1 == x2:
                 for y in range(min(y1, y2), max(y1, y2) + 1):
-                    grid[y - min_y][x1 - min_x] = '.'
+                    grid[y - min_y][x1 - min_x] = ' '
             else:
                 # If diagonal corridors occur, additional logic would be needed.
                 pass
@@ -89,7 +89,7 @@ def main(stdscr):
     print(dungeon_width, "dwidth")
     stats_width = 20
     print(stats_width, "statsw")
-    log_height = 10
+    log_height = 12
     print(log_height, "logw")
 
     # ascii_3d_width = 20  # Width of the 3D window
@@ -114,7 +114,7 @@ def main(stdscr):
 
 
 
-    playerone = player.Player("MyName")
+    playerone = player.Player("MyName", classtype=4)
     grid, offset_x, offset_y = generate_dungeon_map(room_list, corridor_list)
     grid_height, grid_width = len(grid), len(grid[0])
 
@@ -133,7 +133,7 @@ def main(stdscr):
         # Clear each window separately, **don't overwrite everything**
         dungeon_win.clear()
         stats_win.clear()
-        combat_win.clear()
+        # combat_win.clear()
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
 
@@ -172,7 +172,9 @@ def main(stdscr):
                     if dx == 0 and dy == 0:
                         ch = '@'
 
-                    dungeon_win.addch(dy + playerone.indoorsight, dx + playerone.indoorsight, ch)
+                    max_y, max_x = dungeon_win.getmaxyx()  # Get window size
+                    if 0 <= dy + playerone.indoorsight < max_y and 0 <= dx + playerone.indoorsight < max_x:
+                        dungeon_win.addch(dy + playerone.indoorsight, dx + playerone.indoorsight, ch)
 
         # Initialize facing direction
         player_facing = "south"  # Default direction at game start
@@ -193,17 +195,17 @@ def main(stdscr):
         # Refresh all windows separately, **ensure order is correct**
         dungeon_win.refresh()
         stats_win.refresh()
-        combat_win.refresh()
+        # combat_win.refresh()
         # ascii_3d_win.refresh()
         # dbascii_3d_win.refresh()
         stdscr.refresh()  # Refresh main screen **last**
 
         # Handle movement
+        stdscr.nodelay(True)
         key = stdscr.getch()
         new_x, new_y = player_x, player_y
 
         # Handle movement and directional updates
-        key = stdscr.getch()
         if key == curses.KEY_UP:
             new_y -= 1
             # player_facing = "north"
@@ -222,7 +224,7 @@ def main(stdscr):
             break
 
         # Only move if valid
-        if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == '.':
+        if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == ' ':
             player_x, player_y = new_x, new_y
 
 

@@ -3,9 +3,10 @@ import random
 import pathfinding
 
 class Player:
-    def __init__(self, name, level=1):
+    def __init__(self, name, classtype=False, level=1):
         self.name = name
         self.level = level
+        self.type = classtype
         self.strength = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
         self.dexterity = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
         self.constitution = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
@@ -37,8 +38,12 @@ class Player:
         self.create_character()
 
     def create_character(self):
-        roll = random.randrange(0, 5)
-        if roll == 0:
+        if not self.type:
+            roll = random.randrange(1, 6)
+        else:
+            roll = self.type
+
+        if roll == 1:
             self.type = "FTR"
             self.strength += 2
             self.constitution += 2
@@ -62,7 +67,7 @@ class Player:
                 ]
             }
             self.health = self.constitution * 4 + 1
-        elif roll == 1:
+        elif roll == 2:
             self.type = "THF"
             self.dexterity += 2
             self.charisma += 2
@@ -85,7 +90,7 @@ class Player:
                 ]
             }
             self.health = self.constitution * 2 + 1
-        elif roll == 2:
+        elif roll == 3:
             self.type = "ELF"
             self.dexterity += 2
             self.strength += 2
@@ -108,7 +113,7 @@ class Player:
                 ]
             }
             self.health = self.constitution * 2 + 1
-        elif roll == 3:
+        elif roll == 4:
             self.type = "DWF"
             self.constitution += 3
             self.strength += 1
@@ -130,7 +135,7 @@ class Player:
                 ]
             }
             self.health = self.constitution * 3 + 1
-        elif roll == 4:
+        elif roll == 5:
             self.type = "WIZ"
             self.intelligence += 3
             self.wisdom += 1

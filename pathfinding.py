@@ -34,7 +34,7 @@ def generate_dijkstra_map(grid, player_x, player_y):
         # Check neighbors
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < width and 0 <= ny < height and grid[ny][nx] == '.':  # Floor tiles only
+            if 0 <= nx < width and 0 <= ny < height and grid[ny][nx] == ' ':  # Floor tiles only
                 if dijkstra_map[ny][nx] > current_cost + 1:
                     dijkstra_map[ny][nx] = current_cost + 1
                     queue.append((nx, ny))

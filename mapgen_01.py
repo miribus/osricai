@@ -24,7 +24,7 @@ class Generator():
 
         if style == "indoor":
             CHARACTER_TILES = {'stone': 'o',
-                               'floor': '.',
+                               'floor': ' ',
                                'wall': ' '}
             self.width = width
             self.height = height
