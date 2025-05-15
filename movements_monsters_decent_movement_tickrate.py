@@ -28,6 +28,21 @@ def handle_input(stdscr):
     prev_key = key  # Store new keypress
     return key
 
+def handle_input2p0(stdscr):
+    global prev_key
+    key = stdscr.getch()
+
+    if key == -1:  # No input detected
+        prev_key = None  # Reset stored key when no key is pressed
+        return None
+
+    if prev_key is None:  # Only accept the first press after a reset
+        prev_key = key  # Store new keypress
+        return key
+
+    return None  # Ignore repeated input while holding key
+
+
 
 def main(stdscr):
     stdscr.nodelay(True)
@@ -173,8 +188,8 @@ def main(stdscr):
         # Handle movement and directional updates
 
         current_time = time.time()
-        if current_time - last_player_update >= player_interval-.45:
-            key = handle_input(stdscr)
+        if current_time - last_player_update >= player_interval:
+            key = handle_input2p0(stdscr)
             if key == curses.KEY_UP:
                 new_y -= 1
                 # player_facing = "north"
