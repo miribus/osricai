@@ -8,7 +8,7 @@ import error_handling
 occupied_positions = set()  # Track used positions
 
 class Monster:
-    def __init__(self, x, y, name, hp, attack, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
+    def __init__(self, x, y, name, hp, attack, hitbase, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
         """
         Monster attributes:
         - x, y: Position
@@ -24,6 +24,7 @@ class Monster:
         self.name = name
         self.hp = hp
         self.attack = attack
+        self.hitbase = hitbase
         self.damage = damage
         self.indoorsight = indoorsight
         self.outoorsight = outdoorsight
@@ -33,6 +34,7 @@ class Monster:
 
     def take_damage(self, damage):
         """Reduce monster's HP and check if defeated."""
+        print(f"MONSTER DAMAGE TAKEN! {damage}")
         self.hp -= damage
         if self.hp <= 0:
             return True  # Monster is defeated
@@ -70,19 +72,50 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
                 # Create a Monster object (adjust attributes based on your class structure)
                 for _ in range(spawn_count):
                     x, y, occupied_positions = find_random_position(grid)
-                    new_monster = Monster(
-                        x=x,
-                        y=y,
-                        name=monster["name"],
-                        hp=monster["hp"],
-                        attack=monster["attack"],
-                        damage=monster["damage"],
-                        indoorsight=monster["indoorsight"],
-                        outdoorsight=monster["outdoorsight"],
-                        movement_description=monster["movement_description"],
-                        behavior=monster["behavior"],
-                        char=monster["icon"]
-                    )
+                    if "melee_attack" in monster:
+                        new_monster = Monster(
+                            x=x,
+                            y=y,
+                            name=monster["name"],
+                            hp=monster["hp"],
+                            attack=monster["melee_attack"],
+                            hitbase=monster["m_hitbase"],
+                            damage=monster["damage"],
+                            indoorsight=monster["indoorsight"],
+                            outdoorsight=monster["outdoorsight"],
+                            movement_description=monster["movement_description"],
+                            behavior=monster["behavior"],
+                            char=monster["icon"]
+                        )
+                    elif "ranged_attack" in monster:
+                        new_monster = Monster(
+                            x=x,
+                            y=y,
+                            name=monster["name"],
+                            hp=monster["hp"],
+                            attack=monster["ranged_attack"],
+                            hitbase=monster["r_hitbase"],
+                            damage=monster["damage"],
+                            indoorsight=monster["indoorsight"],
+                            outdoorsight=monster["outdoorsight"],
+                            movement_description=monster["movement_description"],
+                            behavior=monster["behavior"],
+                            char=monster["icon"]
+                        )
+                    elif "magic_attack" in monster:
+                        new_monster = Monster(
+                            x=x,
+                            y=y,
+                            name=monster["name"],
+                            hp=monster["hp"],
+                            attack=monster["magic_attack"],
+                            damage=monster["damage"],
+                            indoorsight=monster["indoorsight"],
+                            outdoorsight=monster["outdoorsight"],
+                            movement_description=monster["movement_description"],
+                            behavior=monster["behavior"],
+                            char=monster["icon"]
+                        )
                     monster_list.append(new_monster)
 
     print(monster_list, "ML")

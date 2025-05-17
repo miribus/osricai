@@ -35,7 +35,7 @@ def main(stdscr):
     last_monster_update = time.time()
     player_interval = 0.5  # Adjust this to slow down player movement
     monster_interval = 0.5  # Adjust monster movement speed
-    gen = mapgen.Generator(style="indoor")
+    gen = mapgen.Generator(width=12, height=12, style="indoor")
     gen.gen_level()
     gen.gen_tiles_level()
     room_list = gen.room_list

@@ -11,8 +11,8 @@
             "movement_description": "You hear the sound of tiny, padded feet and the\n clank of light armor.",
             "behavior": "melee",
             "spawn_zone": "random_room",
-            "spawn_min": 6,
-            "spawn_max": 10,
+            "spawn_min": 1,
+            "spawn_max": 2,
             "icon": "G"
         },
         {
@@ -26,8 +26,8 @@
             "movement_description": "You hear the clatter of dry bones and the release\n of crack of a loosed bow.",
             "behavior": "ranged",
             "spawn_zone": "corridor",
-            "spawn_min": 3,
-            "spawn_max": 6,
+            "spawn_min": 1,
+            "spawn_max": 2,
             "icon": "S"
         }
     ]

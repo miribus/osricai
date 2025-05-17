@@ -86,6 +86,8 @@ class Player:
 
     def take_damage(self, damage):
         """Reduce player's HP when attacked."""
+        print(f"PLAYER DAMAGE TAKEN! {damage}")
+        print(f"PLAYER HEALTH! {self.health}")
         self.health -= damage
         if self.health <= 0:
             print("You have died!")

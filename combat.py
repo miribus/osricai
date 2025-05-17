@@ -53,7 +53,7 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
             if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and \
                     dijkstra_map[monster.y][monster.x] <= monster_attack_range:
                 roll = random.randrange(1, 101)
-                hit_chance = (monster.m_hitbase if monster.behavior == "melee" else monster.r_hitbase) - player.defense
+                hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense
                 if roll in range(1, hit_chance):
                     damage = monster.damage
                     combat_log.append(f"{monster.name} attacks you! (-{damage} HP)")
