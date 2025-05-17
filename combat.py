@@ -23,8 +23,8 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
             distance = max(abs(monster.x - player_x), abs(monster.y - player_y))
 
             # Player ranged attack
-            if ("ranged_attack" in player.abilities.get(player.level, []) or
-                "magic_attack" in player.abilities.get(player.level, [])) and distance <= player_attack_range:
+            if ("ranged_attack" in player.abilities or
+                "magic_attack" in player.abilities) and distance <= player_attack_range:
                 if player_attack_range > player.indoorsight or player_attack_range > player.outdoorsight:
                     chance = -50
 
@@ -38,8 +38,8 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
                     combat_log.append(f"You fire at {monster.name}! You MISS!)")
 
             # Player melee attack
-            elif ("melee_attack" in player.abilities.get(player.level, []) or
-                  "magic_attack" in player.abilities.get(player.level, [])) and distance <= 1:
+            elif ("melee_attack" in player.abilities or
+                  "magic_attack" in player.abilities) and distance <= 1:
                 roll = random.randrange(1, 101)
                 if roll in range(1, player.m_hitbase):
                     combat_log.append(f"You strike first at {monster.name}! (-{player.melee_attack} HP)")
@@ -52,5 +52,11 @@ def check_and_resolve_combat(monsters, grid, player_x, player_y, player, combat_
             # Monster attack
             if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and \
                     dijkstra_map[monster.y][monster.x] <= monster_attack_range:
-                combat_log.append(f"{monster.name} attacks you! (-{monster.melee_attack} HP)")
-                player.take_damage(monster.melee_attack)
+                roll = random.randrange(1, 101)
+                hit_chance = (monster.m_hitbase if monster.behavior == "melee" else monster.r_hitbase) - player.defense
+                if roll in range(1, hit_chance):
+                    damage = monster.damage
+                    combat_log.append(f"{monster.name} attacks you! (-{damage} HP)")
+                    player.take_damage(damage)
+                else:
+                    combat_log.append(f"{monster.name} attacks you but MISSES!")

@@ -3,16 +3,18 @@ import random
 import pathfinding
 
 class Player:
-    def __init__(self, name, classtype=False, level=1):
+    def __init__(self, name, classtype=0, level=1):  # Default classtype to 0
         self.name = name
         self.level = level
-        self.type = classtype
+        self.type = classtype  # Always set to 0
         self.strength = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
         self.dexterity = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
         self.constitution = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
         self.intelligence = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
         self.wisdom = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
         self.charisma = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+
+        self.abilities = []  # Ensure abilities is a list
 
         # For the sake of continuity, a general explanation of these abilities below, details to be written in another module
         # "melee_attack" - general melee attacks, non-magical unless weapon is magic, resolved in that function
@@ -57,15 +59,12 @@ class Player:
 
 
     def create_character(self):
-        self.type = "Adventurer"
+        self.type = "Adventurer"  # Keep the type as "Adventurer"
+        self.abilities = ["bandage", "retreat"]  # Initialize abilities as a list
 
         # level: ["abilities"]
         # functionality to be as basic as possible and explained in another .py
         # abilities in most cases will be triggered automatically and always successful
-        self.abilities = [
-                "bandage",
-                "retreat",
-            ]
         self.strength += 2
         self.constitution += 2
         self.outdoorsight = 8
@@ -94,3 +93,5 @@ class Player:
         return False
 
 # curses.wrapper(display_player, player1)
+
+
