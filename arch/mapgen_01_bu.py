@@ -23,7 +23,7 @@ class Generator():
         if style == "indoor":
             CHARACTER_TILES = {'stone': 'o',
                                'floor': ' ',
-                               'wall': '#'}
+                               'wall': ' '}
             self.width = width
             self.height = height
             self.max_rooms = max_rooms
@@ -192,8 +192,10 @@ class Generator():
                         jx1, jy1, jx2, jy2, 'bottom')
                     self.corridor_list.append(corridors)
 
+
     def gen_level(self):
-        # Build an empty dungeon, blank the room and corridor lists
+
+        # build an empty dungeon, blank the room and corridor lists
         for i in range(self.height):
             self.level.append(['stone'] * self.width)
         self.room_list = []
@@ -216,31 +218,31 @@ class Generator():
             if len(self.room_list) >= self.max_rooms:
                 break
 
-        # Connect the rooms
+        # connect the rooms
         for a in range(len(self.room_list) - 1):
             self.join_rooms(self.room_list[a], self.room_list[a + 1])
 
-        # Do the random joins
+        # do the random joins
         for a in range(self.random_connections):
             room_1 = self.room_list[random.randint(0, len(self.room_list) - 1)]
             room_2 = self.room_list[random.randint(0, len(self.room_list) - 1)]
             self.join_rooms(room_1, room_2)
 
-        # Do the spurs
+        # do the spurs
         for a in range(self.random_spurs):
             room_1 = [random.randint(2, self.width - 2), random.randint(
-                2, self.height - 2), 1, 1]
+                     2, self.height - 2), 1, 1]
             room_2 = self.room_list[random.randint(0, len(self.room_list) - 1)]
             self.join_rooms(room_1, room_2)
 
-        # Fill the map
-        # Paint rooms
+        # fill the map
+        # paint rooms
         for room_num, room in enumerate(self.room_list):
             for b in range(room[2]):
                 for c in range(room[3]):
                     self.level[room[1] + c][room[0] + b] = 'floor'
 
-        # Paint corridors
+        # paint corridors
         for corridor in self.corridor_list:
             x1, y1 = corridor[0]
             x2, y2 = corridor[1]
@@ -257,7 +259,7 @@ class Generator():
                         self.level[min(y2, y3) + height][
                             min(x2, x3) + width] = 'floor'
 
-        # Paint the walls
+        # paint the walls
         for row in range(1, self.height - 1):
             for col in range(1, self.width - 1):
                 if self.level[row][col] == 'floor':
@@ -284,20 +286,6 @@ class Generator():
 
                     if self.level[row + 1][col + 1] == 'stone':
                         self.level[row + 1][col + 1] = 'wall'
-
-        # Ensure wall thickness
-        for _ in range(4):  # Repeat to ensure proper thickness
-            new_level = [row[:] for row in self.level]
-            for row in range(1, self.height - 1):  # Skip the top and bottom edges
-                for col in range(1, self.width - 1):  # Skip the left and right edges
-                    if self.level[row][col] == 'wall':
-                        for dy in range(-1, 2):
-                            for dx in range(-1, 2):
-                                new_row, new_col = row + dy, col + dx
-                                if 1 <= new_row < self.height - 1 and 1 <= new_col < self.width - 1:  # Skip edges
-                                    if self.level[new_row][new_col] == 'stone':
-                                        new_level[new_row][new_col] = 'wall'
-            self.level = new_level
 
     def gen_tiles_level(self):
 

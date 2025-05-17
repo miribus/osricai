@@ -7,12 +7,12 @@ class Player:
         self.name = name
         self.level = level
         self.type = classtype
-        self.strength = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.dexterity = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.constitution = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.intelligence = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.wisdom = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
-        self.charisma = random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+1
+        self.strength = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+        self.dexterity = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+        self.constitution = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+        self.intelligence = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+        self.wisdom = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
+        self.charisma = min(random.randrange(1,6)+random.randrange(1,6)+random.randrange(1,6)+3, 18)
 
         # For the sake of continuity, a general explanation of these abilities below, details to be written in another module
         # "melee_attack" - general melee attacks, non-magical unless weapon is magic, resolved in that function
@@ -37,127 +37,53 @@ class Player:
         # "magical" - generally a modifier for above items as well as a highly contextual subset of abilities and NPC modifications to be determined later.
         self.create_character()
 
-    def create_character(self):
-        if not self.type:
-            roll = random.randrange(1, 6)
-        else:
-            roll = self.type
 
-        if roll == 1:
-            self.type = "FTR"
-            self.strength += 2
-            self.constitution += 2
-            self.outdoorsight = 6
-            self.indoorsight = 4
-            self.m_hitbase = 101
-            self.r_hitbase = 76
-            self.attack = int(round(self.strength / 3)) + int(round(self.level / 2)) + 1
-            self.range = int(round(self.strength / 3)) + int(round(self.strength / 3)) + 1
-            # level: ["abilities"]
-            # functionality to be as basic as possible and explained in another .py
-            # abilities in most cases will be triggered automatically and always successful
-            self.abilities = {
-                1: [
-                    "melee_attack",
-                    "ranged_attack",
-                    "bandage",
-                    "retreat",
-                    "smashdoor",
-                    "damage_resistance"
-                ]
-            }
-            self.health = self.constitution * 4 + 1
-        elif roll == 2:
-            self.type = "THF"
-            self.dexterity += 2
-            self.charisma += 2
-            self.outdoorsight = 8
-            self.indoorsight = 6
-            self.m_hitbase = 76
-            self.r_hitbase = 101
-            self.attack = int(round(self.strength / 3)) + int(round(self.level / 4)) + 1
-            self.range = int(round(self.strength / 3)) + int(round(self.strength / 3)) + 1
-            self.abilities = {
-                1: [
-                    "melee_attack",
-                    "range_attack",
-                    "find_trap",
-                    "hide",
-                    "escape",
-                    "unlock",
-                    "poison",
-                    "dodge"
-                ]
-            }
-            self.health = self.constitution * 2 + 1
-        elif roll == 3:
-            self.type = "ELF"
-            self.dexterity += 2
-            self.strength += 2
-            self.outdoorsight = 9
-            self.indoorsight = 7
-            self.m_hitbase = 76
-            self.r_hitbase = 126
-            self.attack = int(round(self.strength / 3)) + int(round(self.level / 4)) + 1
-            self.range = int(round(self.strength / 3)) + int(round(self.strength / 3)) + 1
-            self.abilities = {
-                1: [
-                    "melee_attack",
-                    "range_attack",
-                    "find_secret",
-                    "hide",
-                    "escape",
-                    "influence",
-                    "poison",
-                    "magic_resist"
-                ]
-            }
-            self.health = self.constitution * 2 + 1
-        elif roll == 4:
-            self.type = "DWF"
-            self.constitution += 3
-            self.strength += 1
-            self.outdoorsight = 3
-            self.indoorsight = 9
-            self.m_hitbase = 101
-            self.r_hitbase = 50
-            self.attack = int(round(self.strength / 3)) + int(round(self.level / 3)) + 1
-            self.range = int(round(self.strength / 3)) + int(round(self.strength / 3)) + 1
-            self.abilities = {
-                1: [
-                    "melee_attack",
-                    "hide",
-                    "retreat",
-                    "know_tricks",
-                    "resistance",
-                    "smashdoor",
-                    "dodge"
-                ]
-            }
-            self.health = self.constitution * 3 + 1
-        elif roll == 5:
-            self.type = "WIZ"
-            self.intelligence += 3
-            self.wisdom += 1
-            self.charisma += 1
-            self.outdoorsight = 5
-            self.indoorsight = 5
-            self.m_hitbase = 25
-            self.r_hitbase = 101
-            self.attack = int(round(self.intelligence / 3)) + int(round(self.wisdom / 5)) + int(round(self.level / 4)) + 1
-            self.range = int(round(self.intelligence / 3)) + int(round(self.wisdom / 3)) + 1
-            self.abilities = {
-                1: [
-                    "magic_attack",
-                    "find_secret",
-                    "escape",
-                    "charm",
-                    "know_tricks",
-                    "magical",
-                    "magic_resist"
-                ]
-            }
-            self.health = self.constitution * 1 + 1
+    def level_up(self):
+        self.health += int(round(self.constitution / 6)) + random.randrange(3, 8)
+        self.m_hitbase += 5
+        self.r_hitbase += 5
+        self.level += 1
+
+
+    def recalculate_stats(self):
+        # Recalculate stats based on level and other factors
+        self.melee_attack = int(round(self.strength / 3)) + int(round(self.level / 2)) + self.melee_weapon["damage"]
+        self.ranged_attack = int(round(self.strength / 6)) + self.ranged_weapon["damage"]
+        self.range = int(round(self.strength / 4)) + int(round(self.dexterity / 4))
+        self.health = (self.constitution * 4) + (self.level * 6)
+        self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level-1) * 5)
+        self.r_hitbase = (32 + int(round(self.dexterity / 4))) + ((self.level-1) * 5)
+        self.defense = self.armor["protection"] - int(round(self.dexterity / 3))
+
+
+    def create_character(self):
+        self.type = "Adventurer"
+
+        # level: ["abilities"]
+        # functionality to be as basic as possible and explained in another .py
+        # abilities in most cases will be triggered automatically and always successful
+        self.abilities = [
+                "bandage",
+                "retreat",
+            ]
+        self.strength += 2
+        self.constitution += 2
+        self.outdoorsight = 8
+        self.indoorsight = 4
+
+        self.armor = {"name": "Chainmail", "protection": -30, "type": "metal", "dexterity": 0}
+        self.melee_weapon = {"name": "LongSword", "damage": 3, "type": "metal", "abilities": "melee_attack"}
+        if "abilities" in self.melee_weapon:
+            if "melee_attack" in self.melee_weapon["abilities"]:
+                self.abilities.append("melee_attack")
+        self.ranged_weapon = {"name": "Crossbow", "damage": 3, "type": "slow", "strength": 0,
+                              "range": self.indoorsight+round(self.dexterity/6), "abilities": "ranged_attack"}
+        if "abilities" in self.ranged_weapon:
+            if "ranged_attack" in self.ranged_weapon["abilities"]:
+                self.abilities.append("ranged_attack")
+
+        self.recalculate_stats()
+
 
     def take_damage(self, damage):
         """Reduce player's HP when attacked."""
@@ -168,25 +94,3 @@ class Player:
         return False
 
 # curses.wrapper(display_player, player1)
-
-def player_attack(monsters, grid, player_x, player_y, player, combat_log):
-    """Allows the player to proactively attack monsters before they attack."""
-    player_attack_range = 5  # Define player’s shooting range
-
-    for monster in monsters[:]:  # Loop through monsters safely
-        if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y):
-            distance = abs(monster.x - player_x) + abs(monster.y - player_y)
-
-            # Player attacks ranged monsters within range
-            if monster.behavior == "ranged" and distance <= player_attack_range:
-                combat_log.append(f"You fire at {monster.name}! (-{player.attack} HP)")
-                if monster.take_damage(player.attack):
-                    combat_log.append(f"{monster.name} is slain!")
-                    monsters.remove(monster)
-
-            # Player can attack melee monsters **before they strike**
-            elif monster.behavior == "melee" and distance == 1:  # Adjacent
-                combat_log.append(f"You strike first at {monster.name}! (-{player.attack} HP)")
-                if monster.take_damage(player.attack):
-                    combat_log.append(f"{monster.name} is slain!")
-                    monsters.remove(monster)

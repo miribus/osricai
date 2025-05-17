@@ -27,7 +27,7 @@ def display_player(stdscr, player):
     idx += 1
     stdscr.addstr(idx, stats_x, f"Ranged HB: {player.r_hitbase}")
     idx += 1
-    stdscr.addstr(idx, stats_x, f"Attack: {player.attack}")
+    stdscr.addstr(idx, stats_x, f"Attack: {player.melee_attack}")
     idx += 1
     stdscr.addstr(idx, stats_x, f"Sight: Indoor: {player.indoorsight}")
     idx += 1

@@ -125,7 +125,7 @@ def main(stdscr):
                     if distance > playerone.indoorsight:
                         ch = ' '
                     elif tile_x < 0 or tile_x >= grid_width or tile_y < 0 or tile_y >= grid_height:
-                        ch = '#'
+                        ch = 'o'
                     else:
                         ch = grid[tile_y][tile_x]
 
