@@ -289,6 +289,20 @@ class Generator():
                     if self.level[row + 1][col + 1] == 'stone':
                         self.level[row + 1][col + 1] = 'wall'
 
+        # Ensure wall thickness
+        for _ in range(4):  # Repeat to ensure proper thickness
+            new_level = [row[:] for row in self.level]
+            for row in range(1, self.height - 1):  # Skip the top and bottom edges
+                for col in range(1, self.width - 1):  # Skip the left and right edges
+                    if self.level[row][col] == 'wall':
+                        for dy in range(-1, 2):
+                            for dx in range(-1, 2):
+                                new_row, new_col = row + dy, col + dx
+                                if 1 <= new_row < self.height - 1 and 1 <= new_col < self.width - 1:  # Skip edges
+                                    if self.level[new_row][new_col] == 'stone':
+                                        new_level[new_row][new_col] = 'wall'
+            self.level = new_level
+
     def gen_tiles_level(self):
 
         for row_num, row in enumerate(self.level):
