@@ -10,7 +10,7 @@ import combat
 import threedee
 import error_handling
 
-
+levelmap = None  # Initialize levelmap variable
 prev_key = None  # Store previous key
 
 def handle_input(stdscr):
@@ -32,14 +32,14 @@ def handle_input(stdscr):
 def main(stdscr):
     stdscr.nodelay(True)
     last_player_update = time.time()
-    last_monster_update = time.time()
+    # last_monster_update = time.time()
     player_interval = 0.5  # Adjust this to slow down player movement
-    monster_interval = 0.5  # Adjust monster movement speed
-    gen = mapgen.Generator(width=12, height=12, style="indoor")
-    gen.gen_level()
-    gen.gen_tiles_level()
-    room_list = gen.room_list
-    corridor_list = gen.corridor_list
+    # monster_interval = 0.5  # Adjust monster movement speed
+    levelmap = mapgen.Generator(width=32, height=32, style="indoor")
+    levelmap.gen_level()
+    levelmap.gen_tiles_level()
+    room_list = levelmap.room_list
+    corridor_list = levelmap.corridor_list
     curses.curs_set(0)  # Hide cursor
     height, width = stdscr.getmaxyx()  # Get screen size
 
@@ -76,7 +76,7 @@ def main(stdscr):
 
 
     playerone = player.Player("MyName", classtype=4)
-    grid, offset_x, offset_y = mapgen.generate_dungeon_map(room_list, corridor_list)
+    grid, offset_x, offset_y = levelmap.generate_dungeon_map(room_list, corridor_list)
     grid_height, grid_width = len(grid), len(grid[0])
 
     #radius = 5  # Viewport size
@@ -84,50 +84,55 @@ def main(stdscr):
     player_x = first_room[0] + first_room[2] // 2 - offset_x
     player_y = first_room[1] + first_room[3] // 2 - offset_y
 
-    monster_data = monsters.load_monsters_from_json(grid=grid)
+    monster_data = monsters.load_monsters_from_json(grid=grid, levelmap=levelmap)
     monster_list = monsters.place_monsters(grid, room_list, monster_data)
 
     combat_log = []  # Combat event storage
-
     while True:
+
         time.sleep(0)
         # Clear each window separately, **don't overwrite everything**
         dungeon_win.clear()
         stats_win.clear()
         # combat_win.clear()
 
-        dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y)
+        dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y, levelmap=levelmap)
 
         # **Combat processing**
-
-        combat.check_and_resolve_combat(monster_list, grid, player_x, player_y, playerone, combat_log, gen)
+        combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap=levelmap)
 
         current_time = time.time()
-        if current_time - last_monster_update >= monster_interval:
-            monster_turn = False
-            while not monster_turn:
-                try:
-                    monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
-                    monster_turn = True
-                except UnboundLocalError as e:
-                    error_handling.pc_failure()
-                    # monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
-            last_monster_update = current_time  # Reset timer
+        for monster in monster_list:
+            if current_time - monster.last_attack_time >= monster.attackrate:
+                monster_turn = True
+                while monster_turn:
+                    try:
+                        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, levelmap)
+                        combat.check_and_resolve_monster_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
+                        monster.last_attack_time = current_time  # Reset timer
+                        monster_turn = False
+                    except UnboundLocalError as e:
+                        error_handling.pc_failure()
+                        # monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
+
 
 
         # **Draw dungeon viewport in its designated window**
-        if gen.style == "indoor":
+        if levelmap.style == "indoor":
             for dy in range(-playerone.indoorsight, playerone.indoorsight + 1):
                 for dx in range(-playerone.indoorsight, playerone.indoorsight + 1):
                     tile_x, tile_y = player_x + dx, player_y + dy
                     distance = (dx ** 2 + dy ** 2) ** 0.5
-
+                    print("Generating tile at", tile_x, tile_y, "distance", distance)
                     if distance > playerone.indoorsight:
-                        ch = ' '
+                        ch = levelmap.tiles["floor"]
+                        print("Printing floor tile at", tile_x, tile_y)
                     elif tile_x < 0 or tile_x >= grid_width or tile_y < 0 or tile_y >= grid_height:
-                        ch = 'o'
+                        ch = levelmap.tiles["wall"]
+                        print("Printing wall tile at", tile_x, tile_y)
                     else:
                         ch = grid[tile_y][tile_x]
+                        print("Printing tile at", tile_x, tile_y)
 
                     for m in monster_list:
                         if m.x == tile_x and m.y == tile_y:
@@ -192,7 +197,7 @@ def main(stdscr):
             elif key == ord('q'):
                 break
             # Only move if valid
-            if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == ' ':
+            if 0 <= new_x < grid_width and 0 <= new_y < grid_height and grid[new_y][new_x] == levelmap.tiles["floor"]:
                 player_x, player_y = new_x, new_y
             last_player_update = current_time  # Reset timer
 

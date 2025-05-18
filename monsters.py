@@ -1,4 +1,5 @@
 # monsters.py
+import time
 import pathfinding
 import random
 import json
@@ -6,9 +7,10 @@ import os
 import error_handling
 
 occupied_positions = set()  # Track used positions
+monchars = []
 
 class Monster:
-    def __init__(self, x, y, name, hp, attack, hitbase, damage, indoorsight, outdoorsight, movement_description, behavior, char='M'):
+    def __init__(self, x, y, name, hp, attack, hitbase, damage, indoorsight, outdoorsight, movement_description, behavior, char='M', attackrate=1):
         """
         Monster attributes:
         - x, y: Position
@@ -27,10 +29,13 @@ class Monster:
         self.hitbase = hitbase
         self.damage = damage
         self.indoorsight = indoorsight
-        self.outoorsight = outdoorsight
+        self.outdoorsight = outdoorsight
         self.movement_description = movement_description
         self.behavior = behavior
         self.char = char  # Default 'M' for monsters
+        monchars.append(self.char)
+        self.attackrate = attackrate
+        self.last_attack_time = int(time.time())  # Track last attack time
 
     def take_damage(self, damage):
         """Reduce monster's HP and check if defeated."""
@@ -40,25 +45,8 @@ class Monster:
             return True  # Monster is defeated
         return False
 
-'''
-def find_safe_position(grid, room_list, occupied_positions):
-    """Finds a valid empty tile to spawn a monster."""
-    while True:
-        room = random.choice(room_list)  # Pick a random room
-        x = room[0] + random.randint(1, room[2] - 2)
-        y = room[1] + random.randint(1, room[3] - 2)
 
-        """Find a safe position in the grid."""
-        for y in range(len(grid)):
-            for x in range(len(grid[y])):
-                if grid[y][x] == ' ' and (x, y) not in occupied_positions:
-                    return (x, y)
-
-        print("WARNING: No safe position found!")
-        return None
-'''
-
-def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False):
+def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False, levelmap=None):
     """Load monster data from a JSON file."""
     with open(file_path, "r") as f:
         data = json.load(f)
@@ -70,59 +58,63 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
             if name in monster["name"] or name == "all":
                 spawn_count = random.randint(monster["spawn_min"], monster["spawn_max"])
                 # Create a Monster object (adjust attributes based on your class structure)
-                for _ in range(spawn_count):
-                    x, y, occupied_positions = find_random_position(grid)
-                    if "melee_attack" in monster:
-                        new_monster = Monster(
-                            x=x,
-                            y=y,
-                            name=monster["name"],
-                            hp=monster["hp"],
-                            attack=monster["melee_attack"],
-                            hitbase=monster["m_hitbase"],
-                            damage=monster["damage"],
-                            indoorsight=monster["indoorsight"],
-                            outdoorsight=monster["outdoorsight"],
-                            movement_description=monster["movement_description"],
-                            behavior=monster["behavior"],
-                            char=monster["icon"]
-                        )
-                    elif "ranged_attack" in monster:
-                        new_monster = Monster(
-                            x=x,
-                            y=y,
-                            name=monster["name"],
-                            hp=monster["hp"],
-                            attack=monster["ranged_attack"],
-                            hitbase=monster["r_hitbase"],
-                            damage=monster["damage"],
-                            indoorsight=monster["indoorsight"],
-                            outdoorsight=monster["outdoorsight"],
-                            movement_description=monster["movement_description"],
-                            behavior=monster["behavior"],
-                            char=monster["icon"]
-                        )
-                    elif "magic_attack" in monster:
-                        new_monster = Monster(
-                            x=x,
-                            y=y,
-                            name=monster["name"],
-                            hp=monster["hp"],
-                            attack=monster["magic_attack"],
-                            damage=monster["damage"],
-                            indoorsight=monster["indoorsight"],
-                            outdoorsight=monster["outdoorsight"],
-                            movement_description=monster["movement_description"],
-                            behavior=monster["behavior"],
-                            char=monster["icon"]
-                        )
-                    monster_list.append(new_monster)
+                if spawn_count:
+                    for _ in range(spawn_count):
+                        x, y, occupied_positions = find_random_position(grid, levelmap)
+                        if "melee_attack" in monster:
+                            new_monster = Monster(
+                                x=x,
+                                y=y,
+                                name=monster["name"],
+                                hp=monster["hp"],
+                                attack=monster["melee_attack"],
+                                hitbase=monster["m_hitbase"],
+                                damage=monster["damage"],
+                                indoorsight=monster["indoorsight"],
+                                outdoorsight=monster["outdoorsight"],
+                                movement_description=monster["movement_description"],
+                                behavior=monster["behavior"],
+                                char=monster["icon"],
+                                attackrate=monster["attackrate"]
+                            )
+                        elif "ranged_attack" in monster:
+                            new_monster = Monster(
+                                x=x,
+                                y=y,
+                                name=monster["name"],
+                                hp=monster["hp"],
+                                attack=monster["ranged_attack"],
+                                hitbase=monster["r_hitbase"],
+                                damage=monster["damage"],
+                                indoorsight=monster["indoorsight"],
+                                outdoorsight=monster["outdoorsight"],
+                                movement_description=monster["movement_description"],
+                                behavior=monster["behavior"],
+                                char=monster["icon"],
+                                attackrate = monster["attackrate"]
+                            )
+                        elif "magic_attack" in monster:
+                            new_monster = Monster(
+                                x=x,
+                                y=y,
+                                name=monster["name"],
+                                hp=monster["hp"],
+                                attack=monster["magic_attack"],
+                                damage=monster["damage"],
+                                indoorsight=monster["indoorsight"],
+                                outdoorsight=monster["outdoorsight"],
+                                movement_description=monster["movement_description"],
+                                behavior=monster["behavior"],
+                                char=monster["icon"],
+                                attackrate = monster["attackrate"]
+                            )
+                        monster_list.append(new_monster)
 
     print(monster_list, "ML")
     return monster_list
 
 
-def find_random_position(grid):
+def find_random_position(grid, levelmap):
     global occupied_positions
     """Find a random, unoccupied position in the grid."""
     max_x = len(grid[0])  # Width of grid
@@ -131,7 +123,7 @@ def find_random_position(grid):
     while True:
         x = random.randint(0, max_x - 1)
         y = random.randint(0, max_y - 1)
-        if grid[y][x] == ' ' and (x, y) not in occupied_positions:
+        if grid[y][x] == levelmap.tiles["floor"] and (x, y) not in occupied_positions:
             occupied_positions.add((x, y))
             return x, y, occupied_positions
 
@@ -150,7 +142,7 @@ def place_monsters(grid, room_list, monster_data):
 
     return placed_monsters
 
-def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen):
+def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen, levelmap):
     global occupied_positions
     """Moves monsters toward the player using Dijkstra map logic."""
     directions = [
@@ -169,7 +161,7 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
                 monster_attack_range = monster.outdoorsight
             print("monster", monster.name, monster.indoorsight, monster_attack_range, player_x, player_y)
 
-            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and dijkstra_map[monster.y][
+            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y, monchars) and dijkstra_map[monster.y][
                 monster.x] <= monster_attack_range:
                 print("movecheck", monster.name)
                 # Move toward the player, but stop adjacent
@@ -179,7 +171,7 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
 
                 for dx, dy in directions:
                     nx, ny = monster.x + dx, monster.y + dy
-                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == ' ' and dijkstra_map[ny][
+                    if 0 <= ny < len(grid) and 0 <= nx < len(grid[0]) and grid[ny][nx] == levelmap.tiles["floor"] and dijkstra_map[ny][
                         nx] < best_cost:
                         best_x, best_y = nx, ny
                         best_cost = dijkstra_map[ny][nx]

@@ -53,7 +53,7 @@ class Player:
         self.ranged_attack = int(round(self.strength / 6)) + self.ranged_weapon["damage"]
         self.range = int(round(self.strength / 4)) + int(round(self.dexterity / 4))
         self.health = (self.constitution * 4) + (self.level * 6)
-        self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level-1) * 5)
+        self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level-1) * 5)+200
         self.r_hitbase = (32 + int(round(self.dexterity / 4))) + ((self.level-1) * 5)
         self.defense = self.armor["protection"] - int(round(self.dexterity / 3))
 
