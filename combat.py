@@ -29,6 +29,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
                     chance = -50
 
                 roll = random.randrange(1, 101)
+                combat_log.append(f"DEBUG: Player Ranged Attack Roll: {roll}, Hit Base: {player.r_hitbase}, Chance Modifier: {chance}")
                 if roll in range(1, player.r_hitbase + chance):
                     combat_log.append(f"You fire at {monster.name}! (-{player.melee_attack} HP)")
                     if monster.take_damage(player.melee_attack):
@@ -42,6 +43,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
             elif ("melee_attack" in player.abilities or
                   "magic_attack" in player.abilities) and distance <= 1:
                 roll = random.randrange(1, 101)
+                combat_log.append(f"DEBUG: Player Melee Attack Roll: {roll}, Hit Base: {player.m_hitbase}")
                 if roll in range(1, player.m_hitbase):
                     combat_log.append(f"You strike first at {monster.name}! (-{player.melee_attack} HP)")
                     if monster.take_damage(player.melee_attack):
@@ -53,7 +55,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
 
 
 def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player, combat_log, levelmap):
-    """Allows the player to proactively attack monsters before they attack."""
+    """Allows monsters to attack the player."""
     directions = [
         (0, -1), (0, 1), (-1, 0), (1, 0),  # Orthogonal: Up, Down, Left, Right
         (-1, -1), (-1, 1), (1, -1), (1, 1)  # Diagonal: NW, NE, SW, SE
@@ -80,6 +82,7 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
                     dijkstra_map[monster.y][monster.x] <= monster_attack_range:
                 roll = random.randrange(1, 101)
                 hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense
+                combat_log.append(f"DEBUG: Monster Attack Roll: {roll}, Hit Base: {monster.hitbase}, Player Defense: {player.defense}, Final Hit Chance: {hit_chance}")
                 if roll in range(1, hit_chance):
                     damage = monster.damage
                     combat_log.append(f"{monster.name} attacks you! (-{damage} HP)")

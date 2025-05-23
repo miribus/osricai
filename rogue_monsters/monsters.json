@@ -14,7 +14,7 @@
             "spawn_min": 3,
             "spawn_max": 3,
             "icon": "G",
-            "attackrate": 1
+            "attackrate": 3
         },
         {
             "name": "Skeleton Archer",
@@ -30,7 +30,7 @@
             "spawn_min": 0,
             "spawn_max": 0,
             "icon": "S",
-            "attackrate": 2
+            "attackrate": 5
         }
     ]
 }
