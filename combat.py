@@ -19,7 +19,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
             player_attack_range = max(player.outdoorsight, player.range)
             monster_attack_range = monster.outdoorsight
 
-        if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y):
+        if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y, levelmap, [monster.char for monster in monsters]):
             distance = max(abs(monster.x - player_x), abs(monster.y - player_y))
 
             # Player ranged attack
@@ -63,20 +63,20 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
     dijkstra_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y, levelmap)
 
     for monster in monsters:  # Loop through monsters safely
-        if gen.style == "indoor":
+        if levelmap.style == "indoor":
             player_attack_range = max(player.indoorsight, player.range)
             monster_attack_range = monster.indoorsight
         else:  # Outdoor
             player_attack_range = max(player.outdoorsight, player.range)
             monster_attack_range = monster.outdoorsight
 
-        if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y):
+        if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y, levelmap, [monster.char for monster in monsters]):
             distance = max(abs(monster.x - player_x), abs(monster.y - player_y))
 
             # Monster attack
             if monster.behavior == "melee":
                 monster_attack_range = 1
-            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y) and \
+            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y, levelmap, [monster.char for monster in monsters]) and \
                     dijkstra_map[monster.y][monster.x] <= monster_attack_range:
                 roll = random.randrange(1, 101)
                 hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense

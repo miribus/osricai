@@ -99,7 +99,7 @@ def main(stdscr):
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y, levelmap=levelmap)
 
         # **Combat processing**
-        combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap=levelmap)
+        combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
 
         current_time = time.time()
         for monster in monster_list:

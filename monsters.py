@@ -142,7 +142,7 @@ def place_monsters(grid, room_list, monster_data):
 
     return placed_monsters
 
-def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, gen, levelmap):
+def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_log, levelmap):
     global occupied_positions
     """Moves monsters toward the player using Dijkstra map logic."""
     directions = [
@@ -155,13 +155,13 @@ def move_toward_player(monsters, dijkstra_map, grid, player_x, player_y, combat_
         placed = False
         retry = 5
         while not placed and retry > 0:
-            if gen.style == "indoor":
+            if levelmap.style == "indoor":
                 monster_attack_range = monster.indoorsight
             else: # elif gen.style == "outdoor":
                 monster_attack_range = monster.outdoorsight
             print("monster", monster.name, monster.indoorsight, monster_attack_range, player_x, player_y)
 
-            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y, monchars) and dijkstra_map[monster.y][
+            if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y, levelmap, [monster.char for monster in monsters]) and dijkstra_map[monster.y][
                 monster.x] <= monster_attack_range:
                 print("movecheck", monster.name)
                 # Move toward the player, but stop adjacent
