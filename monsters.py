@@ -35,7 +35,7 @@ class Monster:
         self.char = char  # Default 'M' for monsters
         monchars.append(self.char)
         self.attackrate = attackrate
-        self.last_attack_time = int(time.time())  # Track last attack time
+        self.last_attack_time = time.time()  # Initialize with the current time
 
     def take_damage(self, damage):
         """Reduce monster's HP and check if defeated."""
@@ -44,6 +44,17 @@ class Monster:
         if self.hp <= 0:
             return True  # Monster is defeated
         return False
+
+    def can_attack(self):
+        """Check if enough time has passed since the last attack."""
+        return time.time() - self.last_attack_time >= self.attackrate
+
+    def perform_attack(self, player):
+        """Perform all attacks (melee or ranged) if cooldown has expired."""
+        if self.can_attack():
+            for _ in range(self.attack):  # Roll all attacks in one cycle
+                player.take_damage(self.damage)
+            self.last_attack_time = time.time()  # Reset attack timer
 
 
 def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False, levelmap=None):

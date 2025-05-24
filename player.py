@@ -1,6 +1,7 @@
 import curses
 import random
 import pathfinding
+import time
 
 class Player:
     def __init__(self, name, classtype=0, level=1):  # Default classtype to 0
@@ -39,6 +40,8 @@ class Player:
         # "magical" - generally a modifier for above items as well as a highly contextual subset of abilities and NPC modifications to be determined later.
         self.create_character()
 
+        self.attackrate = 1.0  # Player attack cooldown in seconds
+        self.last_attack_time = time.time()  # Initialize with the current time
 
     def level_up(self):
         self.health += int(round(self.constitution / 6)) + random.randrange(3, 8)
@@ -94,6 +97,16 @@ class Player:
             return True
         return False
 
+    def can_attack(self):
+        """Check if the player can attack again."""
+        return time.time() - self.last_attack_time >= self.attackrate
+
+    def attack(self, monster):
+        """Perform an attack if cooldown has expired."""
+        if self.can_attack():
+            roll = random.randrange(1, 101)
+            if roll <= self.m_hitbase:  # Example melee attack logic
+                monster.take_damage(self.melee_attack)
+            self.last_attack_time = time.time()  # Reset attack timer
+
 # curses.wrapper(display_player, player1)
-
-

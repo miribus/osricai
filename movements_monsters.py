@@ -101,21 +101,10 @@ def main(stdscr):
         # **Combat processing**
         combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
 
-        current_time = time.time()
         for monster in monster_list:
-            if current_time - monster.last_attack_time >= monster.attackrate:
-                monster_turn = True
-                while monster_turn:
-                    try:
-                        monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, levelmap)
-                        combat.check_and_resolve_monster_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
-                        monster.last_attack_time = current_time  # Reset timer
-                        monster_turn = False
-                    except UnboundLocalError as e:
-                        error_handling.pc_failure()
-                        # monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, gen)
-
-
+            if monster.can_attack():
+                monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, levelmap)
+                combat.check_and_resolve_monster_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
 
         # **Draw dungeon viewport in its designated window**
         if levelmap.style == "indoor":

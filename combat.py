@@ -42,16 +42,24 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
             # Player melee attack
             elif ("melee_attack" in player.abilities or
                   "magic_attack" in player.abilities) and distance <= 1:
-                roll = random.randrange(1, 101)
-                combat_log.append(f"DEBUG: Player Melee Attack Roll: {roll}, Hit Base: {player.m_hitbase}")
-                if roll in range(1, player.m_hitbase):
-                    combat_log.append(f"You strike first at {monster.name}! (-{player.melee_attack} HP)")
-                    if monster.take_damage(player.melee_attack):
+                if player.can_attack() and distance <= 1:  # Melee attack
+                    player.attack(monster)
+                    combat_log.append(f"You attack {monster.name}! (-{player.melee_attack} HP)")
+                    if monster.hp <= 0:
                         combat_log.append(f"{monster.name} is slain!")
                         monsters.remove(monster)
                         continue  # Skip to the next monster
                 else:
-                    combat_log.append(f"You swing at {monster.name}! You MISS!)")
+                    roll = random.randrange(1, 101)
+                    combat_log.append(f"DEBUG: Player Melee Attack Roll: {roll}, Hit Base: {player.m_hitbase}")
+                    if roll in range(1, player.m_hitbase):
+                        combat_log.append(f"You strike first at {monster.name}! (-{player.melee_attack} HP)")
+                        if monster.take_damage(player.melee_attack):
+                            combat_log.append(f"{monster.name} is slain!")
+                            monsters.remove(monster)
+                            continue  # Skip to the next monster
+                    else:
+                        combat_log.append(f"You swing at {monster.name}! You MISS!)")
 
 
 def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player, combat_log, levelmap):
@@ -80,12 +88,16 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
                 monster_attack_range = 1
             if pathfinding.has_line_of_sight(grid, monster.x, monster.y, player_x, player_y, levelmap, [monster.char for monster in monsters]) and \
                     dijkstra_map[monster.y][monster.x] <= monster_attack_range:
-                roll = random.randrange(1, 101)
-                hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense
-                combat_log.append(f"DEBUG: Monster Attack Roll: {roll}, Hit Base: {monster.hitbase}, Player Defense: {player.defense}, Final Hit Chance: {hit_chance}")
-                if roll in range(1, hit_chance):
-                    damage = monster.damage
-                    combat_log.append(f"{monster.name} attacks you! (-{damage} HP)")
-                    player.take_damage(damage)
+                if monster.can_attack() and distance <= monster_attack_range:
+                    monster.perform_attack(player)
+                    combat_log.append(f"{monster.name} attacks you! (-{monster.damage} HP)")
                 else:
-                    combat_log.append(f"{monster.name} attacks you but MISSES!")
+                    roll = random.randrange(1, 101)
+                    hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense
+                    combat_log.append(f"DEBUG: Monster Attack Roll: {roll}, Hit Base: {monster.hitbase}, Player Defense: {player.defense}, Final Hit Chance: {hit_chance}")
+                    if roll in range(1, hit_chance):
+                        damage = monster.damage
+                        combat_log.append(f"{monster.name} attacks you! (-{damage} HP)")
+                        player.take_damage(damage)
+                    else:
+                        combat_log.append(f"{monster.name} attacks you but MISSES!")

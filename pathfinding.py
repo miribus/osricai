@@ -90,3 +90,6 @@ def has_line_of_sight(grid, x1, y1, x2, y2, levelmap, monchars):
         if e2 < dx:
             err += dx
             y1 += sy
+
+    # Ensure LoS checks are used before attacks in combat logic
+    return True  # No changes needed for compatibility
