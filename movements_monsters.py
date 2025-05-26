@@ -32,9 +32,9 @@ def handle_input(stdscr):
 def main(stdscr):
     stdscr.nodelay(True)
     last_player_update = time.time()
-    # last_monster_update = time.time()
+    last_combat_update = time.time()
     player_interval = 0.5  # Adjust this to slow down player movement
-    # monster_interval = 0.5  # Adjust monster movement speed
+    combat_interval = 2  # Fixed combat timing
     levelmap = mapgen.Generator(width=32, height=32, style="indoor")
     levelmap.gen_level()
     levelmap.gen_tiles_level()
@@ -48,7 +48,7 @@ def main(stdscr):
     print(dungeon_height, "dheight")
     dungeon_width = width - 65  # Leave space for stats sidebar
     print(dungeon_width, "dwidth")
-    stats_width = 20
+    stats_width = 45
     print(stats_width, "statsw")
     log_height = 12
     print(log_height, "logw")
@@ -98,13 +98,16 @@ def main(stdscr):
 
         dij_map = pathfinding.generate_dijkstra_map(grid, player_x, player_y, levelmap=levelmap)
 
-        # **Combat processing**
-        combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
+        # Ensure combat logic runs at a consistent rate
+        current_time = time.time()
+        if current_time - last_combat_update >= combat_interval:
+            combat.check_and_resolve_player_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
+            combat.check_and_resolve_monster_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
+            last_combat_update = current_time
 
         for monster in monster_list:
             if monster.can_attack():
                 monsters.move_toward_player(monster_list, dij_map, grid, player_x, player_y, combat_log, levelmap)
-                combat.check_and_resolve_monster_combat(monster_list, grid, player_x, player_y, playerone, combat_log, levelmap)
 
         # **Draw dungeon viewport in its designated window**
         if levelmap.style == "indoor":

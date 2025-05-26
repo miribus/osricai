@@ -48,7 +48,7 @@ def display_combat_log(combat_win, log_messages):
     combat_win.box()  # Draws a border around the combat log window
 
     # Adjust scrolling to always keep last entries visible
-    max_lines = 4  # Only display 4 visible lines inside the box
+    max_lines = 8  # Only display 4 visible lines inside the box
     start_line = max(0, len(log_messages) - max_lines)  # Prevent negative indexing
 
     for i, msg in enumerate(log_messages[start_line:start_line + max_lines]):

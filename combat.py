@@ -1,5 +1,6 @@
 import random
 import pathfinding
+import time
 
 def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, combat_log, levelmap):
     """Allows the player to proactively attack monsters before they attack."""
@@ -28,16 +29,18 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
                 if player_attack_range > player.indoorsight or player_attack_range > player.outdoorsight:
                     chance = -50
 
-                roll = random.randrange(1, 101)
-                combat_log.append(f"DEBUG: Player Ranged Attack Roll: {roll}, Hit Base: {player.r_hitbase}, Chance Modifier: {chance}")
-                if roll in range(1, player.r_hitbase + chance):
-                    combat_log.append(f"You fire at {monster.name}! (-{player.melee_attack} HP)")
-                    if monster.take_damage(player.melee_attack):
-                        combat_log.append(f"{monster.name} is slain!")
-                        monsters.remove(monster)
-                        continue  # Skip to the next monster
-                else:
-                    combat_log.append(f"You fire at {monster.name}! You MISS!)")
+                if player.can_attack() and distance <= player_attack_range:
+                    roll = random.randrange(1, 101)
+                    combat_log.append(f"DEBUG: Player Ranged Attack Roll: {roll}, Hit Base: {player.r_hitbase}, Chance Modifier: {chance}")
+                    if roll in range(1, player.r_hitbase + chance):
+                        combat_log.append(f"You fire at {monster.name}! (-{player.melee_attack} HP)")
+                        if monster.take_damage(player.melee_attack):
+                            combat_log.append(f"{monster.name} is slain!")
+                            monsters.remove(monster)
+                            continue  # Skip to the next monster
+                    else:
+                        combat_log.append(f"You fire at {monster.name}! You MISS!)")
+                    player.last_attack_time = time.time()  # Reset player attack cooldown
 
             # Player melee attack
             elif ("melee_attack" in player.abilities or
@@ -49,6 +52,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
                         combat_log.append(f"{monster.name} is slain!")
                         monsters.remove(monster)
                         continue  # Skip to the next monster
+                    player.last_attack_time = time.time()  # Reset player attack cooldown
                 else:
                     roll = random.randrange(1, 101)
                     combat_log.append(f"DEBUG: Player Melee Attack Roll: {roll}, Hit Base: {player.m_hitbase}")
@@ -91,6 +95,7 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
                 if monster.can_attack() and distance <= monster_attack_range:
                     monster.perform_attack(player)
                     combat_log.append(f"{monster.name} attacks you! (-{monster.damage} HP)")
+                    monster.last_attack_time = time.time()  # Reset monster attack cooldown
                 else:
                     roll = random.randrange(1, 101)
                     hit_chance = (monster.hitbase if monster.behavior == "melee" else monster.hitbase) - player.defense
@@ -101,4 +106,3 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
                         player.take_damage(damage)
                     else:
                         combat_log.append(f"{monster.name} attacks you but MISSES!")
-
