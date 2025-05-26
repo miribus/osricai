@@ -101,3 +101,4 @@ def check_and_resolve_monster_combat(monsters, grid, player_x, player_y, player,
                         player.take_damage(damage)
                     else:
                         combat_log.append(f"{monster.name} attacks you but MISSES!")
+
