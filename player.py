@@ -55,8 +55,8 @@ class Player:
         self.melee_attack = int(round(self.strength / 3)) + int(round(self.level / 2)) + self.melee_weapon["damage"]
         self.ranged_attack = int(round(self.strength / 6)) + self.ranged_weapon["damage"]
         self.range = int(round(self.strength / 4)) + int(round(self.dexterity / 4))
-        self.health = (self.constitution * 4) + (self.level * 6)*99999999
-        self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level) * 5)+200
+        self.health = (self.constitution * 4) + (self.level * 6)
+        self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level) * 5)
         self.r_hitbase = (32 + int(round(self.dexterity / 4))) + ((self.level) * 5)
         self.defense = self.armor["protection"] - int(round(self.dexterity / 3))
 
@@ -101,12 +101,28 @@ class Player:
         """Check if the player can attack again."""
         return time.time() - self.last_attack_time >= self.attackrate
 
-    def attack(self, monster):
+    def attack(self, monsters, monster, attack_type="melee", roll=None, combat_log=None):
         """Perform an attack if cooldown has expired."""
         if self.can_attack():
-            roll = random.randrange(1, 101)
-            if roll <= self.m_hitbase:  # Example melee attack logic
-                monster.take_damage(self.melee_attack)
+            if attack_type == "ranged":
+                if roll <= self.r_hitbase:
+                    combat_log.append(f"You fire at {monster.name}! (-{self.melee_attack} HP)")
+                    if monster.take_damage(self.ranged_attack):
+                        if monster.hp <= 0:
+                            combat_log.append(f"{monster.name} is slain!")
+                            monsters.remove(monster)
+                else:
+                    combat_log.append(f"You fire at {monster.name}! You MISS!)")
+            elif attack_type == "melee":
+                if roll <= self.m_hitbase:  # Example melee attack logic
+                    combat_log.append(f"You strike {monster.name}! (-{self.melee_attack} HP)")
+                    if monster.take_damage(self.melee_attack):
+                        if monster.hp <= 0:
+                            combat_log.append(f"{monster.name} is slain!")
+                            monsters.remove(monster)
+                else:
+                    combat_log.append(f"You swing at {monster.name}! You MISS!)")
+
             self.last_attack_time = time.time()  # Reset attack timer
 
 # curses.wrapper(display_player, player1)
