@@ -40,7 +40,9 @@ class Player:
         # "magical" - generally a modifier for above items as well as a highly contextual subset of abilities and NPC modifications to be determined later.
         self.create_character()
 
-        self.attackrate = 1.0  # Player attack cooldown in seconds
+        self.ranged_attackrate = 1.0  # Player attack cooldown in seconds
+        self.melee_attackrate = 1.0  # Player attack cooldown in seconds
+        self.magic_attackrate = 1.0  # Player magic attack cooldown in seconds
         self.last_attack_time = time.time()  # Initialize with the current time
 
     def level_up(self):
@@ -58,11 +60,24 @@ class Player:
         self.health = (self.constitution * 4) + (self.level * 6)
         self.m_hitbase = (32 + int(round(self.strength / 2))) + ((self.level) * 5)
         self.r_hitbase = (32 + int(round(self.dexterity / 4))) + ((self.level) * 5)
-        self.defense = self.armor["protection"] - int(round(self.dexterity / 3))
+        self.defense = self.armor_worn["protection"] - int(round(self.dexterity / 3)) * self.armor_worn["dexterity"]
+        if self.shield_worn:
+            self.ranged_weapon = None
+            self.abilities.append("bash")
+            self.defense -= self.shield_worn["protection"]
+        else:
+            if "abilities" in self.ranged_weapon:
+                if "ranged_attack" in self.ranged_weapon["abilities"]:
+                    self.abilities.append("ranged_attack")
+
+        if "abilities" in self.melee_weapon:
+            if "melee_attack" in self.melee_weapon["abilities"]:
+                self.abilities.append("melee_attack")
+
 
 
     def create_character(self):
-        self.type = "Adventurer"  # Keep the type as "Adventurer"
+        self.type = "Squire"  # Keep the type as "Adventurer"
         self.abilities = ["bandage", "retreat"]  # Initialize abilities as a list
 
         # level: ["abilities"]
@@ -70,19 +85,43 @@ class Player:
         # abilities in most cases will be triggered automatically and always successful
         self.strength += 2
         self.constitution += 2
-        self.outdoorsight = 8
-        self.indoorsight = 4
+        self.outdoorsight = 10
+        self.indoorsight = 6
 
-        self.armor = {"name": "Chainmail", "protection": -30, "type": "metal", "dexterity": 0}
-        self.melee_weapon = {"name": "LongSword", "damage": 3, "type": "metal", "abilities": "melee_attack"}
-        if "abilities" in self.melee_weapon:
-            if "melee_attack" in self.melee_weapon["abilities"]:
-                self.abilities.append("melee_attack")
-        self.ranged_weapon = {"name": "Crossbow", "damage": 3, "type": "slow", "strength": 0,
-                              "range": self.indoorsight+round(self.dexterity/6), "abilities": "ranged_attack"}
-        if "abilities" in self.ranged_weapon:
-            if "ranged_attack" in self.ranged_weapon["abilities"]:
-                self.abilities.append("ranged_attack")
+        self.armor_worn = {
+            "name": "Chainmail",
+            "protection": -30,
+            "type": "metal",
+            "dexterity": 0,
+            "magic": None
+        }
+        self.shield_worn = None
+        self.melee_weapon = {
+            "name": "LongSword",
+            "damage": 3 + round(self.strength/6),
+            "attackrate": 3,
+            "attackper": 1,
+            "type": "metal",
+            "abilities": "melee_attack",
+            "strength": 0,
+            "magic": None,
+            "target": "single"
+        }
+
+        self.ranged_weapon = {
+            "name": "Crossbow",
+            "damage": 3 + round(self.strength/6) - 1,
+            "type": "wood",
+            "strength": 0,
+            "dexterity": 0,
+            "range": round(self.strength/6)+round(self.dexterity/6),
+            "attackrate": 5,
+            "attackper": 1,
+            "abilities": "ranged_attack",
+            "magic": None,
+            "target": "single"
+        }
+
 
         self.recalculate_stats()
 

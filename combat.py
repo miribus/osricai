@@ -23,6 +23,16 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
         if pathfinding.has_line_of_sight(grid, player_x, player_y, monster.x, monster.y, levelmap, [monster.char for monster in monsters]):
             distance = max(abs(monster.x - player_x), abs(monster.y - player_y))
 
+            # We should pause when the player has LoS to a monster
+            # We'll need to add a list of monsters that the player can see
+            # We'll need to enumerate visible monsters and their distances
+            # We'll need to allow the player to choose which monster to attack
+            # if the player has no ranged attack, melee attack is the only option
+            # pausing until the player makes their choice, resuming combat after the choice is made
+            # allowing further input when the player can attack again based on the attackrate of their last attack
+            # for example if the player has a ranged attack, they can choose to attack a monster again after that weapon's attackrate has passed
+            # The code below right now does not honor this at all, there is no pause, it all needs to be adjusted.
+
             # Player ranged attack
             if ("ranged_attack" in player.abilities or
                 "magic_attack" in player.abilities) and player_attack_range >= distance >= 2:
@@ -31,7 +41,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
                         roll = random.randrange(1, 101)
                         combat_log.append(
                             f"DEBUG: Player Ranged Attack Roll: {roll}, Hit Base: {player.r_hitbase}, Chance Modifier: {player.chance}")
-                        player.attack(monsters, monster, "ranged", roll, combat_log)
+                        player.attackper(monsters, monster, "ranged", roll, combat_log)
                     player.last_attack_time = time.time()  # Reset player attack cooldown
             # Player melee attack
             elif ("melee_attack" in player.abilities or
@@ -40,7 +50,7 @@ def check_and_resolve_player_combat(monsters, grid, player_x, player_y, player, 
                     if "melee_attack" in player.abilities:
                         roll = random.randrange(1, 101)
                         combat_log.append(f"DEBUG: Player Melee Attack Roll: {roll}, Hit Base: {player.m_hitbase}, Chance Modifier: {player.chance}")
-                        player.attack(monsters, monster, "melee", roll, combat_log)
+                        player.attackper(monsters, monster, "melee", roll, combat_log)
                         player.last_attack_time = time.time()  # Reset player attack cooldown
 
 

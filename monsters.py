@@ -10,7 +10,7 @@ occupied_positions = set()  # Track used positions
 monchars = []
 
 class Monster:
-    def __init__(self, x, y, name, hp, attack, hitbase, damage, indoorsight, outdoorsight, movement_description, behavior, char='M', attackrate=1):
+    def __init__(self, x, y, name, hp, attackper, hitbase, damage, indoorsight, outdoorsight, movement_description, behavior, char='M', attackrate=1):
         """
         Monster attributes:
         - x, y: Position
@@ -25,7 +25,7 @@ class Monster:
         self.y = y
         self.name = name
         self.hp = hp
-        self.attack = attack
+        self.attackper = attackper
         self.hitbase = hitbase
         self.damage = damage
         self.indoorsight = indoorsight
@@ -52,9 +52,10 @@ class Monster:
     def perform_attack(self, player):
         """Perform all attacks (melee or ranged) if cooldown has expired."""
         if self.can_attack():
-            for _ in range(self.attack):  # Roll all attacks in one cycle
+            roll = random.randrange(1, 101)
+            if roll <= self.hitbase:
                 player.take_damage(self.damage)
-            self.last_attack_time = time.time()  # Reset attack timer
+        self.last_attack_time = time.time()  # Reset attack timer
 
 
 def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_monsters","monsters.json"), name="all", monster_list=False, levelmap=None):
@@ -78,7 +79,7 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
                                 y=y,
                                 name=monster["name"],
                                 hp=monster["hp"],
-                                attack=monster["melee_attack"],
+                                attackper=monster["melee_attackper"],
                                 hitbase=monster["m_hitbase"],
                                 damage=monster["damage"],
                                 indoorsight=monster["indoorsight"],
@@ -94,7 +95,7 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
                                 y=y,
                                 name=monster["name"],
                                 hp=monster["hp"],
-                                attack=monster["ranged_attack"],
+                                attackper=monster["ranged_attackper"],
                                 hitbase=monster["r_hitbase"],
                                 damage=monster["damage"],
                                 indoorsight=monster["indoorsight"],
@@ -111,6 +112,7 @@ def load_monsters_from_json(grid, file_path=os.path.join(os.getcwd(), "rogue_mon
                                 name=monster["name"],
                                 hp=monster["hp"],
                                 attack=monster["magic_attack"],
+                                hitbase=monster["r_hitbase"],
                                 damage=monster["damage"],
                                 indoorsight=monster["indoorsight"],
                                 outdoorsight=monster["outdoorsight"],
